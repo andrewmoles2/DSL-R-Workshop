@@ -1,0 +1,232 @@
+---
+title: "Project 4 - Football data analysis"
+author:
+   - name: Andrew Moles
+     affiliation: Learning Developer, Digital Skills Lab
+date: today
+---
+
+## Learning objectives:
+- Load in data
+- Modify your data using calculations on and across columns
+- Get summary statistics from data
+- Filter rows and selecting columns of a dataset
+
+## Outcomes
+
+We will write a program that provides us with various metrics on Harry Kane (a football player). Your code will automate the process of loading the data, performing operations on that data, and making it into a presentable format. 
+
+We will be aiming for two outcomes in this project. 
+
+### Outcome 1 - total career summary statistics
+
+You should end up with a output that has six lines:
+
+1) The name of the player. Harry Kane in this case
+2) The number of seasons played
+3) The total number of appearances
+4) The total number of goals scored
+5) The total number of goals and assists combined
+6) The average expected goals
+
+***
+
+```{r solution_1}
+#| echo: false
+
+kane <- read.csv("resources/harry_kane_stats.csv")
+
+kane <- kane |>
+  transform(
+    # goals plus assists
+    goals_assists = goals + assists,
+    # goals minus penalties
+    goals_no_pens = goals - pens,
+    # pen conversion ratio
+    #pen_conversion = pens/pens_attempted,
+    # xG vs goal diff
+    # greater means the player is a better finisher, less means not so good.
+    goals_xg_diff = goals - expected_goals
+  )
+
+# summary
+#summary(kane)
+
+# total goals
+total_goals <- sum(kane$goals)
+# total goals + assists
+total_goals_assists <- sum(kane[["goals_assists"]])
+# average expected goals
+avg_exp_goals <- round(mean(kane$expected_goals, na.rm = TRUE),1)
+# average goals xg diff
+avg_goal_xg_diff <- mean(kane$goals_xg_diff, na.rm = TRUE)
+# total appearances
+apps <- sum(kane$matches_played)
+# n seasons
+n_seasons <- length(unique(kane$age))
+# which year was the best year for goals + assists?
+#kane[ which.max(kane$goals_assists), c("season", "age", "squad", "goals_assists", "goals_xg_diff")]
+
+# overall stats
+cat(
+  "Player: Harry Kane\n",
+  "Seasons: ", n_seasons,
+  "\nAppearances: ", apps,
+  "\nGoals: ", total_goals,
+  "\nGoals and assists: ", total_goals_assists,
+  "\nAverage expected goals: ", avg_exp_goals,
+  sep = ""
+)
+```
+
+***
+
+### Outcome 2 - filtered dataset showing highest scoring years
+
+You should end up with a output that shows a filtered dataset with some selected columns. 
+
+You will need to create the columns `goals_assists`, `goals_xg_diff`, `goals_no_pens` to get this output. 
+
+***
+
+```{r solution_2}
+#| echo: false
+
+# over 30 goals and assists
+selected_cols <- c("season", "age", "squad",
+                   "goals", "goals_assists", 
+                   "goals_xg_diff", "goals_no_pens")
+# classic indexing
+#kane[kane$goals_assists > 30, selected_cols]
+
+# using subset (similar to filter method in dplyr)
+kane_best <- subset(kane,
+       goals_assists > 30,
+       select = selected_cols)
+kane_best
+# dplyr method
+#kane |> dplyr::select(all_of(selected_cols)) |> dplyr::filter(goals_assists > 30)
+```
+
+***
+
+### The data
+
+We will be using the csv file provided (`harry_kane_stats.csv`). 
+
+{{< downloadthis resources/harry_kane_stats.csv label='Download csv file' dname=project_4_data icon=folder-fill type=success >}}
+
+The dataset provides general football metrics on each season Harry Kane has played, from 2010-2025. 
+
+If you are not sure what the expected goals and assists columns mean, you can find the definitions on [the statsperform webpage](https://www.statsperform.com/opta-event-definitions/), under the header *'Expected Goals & Expected Assists'*. 
+
+## Steps to help you get to the outcome
+
+### Part 1 - the setup
+Open an R script file and save it. Make sure to save the dataset in the same folder as your R script file. 
+
+### Part 2 - load in the dataset
+Import the csv file into R. 
+
+View the dataset you just loaded into R. 
+
+### Part 3 - column calculations
+Our dataset is missing useful information about our players season statistics. Fortunately we can calculate these! 
+
+Calculate the following metrics and add them as columns to your dataset.
+
+- Combined goals and assists per season  
+- Goals excluding penalties 
+- Difference between goals scored and expected goals
+
+### Part 4 - calculating the total career statistics
+To build our career summary we will need to create variables with the metrics we need by performing calculations on columns in the dataset. 
+
+- The name of the player. Harry Kane in this case 
+- The number of seasons played   
+- The total number of appearances 
+- The total number of goals scored 
+- The total number of combined goals and assists 
+- The average expected goals 
+
+The metrics you produce should match what we see in outcome 1. 
+
+### Part 5 - making career summary
+Print out the multi line string message that shows you the career summary metrics.
+
+### Part 6 - filtering rows and selecting columns of a dataset
+Subset your dataset to only contain seasons where our players combined goals and assists where greater than 30. 
+
+Select the columns, shown in the second outcome, to make your results more presentable. 
+
+It is good practice to assign the results of your subset to a new data frame under a different name. 
+
+### Final task - fill out the survey!
+
+```{r datatable}
+#| echo: false
+#| eval: false
+# solution using data.table package
+library(data.table)
+
+kane <- fread("resources/harry_kane_stats.csv")
+
+# option of multiple assignments
+kane[, `:=` (
+  goals_assists = goals + assists,
+  goals_no_pens = goals - pens,
+  goals_xg_diff = goals - expected_goals
+)]
+
+# examiple of single assignment
+#kane[, goals_assists := goals + assists]
+
+total_goals <- sum(kane$goals)
+total_goals_assists <- sum(kane[["goals_assists"]])
+avg_exp_goals <- round(mean(kane$expected_goals, na.rm = TRUE),1)
+avg_goal_xg_diff <- mean(kane$goals_xg_diff, na.rm = TRUE)
+apps <- sum(kane$matches_played)
+n_seasons <- length(unique(kane$age))
+
+cat(
+  "Player: Harry Kane\n",
+  "Seasons: ", n_seasons,
+  "\nAppearances: ", apps,
+  "\nGoals: ", total_goals,
+  "\nGoals and assists: ", total_goals_assists,
+  "\nAverage expected goals: ", avg_exp_goals,
+  sep = ""
+)
+
+selected_cols <- c("season", "age", "squad",
+                   "goals", "goals_assists", 
+                   "goals_xg_diff", "goals_no_pens")
+
+# option 1 on selecting columns with a filter
+kane[goals_assists > 30, 
+     .(season, age, squad,
+       goals, goals_assists, 
+       goals_xg_diff, goals_no_pens)]
+
+# option 2 using pre named variable with .. prefix
+#kane[goals_assists > 30 , ..selected_cols]
+
+library(ggplot2)
+
+kane_long <- melt(kane,
+     id.vars = "age",
+     measure.vars = c("goals", "assists"),
+     variable.name = "goals_assists")
+
+# fix multiple rows at the age of 19
+kane_long[, 
+          .(value = sum(value)), 
+          by = .(age, goals_assists)]
+
+ggplot(kane_long, aes(age, value, colour = goals_assists)) +
+  geom_line()
+
+```
+
+
+

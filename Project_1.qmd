@@ -1,0 +1,94 @@
+---
+title: "Project 1 - Temperature metric converter"
+author:
+   - name: Andrew Moles
+     affiliation: Learning Developer, Digital Skills Lab
+date: today
+---
+
+## Learning objectives:
+- Create variables
+- Use calculations on variables
+- Print out helpful message about conversion
+
+
+## Outcomes
+
+We will write a program that can convert temperature data. Your code will automate the process of taking data and making it into a presentable format. 
+
+### Make a Celsius to Fahrenheit temperature converter
+
+We will write a programme that converts Celsius to Fahrenheit, and Fahrenheit to Celsius. It will then write out a helpful message. 
+
+We have two temperatures from a given time in London and New York. The London temperature is in Celsius, and the New York temperature is in Fahrenheit. In the outputs the numbers are rounded to zero decimal places. We are aiming for the following outputs: 
+
+```{r}
+#| echo: false
+
+london_temp_c <- 25
+
+london_temp_f <- round(
+  (london_temp_c * 9/5) + 32
+, 0)
+
+london_temp_txt <- paste0("The temperature in London is ", london_temp_c, "°C, which is ", london_temp_f, "°F")
+
+new_york_temp_f <- 80
+
+new_york_temp_c <- round(
+  (new_york_temp_f - 32) * 5/9
+, 0)
+
+new_york_txt <- paste0("The temperature in New York is ", new_york_temp_f, "°F, which is ", new_york_temp_c, "°C")
+```
+
+******
+
+`r london_temp_txt`
+
+`r new_york_txt`
+
+******
+
+## Steps to help you get to the outcome
+
+### Part 1 - The setup
+Open an R script file and save it.
+
+### Part 2 - starting with calculations
+
+When working through a problem it is often sensible to break it down and start with something simple. 
+
+Use R to calculate:
+
+- 25 Celsius as Fahrenheit  
+- 80 Fahrenheit as Celsius
+
+### Part 3 - using variables
+
+Using the calculations you made, create variables to store the temperature values and the calculated output values.  
+
+### Part 4 - making a text output
+
+Now we can bring it all together to make our final output. 
+
+Use R to make the two text outputs by concatenating elements from one or more variables into a single string.
+
+This should be automated, so if we change the variable for Celsius or Fahrenheit the code will show the new output. 
+
+### Part 5 - tidy up
+
+Round the outputs to make sure we are looking at whole numbers only. 
+
+### Part 6 - try different temperatures
+
+Test out your code with different temperatures. 
+
+Change your temperature variables to the following:
+
+- 10 Celsius as Fahrenheit  
+- 20 Fahrenheit as Celsius
+
+
+### Final task - fill out the survey!
+

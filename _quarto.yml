@@ -1,0 +1,84 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+  - webr-serviceworker.js
+  - webr-worker.js
+
+website:
+  title: "Learning R at the DSL"
+  search: true
+  reader-mode: true
+  favicon: "images/colourful_flora.png"
+  sidebar:
+    style: "docked"
+    logo: "images/DigitalSkillsLab.png"
+    contents:
+      - section: "📚 Information"
+        contents: 
+        - href: index.qmd
+          text: 🏠 Home
+        - href: whyR.qmd
+          text: 📊 Why learn R
+      - section: "💻 R workshops"
+        contents: 
+          - href: install.qmd
+            text: 🛠️ Install R and RStudio
+          #- href: workshop-materials.qmd
+          #  text: 📖 Workshop Materials
+          - href: using-files.qmd
+            text: 📁 Using R files
+      - section: "🎓 R workshops materials"
+        contents:
+          - href: Project_1.qmd
+            text: 💡 Project 1 - Temperature metric converter
+          - href: Project_2.qmd
+            text: 💾 Project 2 - Building a weather application
+          - href: Project_3.qmd
+            text: 🎬 Project 3 - Building a weather application continued
+          - href: Project_4.qmd
+            text: 📊 Project 4 - Football data analysis
+          - href: Project_5.qmd
+            text: 🎓 Project 5 - Visualising Olympics data
+      - section: "❓ Other information"
+        contents: 
+          - href: faq.qmd
+            text: ℹ️ FAQ
+          - href: example-page.qmd
+            text: 🧪 R Testing Ground
+      - icon: github
+        href: https://github.com/andrewmoles2
+
+format:
+  html:
+    theme:
+        - flatly
+        - css/roboto.css
+    css: css/styles.css
+    toc: true
+    toc-depth: 4
+    toc-location: right
+    code-fold: false
+    mainfont: roboto
+    grid:
+      sidebar-width: 320px
+    include-in-header: 
+      - progress-bar.html
+    lightbox: auto
+    #title-block-banner: "#15BC9B"
+    #title-block-banner-color: "#000508"
+
+# Set default options for every webpage that may or may not include webR.
+webr: 
+  show-startup-message: true    # Display status of webR initialization
+#  show-header-message: false     # Check to see if COOP&COEP headers are set for speed.
+  packages: ['ggplot2', 'dplyr'] # Pre-install dependencies
+#  base-url: ''                   # Base URL used for specifying where R WebAssembly binaries should be located
+#  home-dir: '/home/rstudio'      # Customize where the working directory is
+#  channel-type: 'post-message'   # Specify communication channel
+#  service-worker-url: ''         # URL from where to load JavaScript worker scripts when loading webR with the ServiceWorker communication channel.
+
+# Attach webR to every page
+filters:
+  - webr
+

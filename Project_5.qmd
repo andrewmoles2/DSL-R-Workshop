@@ -1,0 +1,178 @@
+---
+title: "Project 5 - Visualising Olympics data"
+author:
+   - name: Andrew Moles
+     affiliation: Learning Developer, Digital Skills Lab
+date: today
+---
+
+## Learning objectives:
+- Load in data
+- Load and use packages
+- Filter data to show only information to need
+- Recode and categorise your data to be more meaningful
+- Perform an aggregation of a dataset
+- Make a bar plot using your aggregated data
+- Use factors to re-order categorical variables
+
+## Outcomes
+
+We will write a program that provides us with summary statistics of a question we have from a dataset. Your code will automate the process of loading the data, performing operations on that data, and making it into a presentable format. 
+
+We will be looking at data on the Olympics. From this data we are asking the following question: 
+
+*In all Olympic games over the years, how many medals have Great Britain won, and not won, in the Men's and Women's 800 and 1500 meters running events in athletics?*
+
+We will be aiming for two outcomes in this project. 
+
+### Outcome 1 - Make an aggregation to show your results
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(readr)
+library(dplyr)
+# load data
+olympics <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-08-06/olympics.csv')
+# some set up with filters and palettes
+team_filter <- "Great Britain"
+medal_palette <- c("#D6AF36", "#A7A7AD", "#A77044", "#333333")
+selected_events <- c("Athletics Men's 800 metres", 
+                     "Athletics Women's 800 metres", 
+                     "Athletics Men's 1,500 metres", 
+                     "Athletics Women's 1,500 metres")
+
+# aggregation option 1 - dplyr - remove na
+relay_sprint <- olympics |>
+  filter(team == team_filter) |>
+    filter(event %in% selected_events) |>
+  # option to remove na vals for medals
+  filter(!is.na(medal)) |>
+  # option to recode/categorise to extra value
+  #mutate(medal = ifelse(is.na(medal), "No medal", medal)) |>
+  mutate(medal = factor(medal, 
+                        levels = c("Gold", "Silver", 
+                                   "Bronze"))) |>
+  group_by(medal, event) |>
+  summarise(n_indiv_medals = n())
+
+relay_sprint_recode <- olympics |>
+  filter(team == team_filter) |>
+    filter(event %in% selected_events) |>
+  # option to remove na vals for medals
+  #filter(!is.na(medal)) |>
+  # option to recode/categorise to extra value
+  mutate(medal = ifelse(is.na(medal), "No medal", medal)) |>
+    mutate(medal = factor(medal, 
+                        levels = c("Gold", "Silver", 
+                                   "Bronze", "No medal"))) |>
+  group_by(medal, event) |>
+  summarise(n_indiv_medals = n())
+
+
+# aggregation option 2 - data.table
+# https://atrebas.github.io/post/2020-06-17-datatable-introduction/
+# examples use chaining. Can just do this line by line
+library(data.table)
+olympics_dt <- fread('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-08-06/olympics.csv')
+
+# removing na version
+relay_dt <- olympics_dt[team == team_filter, 
+                        ][!is.na(medal)
+                          ][event %in% selected_events
+                            ][, medal := factor(medal, levels = c("Gold", 
+                                                                 "Silver", 
+                                                                 "Bronze"))
+                              ][, .(n_indiv_medals = .N), by = .(medal, event)]
+
+# recoding na version
+relay_dt_recode <- olympics_dt[team == team_filter, 
+                        ][, medal := fifelse(is.na(medal), "No medal", medal)
+                          ][event %in% selected_events
+                            ][, medal := factor(medal, levels = c("Gold", "Silver", 
+                                                                 "Bronze", "No medal"))
+                              ][, .(n_indiv_medals = .N), by = .(medal, event)]
+
+# result - picked one with recoding
+ungroup(relay_sprint_recode)
+```
+
+
+### Outcome 2 - Make a bar plot to make your results look better
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(ggplot2)
+
+ggplot(relay_sprint_recode,
+       aes(x = medal, y = n_indiv_medals, fill = medal)) +
+  geom_col() +
+  facet_wrap(vars(event)) +
+  scale_fill_manual("Medal type", values = medal_palette) +
+  labs(title = paste0(team_filter, " middle distance (800 & 1500 metres) medals at all Olympics"),
+       y = "Total individual medals", x = "") +
+  theme_minimal()
+```
+
+
+### The data
+
+We will be using a csv file that is stored on GitHub - `https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-08-06/olympics.csv`. 
+
+The dataset provides individual level data on participants of the summer and winter Olympics up to and including the 2016 event. 
+
+## Steps to help you get to the outcome
+
+### Part 1 - the setup
+Open an R script file and save it.  
+
+Load in the Olympics dataset and store it in R. 
+
+### Part 2 - making a subset
+Filter your data to create a subset where by your data should include:
+
+- Only Great Britain  
+- Only the following events:
+  * Athletics Men's 800 metres
+  * Athletics Women's 800 metres
+  * Athletics Men's 1,500 metres
+  * Athletics Women's 1,500 metres
+
+### Part 3 - creating a new category
+In our data the medals column has a lot of missing data. The missing values show that a participant did not win a medal. Instead of having missing values we want to turn those missing values into a string such as *"no_medal"*. 
+
+Using conditional element selection, convert the missing values in the medal column from `NA` to `no_medal`. 
+
+### Part 4 - aggregation
+Aggregation is the process of splitting your data, applying a function, then combining the results. 
+
+Get summary statistics by group to show the number of individual medals won for each event. Save the results as a new data frame. 
+
+### Part 5 - making a initial visualisation
+R has packages that allow for elegant graphics for data analysis. 
+
+Using such a package make a simple bar plot using the data we just created with the aggregation. You should have medal on your x axis and individual medal count on the y axis. 
+
+### Part 6 - re-ordering the x axis
+Re-order the x axis so it is in a more sensible order such as gold, silver, bronze, no medal. 
+
+R will default to ordering characters alphabetically. 
+
+### Part 7 - making several visuals in one plot
+We want to split the chart window so each category of event has a separate plot. This is known as faceting. 
+
+### Part 8 - final improvements on how the visualisation looks
+There are a few more minor adjustments to make to finish up our visualisation. 
+
+- Add colours to the bars, which has two steps: 
+  * Make the fill aesthetic the same as your x axis
+  * Manually change the fill scale. The colours used in outcome 2 are: "#D6AF36", "#A7A7AD", "#A77044", "#333333"
+- Add a title to the visualisation
+
+### Final task - fill out the survey!
+
+

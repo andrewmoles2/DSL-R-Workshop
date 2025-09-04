@@ -1,0 +1,187 @@
+---
+title: "Project 2 - Weather application"
+author:
+   - name: Andrew Moles
+     affiliation: Learning Developer, Digital Skills Lab
+date: today
+---
+
+## Learning objectives:
+- Create vectors
+- Use calculations on vectors
+- Concatenate data to make a daily weather report
+
+## Outcomes
+
+We will write a program that tells us various metrics on what the weather is doing. Your code will automate the process of taking data and making it into a presentable format. 
+
+### Make a daily weather report:
+
+You should end up with a output that has three lines:
+
+1) Line one should have the date
+2) Line two should have lows and highs in Celsius and Fahrenheit (in brackets)
+3) Line three should have the average temperature in Celsius and Fahrenheit (in brackets)
+
+```{r}
+#| echo: false
+
+temps <- c(20.8, 19.6, 18.7, 17.8, 17.7, 19.1, 21.4, 22.8, 24.1, 26.5, 27.8, 
+           29.4, 30.7, 31.8, 32.4, 32.0, 31.8, 31.5, 31.2, 29.9, 28.3, 27.1, 26.2)
+dates <- c("30/06/2025 01:00:00", "30/06/2025 02:00:00", "30/06/2025 03:00:00", 
+           "30/06/2025 04:00:00", "30/06/2025 05:00:00", "30/06/2025 06:00:00",
+           "30/06/2025 07:00:00", "30/06/2025 08:00:00", "30/06/2025 09:00:00",
+           "30/06/2025 10:00:00", "30/06/2025 11:00:00", "30/06/2025 12:00:00",
+           "30/06/2025 13:00:00", "30/06/2025 14:00:00", "30/06/2025 15:00:00",
+           "30/06/2025 16:00:00", "30/06/2025 17:00:00", "30/06/2025 18:00:00",
+           "30/06/2025 19:00:00", "30/06/2025 20:00:00", "30/06/2025 21:00:00",
+           "30/06/2025 22:00:00", "30/06/2025 23:00:00")
+
+temperature_convert <- function(temp_data, unit) {
+  if (unit == "F") {
+    temp_data <- (temp_data * 9/5) + 32
+  } else if (unit == "C") {
+    temp_data <- (temp_data - 32) * 5/9
+  } else {
+    print("Please provide unit you want to convert to of °C or °F")
+  }
+  return(temp_data)
+}
+
+dmy <- substr(dates[1], 1, 10)
+
+low <- min(temps)
+high <- max(temps)
+avg_daily <- round(mean(temps), 2)
+
+low_f <- min(temperature_convert(temps, unit = "F"))
+high_f <- max(temperature_convert(temps, unit = "F"))
+avg_daily_f <- round(mean(temperature_convert(temps, unit = "F")), 2)
+
+cat("Temperature on: ", dmy,
+    " \nLow: ", low, "°C (",low_f, "°F) | High: ", high, "°C (",high_f, "°F) \nDaily average: ", 
+    avg_daily, "°C (", avg_daily_f, "°F)",
+    sep = "")
+
+```
+
+### The data
+
+Using the data below we will be making a weather reporting tool for a daily report.
+
+**Hourly temperatures:**
+
+`20.8, 19.6, 18.7, 17.8, 17.7, 19.1, 21.4, 22.8, 24.1, 26.5, 27.8, 29.4, 30.7, 31.8, 32.4, 32.0, 31.8, 31.5, 31.2, 29.9, 28.3, 27.1, 26.2`
+
+**Date and times:**
+
+`"30/06/2025 01:00:00", "30/06/2025 02:00:00", "30/06/2025 03:00:00", "30/06/2025 04:00:00", "30/06/2025 05:00:00", "30/06/2025 06:00:00","30/06/2025 07:00:00", "30/06/2025 08:00:00", "30/06/2025 09:00:00", "30/06/2025 10:00:00", "30/06/2025 11:00:00", "30/06/2025 12:00:00","30/06/2025 13:00:00", "30/06/2025 14:00:00", "30/06/2025 15:00:00", "30/06/2025 16:00:00", "30/06/2025 17:00:00", "30/06/2025 18:00:00","30/06/2025 19:00:00", "30/06/2025 20:00:00", "30/06/2025 21:00:00", "30/06/2025 22:00:00", "30/06/2025 23:00:00"`
+
+## Steps to help you get to the outcome
+
+### Part 1 - the setup
+Open an R script file and save it.
+
+### Part 2 - using vectors
+A vector in R is a one-dimensional array of data that is the same data type. 
+Using the data shown above, store the hourly temperatures and date and times data into R as vectors.
+
+### Part 3 - string manipulation
+Extract part of the string from the date and time data to give you just the date element. Store the result as a variable, keeping just the first element; you should get the result below. 
+
+`r dmy`
+
+We want to do this programmatically, so no copy and pasting from the data, also known as "hardcoding". This will help us to automate our code if we want to use different data. 
+
+### Part 4 - calculate temperatures
+Calculate the lowest (minimum), highest (maximum), and average (mean) temperatures, storing the results as variables. If needed, round the results so it is more presentable. 
+
+### Part 5 - convert temperatures
+Convert the lowest, highest, and average temperatures from Celsius to Fahrenheit and store the results.
+
+### Part 6 - making the text output
+Print out the multi line string message that shows you the daily weather report with both Celsius and Fahrenheit. 
+
+You'll need a different function to what we used previously to make string messages, and you will need to add escape characters to add the new lines. 
+
+### Part 7 - test your code with new data
+
+A good way to test out your code is to try it on different data. 
+
+Below we have the temperature data for a few days after the data we have been using. Using the steps you did previously, write a weather report using this new data. 
+
+**Hourly temperatures:**
+
+`16.5, 15.5, 14.3, 13.7, 12.4, 12, 12.6, 14.1, 16, 18.2, 19.7, 21.1, 21.8, 22.6, 23.4, 24.3, 23.3, 23.6, 23.1, 23.4, 23.4, 21.6, 20.7, 19.5`
+
+**Date and times:**
+
+`"03/07/2025 00:00:00", "03/07/2025 01:00:00", "03/07/2025 02:00:00", "03/07/2025 03:00:00", "03/07/2025 04:00:00", "03/07/2025 05:00:00", "03/07/2025 06:00:00", "03/07/2025 07:00:00", "03/07/2025 08:00:00", "03/07/2025 09:00:00", "03/07/2025 10:00:00", "03/07/2025 11:00:00", "03/07/2025 12:00:00", "03/07/2025 13:00:00", "03/07/2025 14:00:00", "03/07/2025 15:00:00", "03/07/2025 16:00:00", "03/07/2025 17:00:00", "03/07/2025 18:00:00", "03/07/2025 19:00:00", "03/07/2025 20:00:00", "03/07/2025 21:00:00", "03/07/2025 22:00:00", "03/07/2025 23:00:00"`
+
+### Final task - fill out the survey!
+
+ <!--
+### Optional extra
+
+Use functions to tidy up your code. Can you wrap up the code you have written into functions? 
+
+```{r}
+#| echo: false
+#| eval: false
+temperature_convert <- function(temp_data, unit) {
+  if (unit == "F") {
+    temp_data <- (temp_data * 9/5) + 32
+  } else if (unit == "C") {
+    temp_data <- (temp_data - 32) * 5/9
+  } else {
+    print("Please provide unit you want to convert to of C or F")
+  }
+  return(temp_data)
+}
+
+daily_report <- function(temperature, dates_times){
+dmy <- substr(dates_times[1], 1, 10)
+low <- min(temperature)
+high <- max(temperature)
+avg_daily <- round(mean(temperature), 2)
+
+low_f <- min(temperature_convert(temperature, unit = "F"))
+high_f <- max(temperature_convert(temperature, unit = "F"))
+avg_daily_f <- round(mean(temperature_convert(temperature, unit = "F")), 2)
+
+cat("Temperature on: ", dmy,
+    " \nLow: ", low, "°C (",low_f, "°F) | High: ", high, "°C (",high_f, "°F) \nDaily average: ", 
+    avg_daily, "°C (", avg_daily_f, "°F)",
+    sep = "")
+
+}
+
+hourly_report <- function(temperature, dates_times){
+  temps_f <- temperature_convert(temperature, "F")
+  print(
+    paste0("Hourly temperatures on: ", 
+           substr(dates_times[1], 1, 10))
+    )
+  for (i in 1:length(temperature)) {
+    hour <- substr(dates_times[i], 12, 13)
+    print(
+      paste0("Temperature at ", hour, ": ",  temperature[i], "°C (", temps_f[i], "°F)")
+    )
+  }
+}
+```
+
+
+```{r}
+#| echo: false
+#| eval: false
+daily_report(temps, dmy)
+```
+
+```{r}
+#| echo: false
+#| eval: false
+hourly_report(temps, dates)
+```
+
+-->
