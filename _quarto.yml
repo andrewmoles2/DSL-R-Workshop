@@ -57,7 +57,7 @@ format:
     css: css/styles.css
     toc: true
     toc-depth: 4
-    toc-location: right
+    toc-location: right-body
     code-fold: false
     mainfont: roboto
     grid:

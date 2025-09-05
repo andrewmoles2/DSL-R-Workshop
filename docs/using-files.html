@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Information on how to use R Scripts and Markdown files – Learning R at the DSL</title>
+<title>Information on how to use R Scripts and R Markdown files – Learning R at the DSL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -254,12 +254,12 @@ document.addEventListener("DOMContentLoaded", function() {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#opening-rstudio" id="toc-opening-rstudio" class="nav-link active" data-scroll-target="#opening-rstudio">Opening RStudio</a>
+  <li><a href="#sec-video_setup" id="toc-sec-video_setup" class="nav-link active" data-scroll-target="#sec-video_setup">Video setup guide</a></li>
+  <li><a href="#opening-rstudio" id="toc-opening-rstudio" class="nav-link" data-scroll-target="#opening-rstudio">Opening RStudio</a>
   <ul>
   <li><a href="#windows-users" id="toc-windows-users" class="nav-link" data-scroll-target="#windows-users">Windows users</a></li>
   <li><a href="#mac-users" id="toc-mac-users" class="nav-link" data-scroll-target="#mac-users">Mac users</a></li>
   </ul></li>
-  <li><a href="#sec-video_setup" id="toc-sec-video_setup" class="nav-link" data-scroll-target="#sec-video_setup">Video setup guide</a></li>
   <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link" data-scroll-target="#r-scripts">R Scripts</a>
   <ul>
   <li><a href="#opening-r-scripts" id="toc-opening-r-scripts" class="nav-link" data-scroll-target="#opening-r-scripts">Opening R Scripts</a></li>
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install.html">💻 R workshops</a></li><li class="breadcrumb-item"><a href="./using-files.html">📁 Using R files</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Information on how to use R Scripts and Markdown files</h1>
+<h1 class="title">Information on how to use R Scripts and R Markdown files</h1>
 </div>
 
 
@@ -294,11 +294,43 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </header>
 
-
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-video_setup" id="toc-sec-video_setup">Video setup guide</a></li>
+  <li><a href="#opening-rstudio" id="toc-opening-rstudio">Opening RStudio</a>
+  <ul>
+  <li><a href="#windows-users" id="toc-windows-users">Windows users</a></li>
+  <li><a href="#mac-users" id="toc-mac-users">Mac users</a></li>
+  </ul></li>
+  <li><a href="#r-scripts" id="toc-r-scripts">R Scripts</a>
+  <ul>
+  <li><a href="#opening-r-scripts" id="toc-opening-r-scripts">Opening R Scripts</a></li>
+  <li><a href="#using-r-scripts" id="toc-using-r-scripts">Using R Scripts</a></li>
+  </ul></li>
+  <li><a href="#sec-markdown" id="toc-sec-markdown">R Markdown</a>
+  <ul>
+  <li><a href="#opening-r-markdown-files" id="toc-opening-r-markdown-files">Opening R Markdown files</a></li>
+  <li><a href="#using-a-r-markdown-file" id="toc-using-a-r-markdown-file">Using a R Markdown file</a></li>
+  </ul></li>
+  </ul>
+</nav>
+<section id="sec-video_setup" class="level2">
+<h2 class="anchored" data-anchor-id="sec-video_setup">Video setup guide</h2>
+<p>Note that this video demonstrates how to use scripts in R. If you are interested in using R Markdown see <a href="#sec-markdown" class="quarto-xref">Section&nbsp;4</a>. This video assumes you already have RStudio installed and open.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/r_workshop_setup.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Video guide showing how to get setup for R workshop"><video src="images/r_workshop_setup.mp4" class="img-fluid" alt="A video guide taking you from the DSL R website, to the materials, going to RStudio, opening a R script file, running some code, then adjusting the theme or look or RStudio to suit your needs." controls=""></video></a><a href="images/r_workshop_setup.mp4">Video guide showing how to get setup for R workshop</a></p>
+<figcaption>Video guide showing how to get setup for R workshop</figcaption>
+</figure>
+</div>
+<p>The following sections give more information on scripts and R Markdown documents, as well as setup instructions for the workshops.</p>
+</section>
 <section id="opening-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="opening-rstudio">Opening RStudio</h2>
 <p>If you have not done so already, open RStudio!</p>
-<p>Once RStudio is open we have written guides with images on this page and a video guide which can be found <a href="#sec-video_setup" class="quarto-xref">Section&nbsp;2</a>.</p>
+<p>Once RStudio is open we have written guides with images on this page and a video guide which can be found <a href="#sec-video_setup" class="quarto-xref">Section&nbsp;1</a>.</p>
 <section id="windows-users" class="level3">
 <h3 class="anchored" data-anchor-id="windows-users">Windows users</h3>
 <ul>
@@ -315,7 +347,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <p>When RStudio opens you should see a layout with 3 panels, similar to the image below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/rstudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="RStudio, image from 2023"><img src="images/rstudio.png" class="img-fluid figure-img" alt="RStudio, image from 2023"></a></p>
+<p><a href="images/rstudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="RStudio, image from 2023"><img src="images/rstudio.png" class="img-fluid figure-img" alt="RStudio, image from 2023"></a></p>
 <figcaption>RStudio, image from 2023</figcaption>
 </figure>
 </div>
@@ -323,23 +355,12 @@ document.addEventListener("DOMContentLoaded", function() {
 <p>If your installation of R and RStudio has worked, first RStudio should be open, and second you should see a message in your console panel telling you the version of R you have installed, like the image below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/r-version.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="R version displayed in RStudio console, image from 2023"><img src="images/r-version.png" class="img-fluid figure-img" alt="R version displayed in RStudio console, image from 2023"></a></p>
+<p><a href="images/r-version.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="R version displayed in RStudio console, image from 2023"><img src="images/r-version.png" class="img-fluid figure-img" alt="R version displayed in RStudio console, image from 2023"></a></p>
 <figcaption>R version displayed in RStudio console, image from 2023</figcaption>
 </figure>
 </div>
 <p>There are three ways of running R code: console, scripts and R Markdown. In the R workshops we use R Markdown.</p>
 </section>
-</section>
-<section id="sec-video_setup" class="level2">
-<h2 class="anchored" data-anchor-id="sec-video_setup">Video setup guide</h2>
-<p>Note that this video demonstrates how to use scripts in R. If you are interested in using R Markdown see <a href="#sec-markdown" class="quarto-xref">Section&nbsp;4</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/r_workshop_setup.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Video guide showing how to get setup for R workshop"><video src="images/r_workshop_setup.mp4" class="img-fluid" alt="A video guide taking you from the DSL R website, to download the materials, going to RStudio, opening the downloaded file, running your code, then adjusting the theme or look or RStudio to suit your needs." controls=""></video></a><a href="images/r_workshop_setup.mp4">Video guide showing how to get setup for R workshop</a></p>
-<figcaption>Video guide showing how to get setup for R workshop</figcaption>
-</figure>
-</div>
-<p>The following sections give more information on scripts and R Markdown documents, as well as setup instructions for the workshops.</p>
 </section>
 <section id="r-scripts" class="level2">
 <h2 class="anchored" data-anchor-id="r-scripts">R Scripts</h2>

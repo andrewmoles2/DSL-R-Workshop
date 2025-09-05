@@ -2,20 +2,9 @@
   {
     "objectID": "using-files.html",
     "href": "using-files.html",
-    "title": "Information on how to use R Scripts and Markdown files",
+    "title": "Information on how to use R Scripts and R Markdown files",
     "section": "",
-    "text": "If you have not done so already, open RStudio!\nOnce RStudio is open we have written guides with images on this page and a video guide which can be found Section 2.\n\n\n\nType RStudio in the search bar (bottom left, next to windows symbol)\nIf you prefer, open the start menu (click windows symbol), then scroll until you find RStudio\n\n\n\n\n\nHit command + space and type in RStudio\nIf you prefer to look for RStudio in an applications folder (open finder and select Applications on the left panel), you should be looking for this icon: \n\nWhen RStudio opens you should see a layout with 3 panels, similar to the image below.\n\n\n\nRStudio, image from 2023\n\n\nThe largest panel on the left with the &gt; is the console. On the bottom right there is the files/plot panel, and top right is the environment panel.\nIf your installation of R and RStudio has worked, first RStudio should be open, and second you should see a message in your console panel telling you the version of R you have installed, like the image below.\n\n\n\nR version displayed in RStudio console, image from 2023\n\n\nThere are three ways of running R code: console, scripts and R Markdown. In the R workshops we use R Markdown.",
-    "crumbs": [
-      "💻 R workshops",
-      "📁 Using R files"
-    ]
-  },
-  {
-    "objectID": "using-files.html#opening-rstudio",
-    "href": "using-files.html#opening-rstudio",
-    "title": "Information on how to use R Scripts and Markdown files",
-    "section": "",
-    "text": "If you have not done so already, open RStudio!\nOnce RStudio is open we have written guides with images on this page and a video guide which can be found Section 2.\n\n\n\nType RStudio in the search bar (bottom left, next to windows symbol)\nIf you prefer, open the start menu (click windows symbol), then scroll until you find RStudio\n\n\n\n\n\nHit command + space and type in RStudio\nIf you prefer to look for RStudio in an applications folder (open finder and select Applications on the left panel), you should be looking for this icon: \n\nWhen RStudio opens you should see a layout with 3 panels, similar to the image below.\n\n\n\nRStudio, image from 2023\n\n\nThe largest panel on the left with the &gt; is the console. On the bottom right there is the files/plot panel, and top right is the environment panel.\nIf your installation of R and RStudio has worked, first RStudio should be open, and second you should see a message in your console panel telling you the version of R you have installed, like the image below.\n\n\n\nR version displayed in RStudio console, image from 2023\n\n\nThere are three ways of running R code: console, scripts and R Markdown. In the R workshops we use R Markdown.",
+    "text": "Video setup guide\n  Opening RStudio\n  \n  Windows users\n  Mac users\n  \n  R Scripts\n  \n  Opening R Scripts\n  Using R Scripts\n  \n  R Markdown\n  \n  Opening R Markdown files\n  Using a R Markdown file",
     "crumbs": [
       "💻 R workshops",
       "📁 Using R files"
@@ -24,9 +13,20 @@
   {
     "objectID": "using-files.html#sec-video_setup",
     "href": "using-files.html#sec-video_setup",
-    "title": "Information on how to use R Scripts and Markdown files",
+    "title": "Information on how to use R Scripts and R Markdown files",
     "section": "Video setup guide",
-    "text": "Video setup guide\nNote that this video demonstrates how to use scripts in R. If you are interested in using R Markdown see Section 4.\n\n\nVideo guide showing how to get setup for R workshop\nVideo guide showing how to get setup for R workshop\n\n\nThe following sections give more information on scripts and R Markdown documents, as well as setup instructions for the workshops.",
+    "text": "Video setup guide\nNote that this video demonstrates how to use scripts in R. If you are interested in using R Markdown see Section 4. This video assumes you already have RStudio installed and open.\n\n\nVideo guide showing how to get setup for R workshop\nVideo guide showing how to get setup for R workshop\n\n\nThe following sections give more information on scripts and R Markdown documents, as well as setup instructions for the workshops.",
+    "crumbs": [
+      "💻 R workshops",
+      "📁 Using R files"
+    ]
+  },
+  {
+    "objectID": "using-files.html#opening-rstudio",
+    "href": "using-files.html#opening-rstudio",
+    "title": "Information on how to use R Scripts and R Markdown files",
+    "section": "Opening RStudio",
+    "text": "Opening RStudio\nIf you have not done so already, open RStudio!\nOnce RStudio is open we have written guides with images on this page and a video guide which can be found Section 1.\n\nWindows users\n\nType RStudio in the search bar (bottom left, next to windows symbol)\nIf you prefer, open the start menu (click windows symbol), then scroll until you find RStudio\n\n\n\nMac users\n\nHit command + space and type in RStudio\nIf you prefer to look for RStudio in an applications folder (open finder and select Applications on the left panel), you should be looking for this icon: \n\nWhen RStudio opens you should see a layout with 3 panels, similar to the image below.\n\n\n\nRStudio, image from 2023\n\n\nThe largest panel on the left with the &gt; is the console. On the bottom right there is the files/plot panel, and top right is the environment panel.\nIf your installation of R and RStudio has worked, first RStudio should be open, and second you should see a message in your console panel telling you the version of R you have installed, like the image below.\n\n\n\nR version displayed in RStudio console, image from 2023\n\n\nThere are three ways of running R code: console, scripts and R Markdown. In the R workshops we use R Markdown.",
     "crumbs": [
       "💻 R workshops",
       "📁 Using R files"
@@ -35,7 +35,7 @@
   {
     "objectID": "using-files.html#r-scripts",
     "href": "using-files.html#r-scripts",
-    "title": "Information on how to use R Scripts and Markdown files",
+    "title": "Information on how to use R Scripts and R Markdown files",
     "section": "R Scripts",
     "text": "R Scripts\n\n\n\n\n\n\nWhat are R Scripts?\n\n\n\nAn R Script file is a text file that contains a set of commands, or code, written in the R programming language. They are simple to use, allowing you to save the code you have written for later.\nAn in-depth description can be found in the R for Data Science open source book\n\n\n\nOpening R Scripts\nIf you move your mouse/curser to the top of your screen you will see a banner with file, edit, code etc. Using File &gt; Open File..., find the R script file to load. R script files have the extension .R.\nTo start a new R script file go to File &gt; New File &gt; R Script, or use the keyboard shortcut ctrl/command + shift + N.\n\n\nUsing R Scripts\nThe below image shows an R Script in action.\n\n\n\n\n\n\n\nImage of R Script\n\n\nThere are two main ways of running code in an R Script.\n\nUse ctrl/command + Enter to run each line\nHighlight a section of code, and use the run button (or press ctrl/command + Enter)\n\nYou might notice code you have run appears on the console (bottom left), and if you make a variable that will appear in the Environment (top right).",
     "crumbs": [
@@ -46,7 +46,7 @@
   {
     "objectID": "using-files.html#sec-markdown",
     "href": "using-files.html#sec-markdown",
-    "title": "Information on how to use R Scripts and Markdown files",
+    "title": "Information on how to use R Scripts and R Markdown files",
     "section": "R Markdown",
     "text": "R Markdown\n\n\n\n\n\n\nWhat is R Markdown?\n\n\n\nAn R Markdown file has sections of text and code together in a single document. This is helpful for tutorials, documentation, and writing reports.\nAn in-depth description can be found in the R for Data Science open source book\n\n\n\nOpening R Markdown files\nOpening a R Markdown file is very similar to opening a file in other software. If you move your mouse/curser to the top of your screen you will see a banner with file, edit, code etc. Using File &gt; Open File..., find the R Markdown file to load. R Markdown files have the extension .Rmd.\nTo start a new R markdown file go to File &gt; New File &gt; R Markdown....\n\n\nUsing a R Markdown file\nWe are using R Markdown notebooks for these workshops as we can add text around code, which can help us guide you. The image below shows the basic layout of a R Markdown document.\n\n\n\n\n\n\n\nImage of R Markdown notebook, indicating the text and code sections\n\n\nThere are three ways to run code in a code cell. The two ways mentioned in the image (Run and play button), and third is to use ctrl/command + Enter to run each line just like you would with an R script.\nThe most important thing for you to take note of is the code cells. Each code cell is like a small R script. You’ll notice the ``` markings around the code cell. It is important these do not get deleted, so be careful when editing your code!\nA top tip is to change the mode of your R Markdown file from source to visual which provides a more pleasing environment to code in. To do this you will find the option near the top right of your RStudio window.\nFinally, you can add your own code cell using option+command+i on a Mac or ctrl + alt + i on a Windows machine.\nThroughout the notebooks you will come across exercises, with empty code cells for you to type your code into. Your task is to test out the examples, then try and do the exercises.\n\n\n\n\n\n\nNote\n\n\n\nIf you have struggled with any of these steps ask a trainer for support",
     "crumbs": [
@@ -59,7 +59,7 @@
     "href": "faq.html",
     "title": "FAQ",
     "section": "",
-    "text": "In this page we list some of the most frequently asked questions about R, the workshops, or other more general topics.",
+    "text": "What is R?\n  Workshops\n  \n  What should I do if I get stuck\n  Why do we use this style of training?\n  \n  R vs Python\n  R vs other software such as Tableau/Excel/Power Bi/Stata/SPSS\nIn this page we list some of the most frequently asked questions about R, the workshops, or other more general topics.",
     "crumbs": [
       "❓ Other information",
       "ℹ️ FAQ"
@@ -132,7 +132,7 @@
     "href": "Project_2.html",
     "title": "Project 2 - Weather application",
     "section": "",
-    "text": "Create vectors\nUse calculations on vectors\nConcatenate data to make a daily weather report",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Make a daily weather report:\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - using vectors\n  Part 3 - string manipulation\n  Part 4 - calculate temperatures\n  Part 5 - convert temperatures\n  Part 6 - making the text output\n  Part 7 - test your code with new data\n  Final task - fill out the survey!",
     "crumbs": [
       "🎓 R workshops materials",
       "💾 Project 2 - Building a weather application"
@@ -142,8 +142,8 @@
     "objectID": "Project_2.html#learning-objectives",
     "href": "Project_2.html#learning-objectives",
     "title": "Project 2 - Weather application",
-    "section": "",
-    "text": "Create vectors\nUse calculations on vectors\nConcatenate data to make a daily weather report",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nCreate vectors\nUse calculations on vectors\nConcatenate data to make a daily weather report",
     "crumbs": [
       "🎓 R workshops materials",
       "💾 Project 2 - Building a weather application"
@@ -176,7 +176,7 @@
     "href": "Project_1.html",
     "title": "Project 1 - Temperature metric converter",
     "section": "",
-    "text": "Create variables\nUse calculations on variables\nPrint out helpful message about conversion",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Make a Celsius to Fahrenheit temperature converter\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - The setup\n  Part 2 - starting with calculations\n  Part 3 - using variables\n  Part 4 - making a text output\n  Part 5 - tidy up\n  Part 6 - try different temperatures\n  Final task - fill out the survey!",
     "crumbs": [
       "🎓 R workshops materials",
       "💡 Project 1 - Temperature metric converter"
@@ -186,8 +186,8 @@
     "objectID": "Project_1.html#learning-objectives",
     "href": "Project_1.html#learning-objectives",
     "title": "Project 1 - Temperature metric converter",
-    "section": "",
-    "text": "Create variables\nUse calculations on variables\nPrint out helpful message about conversion",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nCreate variables\nUse calculations on variables\nPrint out helpful message about conversion",
     "crumbs": [
       "🎓 R workshops materials",
       "💡 Project 1 - Temperature metric converter"
@@ -220,7 +220,7 @@
     "href": "Project_4.html",
     "title": "Project 4 - Football data analysis",
     "section": "",
-    "text": "Load in data\nModify your data using calculations on and across columns\nGet summary statistics from data\nFilter rows and selecting columns of a dataset",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - total career summary statistics\n  Outcome 2 - filtered dataset showing highest scoring years\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - load in the dataset\n  Part 3 - column calculations\n  Part 4 - calculating the total career statistics\n  Part 5 - making career summary\n  Part 6 - filtering rows and selecting columns of a dataset\n  Final task - fill out the survey!",
     "crumbs": [
       "🎓 R workshops materials",
       "📊 Project 4 - Football data analysis"
@@ -230,8 +230,8 @@
     "objectID": "Project_4.html#learning-objectives",
     "href": "Project_4.html#learning-objectives",
     "title": "Project 4 - Football data analysis",
-    "section": "",
-    "text": "Load in data\nModify your data using calculations on and across columns\nGet summary statistics from data\nFilter rows and selecting columns of a dataset",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nLoad in data\nModify your data using calculations on and across columns\nGet summary statistics from data\nFilter rows and selecting columns of a dataset",
     "crumbs": [
       "🎓 R workshops materials",
       "📊 Project 4 - Football data analysis"
@@ -264,7 +264,7 @@
     "href": "Project_5.html",
     "title": "Project 5 - Visualising Olympics data",
     "section": "",
-    "text": "Load in data\nLoad and use packages\nFilter data to show only information to need\nRecode and categorise your data to be more meaningful\nPerform an aggregation of a dataset\nMake a bar plot using your aggregated data\nUse factors to re-order categorical variables",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - Make an aggregation to show your results\n  Outcome 2 - Make a bar plot to make your results look better\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - making a subset\n  Part 3 - creating a new category\n  Part 4 - aggregation\n  Part 5 - making a initial visualisation\n  Part 6 - re-ordering the x axis\n  Part 7 - making several visuals in one plot\n  Part 8 - final improvements on how the visualisation looks\n  Final task - fill out the survey!",
     "crumbs": [
       "🎓 R workshops materials",
       "🎓 Project 5 - Visualising Olympics data"
@@ -274,8 +274,8 @@
     "objectID": "Project_5.html#learning-objectives",
     "href": "Project_5.html#learning-objectives",
     "title": "Project 5 - Visualising Olympics data",
-    "section": "",
-    "text": "Load in data\nLoad and use packages\nFilter data to show only information to need\nRecode and categorise your data to be more meaningful\nPerform an aggregation of a dataset\nMake a bar plot using your aggregated data\nUse factors to re-order categorical variables",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nLoad in data\nLoad and use packages\nFilter data to show only information to need\nRecode and categorise your data to be more meaningful\nPerform an aggregation of a dataset\nMake a bar plot using your aggregated data\nUse factors to re-order categorical variables",
     "crumbs": [
       "🎓 R workshops materials",
       "🎓 Project 5 - Visualising Olympics data"
@@ -308,14 +308,14 @@
     "href": "workshop-materials.html",
     "title": "Information about the workshops and how to get the materials",
     "section": "",
-    "text": "Each workshop is 2 hours long\nYou choose which topic to work on. It is advised to work through the materials in the prescribed order unless you are already familiar with a particular topic\nYou will work with fellow learners, utilising your prior experience and web searches to find solutions, with a R expert on hand if you get stuck\nWorkshop sessions are hands on and practical\nEach worksheet will take on average 1 hour to complete (some longer, some shorter)\n\nTo prepare for the in-person workshops you need to get the materials. Below is information and steps on how to do this, as well as information on what is covered and recommended pathways."
+    "text": "Workshop format\n  Workshop pathways\n  Workshop materials\n  \n  R Fundamentals\n  R Intermediate\n  R Data Wrangling\n  R Data Visualisation\n  \n  Uncompressing files (important)"
   },
   {
     "objectID": "workshop-materials.html#workshop-format",
     "href": "workshop-materials.html#workshop-format",
     "title": "Information about the workshops and how to get the materials",
-    "section": "",
-    "text": "Each workshop is 2 hours long\nYou choose which topic to work on. It is advised to work through the materials in the prescribed order unless you are already familiar with a particular topic\nYou will work with fellow learners, utilising your prior experience and web searches to find solutions, with a R expert on hand if you get stuck\nWorkshop sessions are hands on and practical\nEach worksheet will take on average 1 hour to complete (some longer, some shorter)\n\nTo prepare for the in-person workshops you need to get the materials. Below is information and steps on how to do this, as well as information on what is covered and recommended pathways."
+    "section": "Workshop format",
+    "text": "Workshop format\n\nEach workshop is 2 hours long\nYou choose which topic to work on. It is advised to work through the materials in the prescribed order unless you are already familiar with a particular topic\nYou will work with fellow learners, utilising your prior experience and web searches to find solutions, with a R expert on hand if you get stuck\nWorkshop sessions are hands on and practical\nEach worksheet will take on average 1 hour to complete (some longer, some shorter)\n\nTo prepare for the in-person workshops you need to get the materials. Below is information and steps on how to do this, as well as information on what is covered and recommended pathways."
   },
   {
     "objectID": "workshop-materials.html#workshop-pathways",
@@ -343,7 +343,7 @@
     "href": "Project_3.html",
     "title": "Project 3 - Weather Application Continued",
     "section": "",
-    "text": "Create vectors\nUse calculations on vectors\nExtract elements from vectors\nPrint out hourly weather reports using iteration",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Make a hourly weather report:\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - using vectors\n  Part 3 - string manipulation\n  Part 4 - more string manipulation\n  Part 5 - convert temperatures\n  Part 6 - start making the text output\n  Task 7 - finish the text output\n  Part 8 - test your code with new data\n  Final task - fill out the survey!\n  Optional outcome",
     "crumbs": [
       "🎓 R workshops materials",
       "🎬 Project 3 - Building a weather application continued"
@@ -353,8 +353,8 @@
     "objectID": "Project_3.html#learning-objectives",
     "href": "Project_3.html#learning-objectives",
     "title": "Project 3 - Weather Application Continued",
-    "section": "",
-    "text": "Create vectors\nUse calculations on vectors\nExtract elements from vectors\nPrint out hourly weather reports using iteration",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nCreate vectors\nUse calculations on vectors\nExtract elements from vectors\nPrint out hourly weather reports using iteration",
     "crumbs": [
       "🎓 R workshops materials",
       "🎬 Project 3 - Building a weather application continued"
@@ -387,7 +387,7 @@
     "href": "install.html",
     "title": "Installing R and RStudio",
     "section": "",
-    "text": "This page is about getting R and RStudio installed on your laptop so you can start using R! Below are step by step instructions for getting the software needed installed.",
+    "text": "Windows install\n  \n  Install R\n  Install RStudio\n  \n  Mac install\n  \n  Install R\n  \n  M1 or M2 Mac\n  Intel Mac\n  \n  Install XQuartz\n  Install RStudio\n  \n  Installing R and RStudio installation issues\nThis page is about getting R and RStudio installed on your laptop so you can start using R! Below are step by step instructions for getting the software needed installed.",
     "crumbs": [
       "💻 R workshops",
       "🛠️ Install R and RStudio"
@@ -442,7 +442,7 @@
     "href": "whyR.html",
     "title": "Why learn R",
     "section": "",
-    "text": "There are a lot of reasons why you should learn R, and it is very prevalent in academia, bioinformatics (analysis of biological data), data analyst and data scientist roles\nA lot of LSE courses that involved statistics or data primarily use R. This is because R is a excellent tool for:\nR is an open-source tool, which means you do not need to buy a licence in order to use it, and is a popular programming language, as shown in the PYPL index from 2023",
+    "text": "Easy to learn\n  Some examples of R being awesome for Data visualisation\nThere are a lot of reasons why you should learn R, and it is very prevalent in academia, bioinformatics (analysis of biological data), data analyst and data scientist roles\nA lot of LSE courses that involved statistics or data primarily use R. This is because R is a excellent tool for:\nR is an open-source tool, which means you do not need to buy a licence in order to use it, and is a popular programming language, as shown in the PYPL index from 2023",
     "crumbs": [
       "📚 Information",
       "📊 Why learn R"
