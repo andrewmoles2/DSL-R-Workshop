@@ -15,7 +15,7 @@
     "href": "using-files.html#sec-video_setup",
     "title": "Information on how to use R Scripts and R Markdown files",
     "section": "Video setup guide",
-    "text": "Video setup guide\nNote that this video demonstrates how to use scripts in R. If you are interested in using R Markdown see Section 4. This video assumes you already have RStudio installed and open.\n\n\nVideo guide showing how to get setup for R workshop\nVideo guide showing how to get setup for R workshop\n\n\nThe following sections give more information on scripts and R Markdown documents, as well as setup instructions for the workshops.",
+    "text": "Video setup guide\nNote that this video demonstrates how to use scripts in R. If you are interested in using R Markdown see Section 4. This video assumes you already have RStudio installed and open.\nWe are using command/control + enter to run the code in this video.\n\n\nVideo guide showing how to get setup for R workshop\nVideo guide showing how to get setup for R workshop\n\n\nThe following sections give more information on scripts and R Markdown documents, as well as setup instructions for the workshops.",
     "crumbs": [
       "💻 R workshops",
       "📁 Using R files"
