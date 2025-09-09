@@ -1,9 +1,16 @@
 ---
 title: "Project 1 - Temperature metric converter"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc-depth: 4
+    toc-location: right-body
 author:
    - name: Andrew Moles
      affiliation: Learning Developer, Digital Skills Lab
-date: today
+date: today    
+
 ---
 
 ## Learning objectives:

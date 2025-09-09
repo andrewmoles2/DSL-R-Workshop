@@ -1,9 +1,16 @@
 ---
 title: "Project 5 - Visualising Olympics data"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc-depth: 4
+    toc-location: right-body
 author:
    - name: Andrew Moles
      affiliation: Learning Developer, Digital Skills Lab
-date: today
+date: today    
+
 ---
 
 ## Learning objectives:
@@ -170,7 +177,7 @@ There are a few more minor adjustments to make to finish up our visualisation.
 
 - Add colours to the bars, which has two steps: 
   * Make the fill aesthetic the same as your x axis
-  * Manually change the fill scale. The colours used in outcome 2 are: "#D6AF36", "#A7A7AD", "#A77044", "#333333"
+  * Manually change the fill scale. The colours used in outcome 2 are: `"#D6AF36", "#A7A7AD", "#A77044", "#333333"`
 - Add a title to the visualisation
 
 ### Final task - fill out the survey!

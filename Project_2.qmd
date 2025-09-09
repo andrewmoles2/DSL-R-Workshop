@@ -1,9 +1,16 @@
 ---
 title: "Project 2 - Weather application"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc-depth: 4
+    toc-location: right-body
 author:
    - name: Andrew Moles
      affiliation: Learning Developer, Digital Skills Lab
-date: today
+date: today    
+
 ---
 
 ## Learning objectives:
@@ -58,12 +65,27 @@ low_f <- min(temperature_convert(temps, unit = "F"))
 high_f <- max(temperature_convert(temps, unit = "F"))
 avg_daily_f <- round(mean(temperature_convert(temps, unit = "F")), 2)
 
-cat("Temperature on: ", dmy,
-    " \nLow: ", low, "°C (",low_f, "°F) | High: ", high, "°C (",high_f, "°F) \nDaily average: ", 
-    avg_daily, "°C (", avg_daily_f, "°F)",
-    sep = "")
+paste0("Temperature on: ", dmy)
+paste0("Low: ", low, "°C (",low_f, "°F) | High: ", high, "°C (",high_f, "°F)")
+paste0("Daily average: ", avg_daily, "°C (", avg_daily_f, "°F)")
 
 ```
+
+### Optional additional output
+
+Tidy the output to be one string separated by lines.
+
+```{r}
+#| echo: false
+
+cat(
+  paste0("Temperature on: ", dmy),
+  paste0("Low: ", low, "°C (",low_f, "°F) | High: ", high, "°C (",high_f, "°F)"),
+  paste0("Daily average: ", avg_daily, "°C (", avg_daily_f, "°F)"),
+  sep = "\n"
+)
+```
+
 
 ### The data
 

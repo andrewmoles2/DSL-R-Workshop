@@ -1,15 +1,23 @@
 ---
 title: "Project 3 - Weather Application Continued"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc-depth: 4
+    toc-location: right-body
 author:
    - name: Andrew Moles
      affiliation: Learning Developer, Digital Skills Lab
-date: today
+date: today    
+
 ---
 
 ## Learning objectives:
 - Create vectors
 - Use calculations on vectors
 - Extract elements from vectors
+- Using boolean indexing on vectors
 - Print out hourly weather reports using iteration
 
 
@@ -17,7 +25,9 @@ date: today
 
 We will continue to write a program that tells us various metrics on what the weather is doing. Your code will automate the process of taking data and making it into a presentable format. 
 
-### Make a hourly weather report:
+We will be aiming for two outcomes in this project.
+
+### Outcome 1 - Make a hourly weather report:
 
 You should end up with a output that iterates through each element of your temperatures and times data. Each line should be an hour with the temperature in Celsius and Fahrenheit (in brackets). 
 
@@ -37,28 +47,28 @@ dates <- c("30/06/2025 01:00:00", "30/06/2025 02:00:00", "30/06/2025 03:00:00",
            "30/06/2025 19:00:00", "30/06/2025 20:00:00", "30/06/2025 21:00:00",
            "30/06/2025 22:00:00", "30/06/2025 23:00:00")
 
-temperature_convert <- function(temp_data, unit) {
-  if (unit == "F") {
-    temp_data <- (temp_data * 9/5) + 32
-  } else if (unit == "C") {
-    temp_data <- (temp_data - 32) * 5/9
-  } else {
-    print("Please provide unit you want to convert to of °C or °F")
-  }
-  return(temp_data)
-}
+#temperature_convert <- function(temp_data, unit) {
+#  if (unit == "F") {
+#    temp_data <- (temp_data * 9/5) + 32
+#  } else if (unit == "C") {
+#    temp_data <- (temp_data - 32) * 5/9
+#  } else {
+#    print("Please provide unit you want to convert to of °C or °F")
+#  }
+#  return(temp_data)
+#}
 
 dmy <- substr(dates[1], 1, 10)
-temps_f <- temperature_convert(temps, "F")
+temps_f <- (temps * 9/5) + 32
 hour <- substr(dates, 12, 13)
 
 # classic print-paste method
-#print(paste0("Hourly temperatures on: ", substr(dates[1], 1, 10)))
-#for (i in 1:length(temps)) {
-#  print(
-#    paste0("Temperature at ", hour[i], ": ",  temps[i], "°C (", temps_f[i], "°F)")
-#    )
-#}
+print(paste0("Hourly temperatures on: ", substr(dates[1], 1, 10)))
+for (i in 1:length(temps)) {
+  print(
+    paste0("Temperature at ", hour[i], ": ",  temps[i], "°C (", temps_f[i], "°F)")
+    )
+}
 
 # using cat instead of print-paste (personal fav)
 #for (i in 1:length(temps)) {
@@ -67,13 +77,28 @@ hour <- substr(dates, 12, 13)
 #}
 
 # the same but using the recommended seq_along method
-cat("Hourly temperatures on: ", substr(dates[1], 1, 10), sep = "")
-for (i in seq_along(temps)) {
-    cat("Temperature at ", hour[i], ": ",  temps[i], "°C (", temps_f[i], "°F)\n",
-      sep = "")
-}
+#cat("Hourly temperatures on: ", substr(dates[1], 1, 10), sep = "")
+#for (i in seq_along(temps)) {
+#    cat("Temperature at ", hour[i], ": ",  temps[i], "°C (", temps_f[i], "°F)\n",
+#      sep = "")
+#}
 
 ```
+
+
+### Outcome 2 - Finding hours with high temperatures
+
+We can filter our temperature vector, which we can add names to, which tells us which hours had temperatures over 30°C. 
+
+You should end up with an output, like below, that has the hour information and the temperature information in one vector. 
+
+```{r}
+#| echo: false
+
+names(temps) <- hour
+temps[temps > 30]
+```
+
 
 ### The data
 
@@ -112,14 +137,22 @@ Convert the hourly temperatures data to Fahrenheit and store the result as a new
 ### Part 6 - start making the text output
 Our ultimate task is to iterate through our temperature and date data to print out a message telling us the temperature for each hour. To get there it is sometimes helpful to breakdown the process. 
 
-Try first to get a make an output for just the first hour, like the result below, using vector indexing to get the data you need. Then use string concatenation to bring all the information together to create a text output. 
+Try first to a make an output for just the first hour, like the result below, using vector indexing to get the data you need. Then use string concatenation to bring all the information together to create a text output. 
 
 `r paste("Temperature at ", hour[1], ": ",  temps[1], "°C (", temps_f[1], "°F)\n", sep = "")`
 
 ### Task 7 - finish the text output
 Now using the code you just wrote, iterate your code so you get the hourly weather report with both Celsius and Fahrenheit.
 
-### Part 8 - test your code with new data
+### Task 8 - naming a vector
+
+Using vector naming, add the hours vector as a name to the temperature vector.
+
+### Part 9 - filtering the temperature vector
+
+Using boolean indexing, filter the temperature vector so we are only left with temperatures over 30°C.
+
+### Part 10 - test your code with new data
 A good way to test out your code is to try it on different data. 
 
 Below we have the temperature data for a few days after the data we have been using. Using the steps you did previously, write a weather report using this new data. 
@@ -136,7 +169,7 @@ Below we have the temperature data for a few days after the data we have been us
 
 ### Optional outcome
 
-Can you also get the result to be a list as two columns.
+Can you also get the result to be a vector?
 
 ```{r}
 #| echo: false
@@ -144,6 +177,5 @@ Can you also get the result to be a list as two columns.
 paste0("Hourly temperatures on: ", substr(dates[1], 1, 10))
 paste0("Temperature at ", substr(dates, 12, 13), ": ",  temps, "°C (", temps_f, "°F)")
 
-paste0("Temperature at ", substr(dates, 12, 13), ": ",  temps, "°C (", temps_f, "°F)")
 ```
 
