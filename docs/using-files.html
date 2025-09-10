@@ -259,6 +259,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <ul>
   <li><a href="#windows-users" id="toc-windows-users" class="nav-link" data-scroll-target="#windows-users">Windows users</a></li>
   <li><a href="#mac-users" id="toc-mac-users" class="nav-link" data-scroll-target="#mac-users">Mac users</a></li>
+  <li><a href="#rstudio-overview" id="toc-rstudio-overview" class="nav-link" data-scroll-target="#rstudio-overview">RStudio overview</a></li>
   </ul></li>
   <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link" data-scroll-target="#r-scripts">R Scripts</a>
   <ul>
@@ -303,6 +304,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <ul>
   <li><a href="#windows-users" id="toc-windows-users">Windows users</a></li>
   <li><a href="#mac-users" id="toc-mac-users">Mac users</a></li>
+  <li><a href="#rstudio-overview" id="toc-rstudio-overview">RStudio overview</a></li>
   </ul></li>
   <li><a href="#r-scripts" id="toc-r-scripts">R Scripts</a>
   <ul>
@@ -326,12 +328,11 @@ document.addEventListener("DOMContentLoaded", function() {
 <figcaption>Video guide showing how to get setup for R workshop</figcaption>
 </figure>
 </div>
-<p>The following sections give more information on scripts and R Markdown documents, as well as setup instructions for the workshops.</p>
+<p>The following sections give more information on R scripts and R Markdown documents, as well as setup instructions for the workshops.</p>
 </section>
 <section id="opening-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="opening-rstudio">Opening RStudio</h2>
 <p>If you have not done so already, open RStudio!</p>
-<p>Once RStudio is open we have written guides with images on this page and a video guide which can be found <a href="#sec-video_setup" class="quarto-xref">Section&nbsp;1</a>.</p>
 <section id="windows-users" class="level3">
 <h3 class="anchored" data-anchor-id="windows-users">Windows users</h3>
 <ul>
@@ -345,6 +346,9 @@ document.addEventListener("DOMContentLoaded", function() {
 <li>Hit command + space and type in <code>RStudio</code></li>
 <li>If you prefer to look for RStudio in an applications folder (open finder and select Applications on the left panel), you should be looking for this icon: <img src="images/rs.png" class="img-fluid"></li>
 </ul>
+</section>
+<section id="rstudio-overview" class="level3">
+<h3 class="anchored" data-anchor-id="rstudio-overview">RStudio overview</h3>
 <p>When RStudio opens you should see a layout with 3 panels, similar to the image below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -360,7 +364,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <figcaption>R version displayed in RStudio console, image from 2023</figcaption>
 </figure>
 </div>
-<p>There are three ways of running R code: console, scripts and R Markdown. In the R workshops we use R Markdown.</p>
+<p>There are three ways of running R code: the console, R scripts and R Markdown. In the R workshops we use R scripts, but R markdown can also be used if preferred.</p>
 </section>
 </section>
 <section id="r-scripts" class="level2">
@@ -376,13 +380,14 @@ What are R Scripts?
 </div>
 <div class="callout-body-container callout-body">
 <p>An R Script file is a text file that contains a set of commands, or code, written in the R programming language. They are simple to use, allowing you to save the code you have written for later.</p>
-<p>An in-depth description can be found in the <a href="https://r4ds.hadley.nz/workflow-scripts.html">R for Data Science</a> open source book</p>
+<p>An in-depth description can be found in the <a href="https://r4ds.hadley.nz/workflow-scripts.html" target="_blank">R for Data Science</a> open source book.</p>
 </div>
 </div>
 <section id="opening-r-scripts" class="level3">
 <h3 class="anchored" data-anchor-id="opening-r-scripts">Opening R Scripts</h3>
-<p>If you move your mouse/curser to the top of your screen you will see a banner with <em>file</em>, <em>edit</em>, <em>code</em> etc. Using <code>File &gt; Open File...</code>, find the R script file to load. R script files have the extension <code>.R</code>.</p>
-<p>To start a new R script file go to <code>File &gt; New File &gt; R Script</code>, or use the keyboard shortcut <code>ctrl/command + shift + N</code>.</p>
+<p>If you move your mouse/courser to the top of your screen you will see a banner with <em>file</em>, <em>edit</em>, <em>code</em> etc.</p>
+<p>To start a new R script: go to <code>File &gt; New File &gt; R Script</code>, or use the keyboard shortcut <code>ctrl/command + shift + N</code>.</p>
+<p>To open a saved R script: use <code>File &gt; Open File...</code>, find the R script file to load. R script files have the extension <code>.R</code>.</p>
 </section>
 <section id="using-r-scripts" class="level3">
 <h3 class="anchored" data-anchor-id="using-r-scripts">Using R Scripts</h3>
@@ -418,17 +423,21 @@ What is R Markdown?
 </div>
 <div class="callout-body-container callout-body">
 <p>An R Markdown file has sections of text and code together in a single document. This is helpful for tutorials, documentation, and writing reports.</p>
-<p>An in-depth description can be found in the <a href="https://r4ds.had.co.nz/r-markdown.html">R for Data Science</a> open source book</p>
+<p>An in-depth description can be found in the <a href="https://r4ds.had.co.nz/r-markdown.html" target="_blank">R for Data Science</a> open source book</p>
 </div>
 </div>
 <section id="opening-r-markdown-files" class="level3">
 <h3 class="anchored" data-anchor-id="opening-r-markdown-files">Opening R Markdown files</h3>
-<p>Opening a R Markdown file is very similar to opening a file in other software. If you move your mouse/curser to the top of your screen you will see a banner with <em>file</em>, <em>edit</em>, <em>code</em> etc. Using <code>File &gt; Open File...</code>, find the R Markdown file to load. R Markdown files have the extension <code>.Rmd</code>.</p>
-<p>To start a new R markdown file go to <code>File &gt; New File &gt; R Markdown...</code>.</p>
+<p>Opening a R Markdown file is very similar to opening a file in other software. If you move your mouse/courser to the top of your screen you will see a banner with <em>file</em>, <em>edit</em>, <em>code</em> etc.</p>
+<p>To start a new R markdown file: go to <code>File &gt; New File &gt; R Markdown...</code>.</p>
+<p>To load a R markdown file: Use <code>File &gt; Open File...</code>, find the R Markdown file to load. R Markdown files have the extension <code>.Rmd</code>.</p>
 </section>
 <section id="using-a-r-markdown-file" class="level3">
 <h3 class="anchored" data-anchor-id="using-a-r-markdown-file">Using a R Markdown file</h3>
-<p>We are using R Markdown notebooks for these workshops as we can add text around code, which can help us guide you. The image below shows the basic layout of a R Markdown document.</p>
+<p>The image below shows the basic layout of a R Markdown document.</p>
+<p>The top section (between the —) is the <em>YAML</em> header which is used when making documents from R markdown.</p>
+<p>The hash tags show headers, and below them is text.</p>
+<p>The grey sections are where you write your code.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -443,7 +452,6 @@ What is R Markdown?
 <p>The most important thing for you to take note of is the code cells. Each code cell is like a small R script. You’ll notice the ``` markings around the code cell. It is important these do not get deleted, so be careful when editing your code!</p>
 <p>A top tip is to change the mode of your R Markdown file from <code>source</code> to <code>visual</code> which provides a more pleasing environment to code in. To do this you will find the option near the <strong><em>top right of your RStudio window</em></strong>.</p>
 <p>Finally, you can add your own code cell using <code>option+command+i</code> on a Mac or <code>ctrl + alt + i</code> on a Windows machine.</p>
-<p>Throughout the notebooks you will come across exercises, with empty code cells for you to type your code into. Your task is to test out the examples, then try and do the exercises.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

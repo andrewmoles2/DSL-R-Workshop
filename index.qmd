@@ -1,5 +1,5 @@
 ---
-title: "Digital Skills Lab R workshops"
+title: "R workshops - Digital Skills Lab"
 #image: images/DigitalSkillsLab.png
 #about:
   #template: marquee
@@ -14,13 +14,11 @@ title: "Digital Skills Lab R workshops"
 #      href: https://apps.lse.ac.uk/training-system/userBooking/course/9774459
 ---
 
-This website provides and introduction to the R workshops run by the Digital Skills Lab (DSL) at LSE. You can navigate this website using the top bar menu, where you can find information about:
+This website provides an introduction to the R workshops run by the Digital Skills Lab (DSL) at LSE. You can navigate this website using the menu on the left, where you can find information about:
 
 -   Why R is a popular programming language and why you should learn it
 
 -   How to install R and RStudio on to your own laptops
-
--   Information about the workshops which includes download links
 
 -   How to get started with the workshops materials
 
@@ -30,6 +28,6 @@ This website provides and introduction to the R workshops run by the Digital Ski
 
 -   A testing ground for playing around with R where you can run R through this website
 
-For support email the use at Digital.Skills.Lab\@lse.ac.uk.
+For support email the use at Digital.Skills.Lab\@lse.ac.uk or look on our [website](https://info.lse.ac.uk/current-students/digital-skills-lab){target="_blank"}
 
 ![](images/DigitalSkillsLab.png){width="25%"} ![](images/r_logo.png){width="12%"}

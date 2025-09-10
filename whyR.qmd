@@ -24,12 +24,23 @@ Further, there are the vast amount of online resources in forms of tutorials, bl
 
 Some of the best available resources to learn R are:
 
--   [R for Data Science book](https://r4ds.hadley.nz/) and the [first edition](https://r4ds.had.co.nz/) is still great
--   [R for Data Science slack channel](https://rfordatasci.com/) has great community support
--   [Codecademy](https://www.codecademy.com/learn/learn-r) R course
--   [R bloggers](https://www.r-bloggers.com/) collates blog posts about R. Some blogs I would recommend checking out are https://www.cedricscherer.com/, https://karaman.is/, https://djnavarro.net/, https://github.com/tashapiro/TidyTuesday, https://www.yan-holtz.com/blog.html, and https://albert-rapp.de/blog.html
--   For data visualisation ggplot2 is the go to tool, and the best way to learn it is to run through [this book](https://ggplot2-book.org/) and using the [R graph gallery](https://r-graph-gallery.com/)
--   For getting some open source data to start your own projects I would recommend the tidy Tuesday initiative. All dataset are hosted in [github](https://github.com/rfordatascience/tidytuesday).
+-   [R for Data Science book](https://r4ds.hadley.nz/){target="_blank"} and the [first edition](https://r4ds.had.co.nz/){target="_blank"} is still great
+-   [R for Data Science slack channel](https://rfordatasci.com/){target="_blank"} has great community support
+-   [Codecademy](https://www.codecademy.com/learn/learn-r){target="_blank"} R course
+-   [R bloggers](https://www.r-bloggers.com/){target="_blank"} collates blog posts about R. Some blogs I would recommend checking out are https://www.cedricscherer.com/, https://karaman.is/, https://djnavarro.net/, https://github.com/tashapiro/TidyTuesday, https://www.yan-holtz.com/blog.html, and https://albert-rapp.de/blog.html
+-   For data visualisation ggplot2 is the go to tool, and the best way to learn it is to run through [the ggplot2 book](https://ggplot2-book.org/){target="_blank"} and using the [R graph gallery](https://r-graph-gallery.com/){target="_blank"}
+-   For getting some open source data to start your own projects I would recommend the tidy Tuesday initiative. All datasets are hosted in [github](https://github.com/rfordatascience/tidytuesday){target="_blank"}.
+-   [Statquest](https://www.youtube.com/@statquest){target="_blank"} is a YouTube channel that provides clear explanations of statistical methods, and how do do them in R.
+
+    -   Take this example of how to do a [linear regression in R](https://www.youtube.com/watch?v=u1cc1r_Y7M0&list=PLblh5JKOoLUJJpBNfk8_YadPwDTO2SCbx&index=5){target="_blank"}
+
+    -   Or this for a [multiple linear regression in R](https://www.youtube.com/watch?v=hokALdIst8k&list=PLblh5JKOoLUJJpBNfk8_YadPwDTO2SCbx&index=7){target="_blank"}
+
+-   [Modern stats with R](https://www.modernstatisticswithr.com/regression.html#){target="_blank"} book provides some useful examples
+
+-   [R tutor](https://www.r-tutor.com/elementary-statistics){target="_blank"} which provides short examples of lots of statistical tests.
+
+-   [R statistics tutorials](https://r-statistics.co/Statistical-Tests-in-R.html){target="_blank"} which are longer tutorials on models like regression.
 
 ## Some examples of R being awesome for Data visualisation
 
@@ -165,7 +176,7 @@ girafe(ggobj = dr_w, fonts = list("Arial"),
 ```
 
 
-Below is an example of using the [http://quanteda.io/](Quanteda) package for text analysis, which is developed here at LSE by Ken Benoit. It is a visualisation to show how readable inaugural speeches from presidents have been since 1945. A higher score means the text used in the speech more readable.
+Below is an example of using the [http://quanteda.io/](Quanteda){target="_blank"} package for text analysis, which is developed here at LSE by Ken Benoit. It is a visualisation to show how readable inaugural speeches from presidents have been since 1945. A higher score means the text used in the speech is more readable.
 
 ```{r quanteda, message=FALSE, warning=FALSE}
 #| code-fold: true
@@ -198,7 +209,7 @@ ggplot(inaugural_readability,
   geom_segment(aes(xend = document, yend = avg_readability),
                linetype = 3, linewidth = 1.2) +
   geom_text(aes(label = round(Flesch, 1)), 
-            colour = text_col, size = 2.5, family = "Avenir") +
+            colour = text_col, size = 2, family = "Avenir") +
   annotate(geom = "text", x = "2005-Bush", y = 69,
            family = "Avenir", size = 4,
            label = paste0("Average readability: ", round(avg_readability,2))) +
