@@ -130,7 +130,9 @@ kane_best
 
 ### The data
 
-We will be using the csv file provided (`harry_kane_stats.csv`). 
+We will be using the csv file provided (`harry_kane_stats.csv`). Click the link below to download the data. 
+
+{{< downloadthis resources/harry_kane_stats.csv label='Download csv file' dname=project_4_data icon=folder-fill type=success >}}
 
 The dataset provides general football metrics on each season Harry Kane has played, from 2010-2025. 
 
