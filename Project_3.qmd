@@ -167,6 +167,11 @@ Below we have the temperature data for a few days after the data we have been us
 
 ### Final task - fill out the survey!
 
+
+We are always looking to improve and iterate our workshops. [Follow the link to give your feedback](https://lse.eu.qualtrics.com/jfe/form/SV_0vJs5yGpF1F359I?coursename=R Projects 3: Building a Weather Application Continued&topic=R&prog=DS&version=25-26){target="_blank"}.
+
+
+ <!--
 ### Optional outcome
 
 Can you also get the result to be a vector?
@@ -178,4 +183,7 @@ paste0("Hourly temperatures on: ", substr(dates[1], 1, 10))
 paste0("Temperature at ", substr(dates, 12, 13), ": ",  temps, "°C (", temps_f, "°F)")
 
 ```
+
+--->
+
 

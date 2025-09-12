@@ -184,6 +184,11 @@ You should be able to adjust the code you have written to select the columns.
 
 ### Final task - fill out the survey!
 
+
+We are always looking to improve and iterate our workshops. [Follow the link to give your feedback](https://lse.eu.qualtrics.com/jfe/form/SV_0vJs5yGpF1F359I?coursename=R Projects 4: Football Data Analysis&topic=R&prog=DS&version=25-26){target="_blank"}.
+
+
+
 ```{r datatable}
 #| echo: false
 #| eval: false

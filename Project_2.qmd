@@ -142,6 +142,11 @@ Below we have the temperature data for a few days after the data we have been us
 
 ### Final task - fill out the survey!
 
+
+We are always looking to improve and iterate our workshops. [Follow the link to give your feedback](https://lse.eu.qualtrics.com/jfe/form/SV_0vJs5yGpF1F359I?coursename=R Projects 2: Building a Weather Application&topic=R&prog=DS&version=25-26){target="_blank"}.
+
+
+
  <!--
 ### Optional extra
 

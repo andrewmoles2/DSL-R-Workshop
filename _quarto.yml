@@ -11,8 +11,12 @@ website:
   reader-mode: true
   favicon: "images/colourful_flora.png"
   sidebar:
+    search: true
     style: "docked"
     logo: "images/DigitalSkillsLab.png"
+    tools:
+      - icon: github
+        href: https://github.com/andrewmoles2/DSL-R-Workshop
     contents:
       - section: "📚 Information"
         contents: 
@@ -46,8 +50,7 @@ website:
             text: ℹ️ FAQ
           - href: example-page.qmd
             text: 🧪 R Testing Ground
-      - icon: github
-        href: https://github.com/andrewmoles2
+
 
 format:
   html:
