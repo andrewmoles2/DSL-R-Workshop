@@ -55,8 +55,9 @@ website:
 format:
   html:
     theme:
-        - flatly
-        - css/roboto.css
+    #https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/17-dark-mode/
+      light: [flatly, css/roboto.css]
+      dark: [darkly, css/roboto.css]
     css: css/styles.css
     toc: true
     toc-depth: 4
