@@ -14,7 +14,7 @@ A lot of LSE courses that involved statistics or data primarily use R. This is b
 
 R is an open-source tool, which means you do not need to buy a licence in order to use it, and is a popular programming language, as shown in the PYPL index from 2023
 
-![PYPL index 2023](https://raw.githubusercontent.com/andrewmoles2/rTrainIntroduction/main/r-fundamentals-1/Images/PYPL_index_23.png){width="400" fig-align="center"}
+![PYPL index 2023](https://raw.githubusercontent.com/andrewmoles2/rTrainIntroduction/main/r-fundamentals-1/Images/PYPL_index_23.png){width="400" fig-align="center" fig-alt="Image that shows most popular programming languages in 2023 with R being 7th at the time."}
 
 ## Easy to learn
 
@@ -56,6 +56,11 @@ This webpage was built using R. If you are interested, come to the workshops and
 
 
 ```{r interactive, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Interactive graphic of Dr Who episodes IMDB rating by actor playing the Doctor", out.width='100%'}
+#| fig-alt: |
+#|   Interactive scatterplot graphic of Dr Who episodes IMDB rating by actor playing the Doctor.
+#|   The graphic shows David Tennant and Matt Smith had the best average ratings.
+
+
 
 # load libraries ----
 library(tidyverse, warn.conflicts = FALSE)
@@ -176,12 +181,16 @@ girafe(ggobj = dr_w, fonts = list("Arial"),
 ```
 
 
-Below is an example of using the [http://quanteda.io/](Quanteda){target="_blank"} package for text analysis, which is developed here at LSE by Ken Benoit. It is a visualisation to show how readable inaugural speeches from presidents have been since 1945. A higher score means the text used in the speech is more readable.
+Below is an example of using the [Quanteda](https://quanteda.io/){target="_blank"} package for text analysis, which is developed here at LSE by Ken Benoit. It is a visualisation to show how readable inaugural speeches from presidents have been since 1945. A higher score means the text used in the speech is more readable.
 
 ```{r quanteda, message=FALSE, warning=FALSE}
 #| code-fold: true
 #| code-summary: "Show the code"
 #| out-width: '100%'
+#| fig-alt: |
+#|   Lollipop chart showing inaugural speeches from presidents since 1945 and how readable they are.
+#|   Truman in 1949 has the worse rating with Trump and Bidan having the highest rating (2021 and 2025).
+
 
 # load libraries
 library(quanteda)

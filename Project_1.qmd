@@ -59,23 +59,44 @@ new_york_txt <- paste0("The temperature in New York is ", new_york_temp_f, "°F,
 
 ## Steps to help you get to the outcome
 
-### Part 1 - The setup
+### Part 1 - the setup
 Open an R script file and save it.
 
-### Part 2 - starting with calculations
+### Part 2 - printing values
 
-When working through a problem it is often sensible to break it down and start with something simple. 
+Print the value 25. 
 
-Use R to calculate:
 
-- 25 Celsius as Fahrenheit  
-- 80 Fahrenheit as Celsius
+### Part 3 - Celsius to Fahrenheit calculation
 
-### Part 3 - using variables
+Transform the value of 25 Celsius to Fahrenheit with this formula:
 
-Using the calculations you made, create variables to store the temperature values and the calculated output values.  
+$(Celsius \times 9/5) + 32$
 
-### Part 4 - making a text output
+### Part 4 - using variables
+
+Store the value of the temperature in Celsius (25) and print it using the stored value.
+
+::: {.callout-note appearance="simple"}
+There are some useful resources online which can help you such as [W3schools](https://www.w3schools.com/r/r_variables.asp){target="_blank"}.
+:::
+
+
+### Part 5 - calculations using variables
+
+Use the stored Celsius value to calculate the temperature in Fahrenheit. 
+
+Store the outcome of this calculation and print it using the stored value. 
+
+### Part 6 - more calculations
+
+Transform the value of 80 Fahrenheit to Celsius with this formula:
+
+$(Fahrenheit - 32) \times 5/9$
+
+As before, store the Fahrenheit value and the outcome of the calculation. Print the outcome using the stored value. 
+
+### Part 7 - making a text output
 
 Now we can bring it all together to make our final output. 
 
@@ -83,19 +104,24 @@ Use R to make the two text outputs by concatenating elements from one or more va
 
 This should be automated, so if we change the variable for Celsius or Fahrenheit the code will show the new output. 
 
-### Part 5 - tidy up
+::: {.callout-tip appearance="simple"}
+You can search online here, or use the built in help page in RStudio. 
+
+For example, the `paste()` function will help you here. Try running `?paste` to bring up the help page in RStudio. 
+:::
+
+### Part 8 - tidy up
 
 Round the outputs to make sure we are looking at whole numbers only. 
 
-### Part 6 - try different temperatures
+### Part 9 - try different temperatures
 
-Test out your code with different temperatures. 
+Test out your code by converting different temperatures. 
 
-Change your temperature variables to the following:
+Change your temperature variables to the following and re-run your code:
 
 - 10 Celsius as Fahrenheit  
 - 20 Fahrenheit as Celsius
-
 
 ### Final task - fill out the survey!
 
