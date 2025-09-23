@@ -25,7 +25,7 @@ We will write a program that provides us with various metrics on Harry Kane (a f
 
 We will be aiming for two outcomes in this project. 
 
-### Outcome 1 - total career summary statistics
+### Outcome 1 - total career summary statistics {#sec-outcomeone}
 
 You should end up with a output that contains the following information, presented as two text outputs:
 
@@ -99,7 +99,7 @@ paste0("Goals: ",total_goals,
 
 ***
 
-### Outcome 2 - filtered dataset showing highest scoring years
+### Outcome 2 - filtered dataset showing highest scoring years {#sec-outcometwo}
 
 You should end up with a output that shows a filtered dataset with some selected columns. 
 
@@ -122,6 +122,7 @@ kane_best <- subset(kane,
        goals_assists > 30,
        select = selected_cols)
 kane_best
+
 # dplyr method
 #kane |> dplyr::select(all_of(selected_cols)) |> dplyr::filter(goals_assists > 30)
 ```
@@ -167,7 +168,7 @@ To build our career summary we will need to create variables with the metrics we
 - The total number of combined goals and assists 
 - The average expected goals 
 
-The metrics you produce should match what we see in outcome 1. 
+The metrics you produce should match what we see in @sec-outcomeone.  
 
 ### Part 5 - making career summary
 Print out the multi line string message that shows you the career summary metrics.
@@ -180,7 +181,7 @@ It is good practice to assign the results of your subset to a new data frame und
 ### Part 7 - selecting columns of a dataset
 Select the columns, shown in the second outcome, to make your results more presentable. 
 
-You should be able to adjust the code you have written to select the columns. 
+You should be able to adjust the code you have written to select the columns. Your outcome should be the same as seen in @sec-outcometwo. 
 
 ### Final task - fill out the survey!
 

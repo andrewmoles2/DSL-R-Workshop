@@ -27,7 +27,7 @@ We will continue to write a program that tells us various metrics on what the we
 
 We will be aiming for two outcomes in this project.
 
-### Outcome 1 - Make a hourly weather report:
+### Outcome 1 - Make a hourly weather report: {#sec-outcomeone}
 
 You should end up with a output that iterates through each element of your temperatures and times data. Each line should be an hour with the temperature in Celsius and Fahrenheit (in brackets). 
 
@@ -46,17 +46,6 @@ dates <- c("30/06/2025 01:00:00", "30/06/2025 02:00:00", "30/06/2025 03:00:00",
            "30/06/2025 16:00:00", "30/06/2025 17:00:00", "30/06/2025 18:00:00",
            "30/06/2025 19:00:00", "30/06/2025 20:00:00", "30/06/2025 21:00:00",
            "30/06/2025 22:00:00", "30/06/2025 23:00:00")
-
-#temperature_convert <- function(temp_data, unit) {
-#  if (unit == "F") {
-#    temp_data <- (temp_data * 9/5) + 32
-#  } else if (unit == "C") {
-#    temp_data <- (temp_data - 32) * 5/9
-#  } else {
-#    print("Please provide unit you want to convert to of °C or °F")
-#  }
-#  return(temp_data)
-#}
 
 dmy <- substr(dates[1], 1, 10)
 temps_f <- (temps * 9/5) + 32
@@ -86,7 +75,7 @@ for (i in 1:length(temps)) {
 ```
 
 
-### Outcome 2 - Finding hours with high temperatures
+### Outcome 2 - Finding hours with high temperatures {#sec-outcometwo}
 
 We can filter our temperature vector, which we can add names to, which tells us which hours had temperatures over 30°C. 
 
@@ -122,14 +111,14 @@ Open an R script file and save it.
 Using the data shown above, store the hourly temperatures and date and times data into R as vectors.
 
 ### Part 3 - string manipulation
-Extract part of the string from the date and time data to give you just the date element. Store the result as a variable, keeping just the first element; you should get the result below. 
+Extract part of the string, known as *substrings*, from the date and time data to give you just the date element. Store the result as a variable, keeping just the first element; you should get the result below. 
 
 `r dmy`
 
 We want to do this programmatically, so no copy and pasting from the data, also known as "hardcoding". This will help us to automate our code if we want to use different data. 
 
 ### Part 4 - more string manipulation
-Extract part of the string from the date and time data to give you just the hour elements. Store this as a vector. 
+Extract part of the string from the date and time data to give you just the hour elements. Store this as a new vector. 
 
 ### Part 5 - convert temperatures
 Convert the hourly temperatures data to Fahrenheit and store the result as a new vector.
@@ -142,7 +131,7 @@ Try first to a make an output for just the first hour, like the result below, us
 `r paste("Temperature at ", hour[1], ": ",  temps[1], "°C (", temps_f[1], "°F)\n", sep = "")`
 
 ### Task 7 - finish the text output
-Now using the code you just wrote, iterate your code so you get the hourly weather report with both Celsius and Fahrenheit.
+Now using the code you just wrote, iterate your code so you get the hourly weather report with both Celsius and Fahrenheit, as seen in @sec-outcomeone. 
 
 ### Task 8 - naming a vector
 
@@ -150,7 +139,7 @@ Using vector naming, add the hours vector as a name to the temperature vector.
 
 ### Part 9 - filtering the temperature vector
 
-Using boolean indexing, filter the temperature vector so we are only left with temperatures over 30°C.
+Using boolean indexing, filter the temperature vector so we are only left with temperatures over 30°C. Your outcome should be the same as seen in @sec-outcometwo. 
 
 ### Part 10 - test your code with new data
 A good way to test out your code is to try it on different data. 

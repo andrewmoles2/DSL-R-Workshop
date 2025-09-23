@@ -22,7 +22,7 @@ date: today
 
 We will write a program that tells us various metrics on what the weather is doing. Your code will automate the process of taking data and making it into a presentable format. 
 
-### Make a daily weather report:
+### Make a daily weather report: {#sec-outcome}
 
 You should end up with a output that has three lines:
 
@@ -44,26 +44,16 @@ dates <- c("30/06/2025 01:00:00", "30/06/2025 02:00:00", "30/06/2025 03:00:00",
            "30/06/2025 19:00:00", "30/06/2025 20:00:00", "30/06/2025 21:00:00",
            "30/06/2025 22:00:00", "30/06/2025 23:00:00")
 
-temperature_convert <- function(temp_data, unit) {
-  if (unit == "F") {
-    temp_data <- (temp_data * 9/5) + 32
-  } else if (unit == "C") {
-    temp_data <- (temp_data - 32) * 5/9
-  } else {
-    print("Please provide unit you want to convert to of °C or °F")
-  }
-  return(temp_data)
-}
 
 dmy <- substr(dates[1], 1, 10)
-
+temps_f <- (temps * 9/5) + 32
 low <- min(temps)
 high <- max(temps)
 avg_daily <- round(mean(temps), 2)
 
-low_f <- min(temperature_convert(temps, unit = "F"))
-high_f <- max(temperature_convert(temps, unit = "F"))
-avg_daily_f <- round(mean(temperature_convert(temps, unit = "F")), 2)
+low_f <- min(temps_f)
+high_f <- max(temps_f)
+avg_daily_f <- round(mean(temps_f), 2)
 
 paste0("Temperature on: ", dmy)
 paste0("Low: ", low, "°C (",low_f, "°F) | High: ", high, "°C (",high_f, "°F)")
@@ -109,7 +99,7 @@ A vector in R is a one-dimensional array of data that is the same data type.
 Using the data shown above, store the hourly temperatures and date and times data into R as vectors.
 
 ### Part 3 - string manipulation
-Extract part of the string from the date and time data to give you just the date element. Store the result as a variable, keeping just the first element; you should get the result below. 
+Extract part of the string, known as *substrings*, from the date and time data to give you just the date element. Store the result as a variable, keeping just the first element; you should get the result below. 
 
 `r dmy`
 
@@ -122,7 +112,7 @@ Calculate the lowest (minimum), highest (maximum), and average (mean) temperatur
 Convert the lowest, highest, and average temperatures from Celsius to Fahrenheit and store the results.
 
 ### Part 6 - making the text output
-Print out the multi line string message that shows you the daily weather report with both Celsius and Fahrenheit. 
+Print out the multi line string message that shows you the daily weather report with both Celsius and Fahrenheit, as shown in @sec-outcome.
 
 You'll need a different function to what we used previously to make string messages, and you will need to add escape characters to add the new lines. 
 

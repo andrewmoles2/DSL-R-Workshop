@@ -32,7 +32,7 @@ We will be looking at data on the Olympics. From this data we are asking the fol
 
 We will be aiming for two outcomes in this project. 
 
-### Outcome 1 - Make an aggregation to show your results
+### Outcome 1 - Make an aggregation to show your results {#sec-outcomeone}
 
 ```{r}
 #| echo: false
@@ -106,7 +106,7 @@ ungroup(relay_sprint_recode)
 ```
 
 
-### Outcome 2 - Make a bar plot to make your results look better
+### Outcome 2 - Make a bar plot to make your results look better {#sec-outcometwo}
 
 
 ```{r}
@@ -157,7 +157,9 @@ Using conditional element selection, convert the missing values in the medal col
 ### Part 4 - aggregation
 Aggregation is the process of splitting your data, applying a function, then combining the results. 
 
-Get summary statistics by group to show the number of individual medals won for each event. Save the results as a new data frame. 
+Get summary statistics by group to show the number of individual medals won for each event. 
+
+Save the results as a new data frame, and print the outcome. Your results should look like what we see in @sec-outcomeone. 
 
 ### Part 5 - making a initial visualisation
 R has packages that allow for elegant graphics for data analysis. 
@@ -173,7 +175,7 @@ R will default to ordering characters alphabetically.
 We want to split the chart window so each category of event has a separate plot. This is known as faceting. 
 
 ### Part 8 - final improvements on how the visualisation looks
-There are a few more minor adjustments to make to finish up our visualisation. 
+There are a few more minor adjustments to make to finish up our visualisation so it looks like what we see in @sec-outcometwo. 
 
 - Add colours to the bars, which has two steps: 
   * Make the fill aesthetic the same as your x axis

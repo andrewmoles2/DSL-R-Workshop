@@ -23,7 +23,7 @@ date: today
 
 We will write a program that can convert temperature data. Your code will automate the process of taking data and making it into a presentable format. 
 
-### Make a Celsius to Fahrenheit temperature converter
+### Make a Celsius to Fahrenheit temperature converter {#sec-outcome}
 
 We will write a programme that converts Celsius to Fahrenheit, and Fahrenheit to Celsius. It will then write out a helpful message. 
 
@@ -98,7 +98,7 @@ As before, store the Fahrenheit value and the outcome of the calculation. Print 
 
 ### Part 7 - making a text output
 
-Now we can bring it all together to make our final output. 
+Now we can bring it all together to make our final output as seen in @sec-outcome. 
 
 Use R to make the two text outputs by concatenating elements from one or more variables into a single string.
 
