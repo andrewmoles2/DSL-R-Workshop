@@ -36,16 +36,21 @@ It should also print out what the date at the top of your report.
 ```{r}
 #| echo: false
 
-temps <- c(20.8, 19.6, 18.7, 17.8, 17.7, 19.1, 21.4, 22.8, 24.1, 26.5, 27.8, 
-           29.4, 30.7, 31.8, 32.4, 32.0, 31.8, 31.5, 31.2, 29.9, 28.3, 27.1, 26.2)
-dates <- c("30/06/2025 01:00:00", "30/06/2025 02:00:00", "30/06/2025 03:00:00", 
-           "30/06/2025 04:00:00", "30/06/2025 05:00:00", "30/06/2025 06:00:00",
-           "30/06/2025 07:00:00", "30/06/2025 08:00:00", "30/06/2025 09:00:00",
-           "30/06/2025 10:00:00", "30/06/2025 11:00:00", "30/06/2025 12:00:00",
-           "30/06/2025 13:00:00", "30/06/2025 14:00:00", "30/06/2025 15:00:00",
-           "30/06/2025 16:00:00", "30/06/2025 17:00:00", "30/06/2025 18:00:00",
-           "30/06/2025 19:00:00", "30/06/2025 20:00:00", "30/06/2025 21:00:00",
-           "30/06/2025 22:00:00", "30/06/2025 23:00:00")
+temps <- c(16.5, 15.5, 14.3, 13.7, 12.4, 12, 12.6, 14.1, 16, 
+           18.2, 19.7, 21.1, 21.8, 22.6, 23.4, 24.3, 23.3, 
+           23.6, 23.1, 23.4, 23.4, 21.6, 20.7, 19.5)
+dates <- c("03/07/2025 00:00:00", "03/07/2025 01:00:00", 
+           "03/07/2025 02:00:00", "03/07/2025 03:00:00",
+           "03/07/2025 04:00:00", "03/07/2025 05:00:00", 
+           "03/07/2025 06:00:00", "03/07/2025 07:00:00", 
+           "03/07/2025 08:00:00", "03/07/2025 09:00:00", 
+           "03/07/2025 10:00:00", "03/07/2025 11:00:00", 
+           "03/07/2025 12:00:00", "03/07/2025 13:00:00", 
+           "03/07/2025 14:00:00", "03/07/2025 15:00:00", 
+           "03/07/2025 16:00:00", "03/07/2025 17:00:00", 
+           "03/07/2025 18:00:00", "03/07/2025 19:00:00", 
+           "03/07/2025 20:00:00", "03/07/2025 21:00:00",
+           "03/07/2025 22:00:00", "03/07/2025 23:00:00")
 
 dmy <- substr(dates[1], 1, 10)
 temps_f <- (temps * 9/5) + 32
@@ -77,7 +82,7 @@ for (i in 1:length(temps)) {
 
 ### Outcome 2 - Finding hours with high temperatures {#sec-outcometwo}
 
-We can filter our temperature vector, which we can add names to, which tells us which hours had temperatures over 30°C. 
+We can filter our temperature vector, which we can add names to, which tells us which hours had temperatures over 20°C. 
 
 You should end up with an output, like below, that has the hour information and the temperature information in one vector. 
 
@@ -85,7 +90,7 @@ You should end up with an output, like below, that has the hour information and 
 #| echo: false
 
 names(temps) <- hour
-temps[temps > 30]
+temps[temps > 20]
 ```
 
 
@@ -95,11 +100,11 @@ Using the data below we will be making a weather reporting tool for a hourly rep
 
 **Hourly temperatures:**
 
-`20.8, 19.6, 18.7, 17.8, 17.7, 19.1, 21.4, 22.8, 24.1, 26.5, 27.8, 29.4, 30.7, 31.8, 32.4, 32.0, 31.8, 31.5, 31.2, 29.9, 28.3, 27.1, 26.2`
+`16.5, 15.5, 14.3, 13.7, 12.4, 12, 12.6, 14.1, 16, 18.2, 19.7, 21.1, 21.8, 22.6, 23.4, 24.3, 23.3, 23.6, 23.1, 23.4, 23.4, 21.6, 20.7, 19.5`
 
 **Date and times:**
 
-`"30/06/2025 01:00:00", "30/06/2025 02:00:00", "30/06/2025 03:00:00", "30/06/2025 04:00:00", "30/06/2025 05:00:00", "30/06/2025 06:00:00", "30/06/2025 07:00:00", "30/06/2025 08:00:00", "30/06/2025 09:00:00", "30/06/2025 10:00:00", "30/06/2025 11:00:00", "30/06/2025 12:00:00","30/06/2025 13:00:00", "30/06/2025 14:00:00", "30/06/2025 15:00:00", "30/06/2025 16:00:00", "30/06/2025 17:00:00", "30/06/2025 18:00:00","30/06/2025 19:00:00", "30/06/2025 20:00:00", "30/06/2025 21:00:00", "30/06/2025 22:00:00", "30/06/2025 23:00:00"`
+`"03/07/2025 00:00:00", "03/07/2025 01:00:00", "03/07/2025 02:00:00", "03/07/2025 03:00:00", "03/07/2025 04:00:00", "03/07/2025 05:00:00", "03/07/2025 06:00:00", "03/07/2025 07:00:00", "03/07/2025 08:00:00", "03/07/2025 09:00:00", "03/07/2025 10:00:00", "03/07/2025 11:00:00", "03/07/2025 12:00:00", "03/07/2025 13:00:00", "03/07/2025 14:00:00", "03/07/2025 15:00:00", "03/07/2025 16:00:00", "03/07/2025 17:00:00", "03/07/2025 18:00:00", "03/07/2025 19:00:00", "03/07/2025 20:00:00", "03/07/2025 21:00:00", "03/07/2025 22:00:00", "03/07/2025 23:00:00"`
 
 
 ## Steps to help you get to the outcome
@@ -108,7 +113,7 @@ Using the data below we will be making a weather reporting tool for a hourly rep
 Open an R script file and save it.
 
 ### Part 2 - using vectors
-Using the data shown above, store the hourly temperatures and date and times data into R as vectors.
+Using the data shown above, store the hourly temperatures and date and times data into R as vectors. Note that this data is from a different date to the data we used in project 2. 
 
 ### Part 3 - string manipulation
 Extract part of the string, known as *substrings*, from the date and time data to give you just the date element. Store the result as a variable, keeping just the first element; you should get the result below. 
@@ -139,7 +144,7 @@ Using vector naming, add the hours vector as a name to the temperature vector.
 
 ### Part 9 - filtering the temperature vector
 
-Using boolean indexing, filter the temperature vector so we are only left with temperatures over 30°C. Your outcome should be the same as seen in @sec-outcometwo. 
+Using boolean indexing, filter the temperature vector so we are only left with temperatures over 20°C. Your outcome should be the same as seen in @sec-outcometwo. 
 
 ### Part 10 - test your code with new data
 A good way to test out your code is to try it on different data. 
@@ -148,11 +153,12 @@ Below we have the temperature data for a few days after the data we have been us
 
 **Hourly temperatures:**
 
-`16.5, 15.5, 14.3, 13.7, 12.4, 12, 12.6, 14.1, 16, 18.2, 19.7, 21.1, 21.8, 22.6, 23.4, 24.3, 23.3, 23.6, 23.1, 23.4, 23.4, 21.6, 20.7, 19.5`
+`20.8, 19.6, 18.7, 17.8, 17.7, 19.1, 21.4, 22.8, 24.1, 26.5, 27.8, 29.4, 30.7, 31.8, 32.4, 32.0, 31.8, 31.5, 31.2, 29.9, 28.3, 27.1, 26.2`
 
 **Date and times:**
 
-`"03/07/2025 00:00:00", "03/07/2025 01:00:00", "03/07/2025 02:00:00", "03/07/2025 03:00:00", "03/07/2025 04:00:00", "03/07/2025 05:00:00", "03/07/2025 06:00:00", "03/07/2025 07:00:00", "03/07/2025 08:00:00", "03/07/2025 09:00:00", "03/07/2025 10:00:00", "03/07/2025 11:00:00", "03/07/2025 12:00:00", "03/07/2025 13:00:00", "03/07/2025 14:00:00", "03/07/2025 15:00:00", "03/07/2025 16:00:00", "03/07/2025 17:00:00", "03/07/2025 18:00:00", "03/07/2025 19:00:00", "03/07/2025 20:00:00", "03/07/2025 21:00:00", "03/07/2025 22:00:00", "03/07/2025 23:00:00"`
+`"30/06/2025 01:00:00", "30/06/2025 02:00:00", "30/06/2025 03:00:00", "30/06/2025 04:00:00", "30/06/2025 05:00:00", "30/06/2025 06:00:00", "30/06/2025 07:00:00", "30/06/2025 08:00:00", "30/06/2025 09:00:00", "30/06/2025 10:00:00", "30/06/2025 11:00:00", "30/06/2025 12:00:00","30/06/2025 13:00:00", "30/06/2025 14:00:00", "30/06/2025 15:00:00", "30/06/2025 16:00:00", "30/06/2025 17:00:00", "30/06/2025 18:00:00","30/06/2025 19:00:00", "30/06/2025 20:00:00", "30/06/2025 21:00:00", "30/06/2025 22:00:00", "30/06/2025 23:00:00"`
+
 
 ### Final task - fill out the survey!
 

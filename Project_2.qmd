@@ -44,8 +44,8 @@ dates <- c("30/06/2025 01:00:00", "30/06/2025 02:00:00", "30/06/2025 03:00:00",
            "30/06/2025 19:00:00", "30/06/2025 20:00:00", "30/06/2025 21:00:00",
            "30/06/2025 22:00:00", "30/06/2025 23:00:00")
 
-
-dmy <- substr(dates[1], 1, 10)
+dmy <- dates[1]
+dmy <- substr(dmy, 1, 10)
 temps_f <- (temps * 9/5) + 32
 low <- min(temps)
 high <- max(temps)
@@ -58,6 +58,7 @@ avg_daily_f <- round(mean(temps_f), 2)
 paste0("Temperature on: ", dmy)
 paste0("Low: ", low, "°C (",low_f, "°F) | High: ", high, "°C (",high_f, "°F)")
 paste0("Daily average: ", avg_daily, "°C (", avg_daily_f, "°F)")
+
 
 ```
 
@@ -98,25 +99,26 @@ Open an R script file and save it.
 A vector in R is a one-dimensional array of data that is the same data type. 
 Using the data shown above, store the hourly temperatures and date and times data into R as vectors.
 
-### Part 3 - string manipulation
-Extract part of the string, known as *substrings*, from the date and time data to give you just the date element. Store the result as a variable, keeping just the first element; you should get the result below. 
+### Part 3 - indexing vectors
+Index the date and time vector to extract just the first element. Store the result as a variable. 
+
+### Part 4 - string manipulation
+Extract part of the string, known as *substrings*, from the variable you just made. Store the result as a variable. you should get the result below. 
 
 `r dmy`
 
 We want to do this programmatically, so no copy and pasting from the data, also known as "hardcoding". This will help us to automate our code if we want to use different data. 
 
-### Part 4 - calculate temperatures
+### Part 5 - calculate temperatures
 Calculate the lowest (minimum), highest (maximum), and average (mean) temperatures, storing the results as variables. If needed, round the results so it is more presentable. 
 
-### Part 5 - convert temperatures
+### Part 6 - convert temperatures
 Convert the lowest, highest, and average temperatures from Celsius to Fahrenheit and store the results.
 
-### Part 6 - making the text output
-Print out the multi line string message that shows you the daily weather report with both Celsius and Fahrenheit, as shown in @sec-outcome.
+### Part 7 - making the text output
+Print out the string messages that show you the daily weather report with both Celsius and Fahrenheit, as shown in @sec-outcome.
 
-You'll need a different function to what we used previously to make string messages, and you will need to add escape characters to add the new lines. 
-
-### Part 7 - test your code with new data
+### Part 8 - test your code with new data
 
 A good way to test out your code is to try it on different data. 
 
@@ -129,7 +131,6 @@ Below we have the temperature data for a few days after the data we have been us
 **Date and times:**
 
 `"03/07/2025 00:00:00", "03/07/2025 01:00:00", "03/07/2025 02:00:00", "03/07/2025 03:00:00", "03/07/2025 04:00:00", "03/07/2025 05:00:00", "03/07/2025 06:00:00", "03/07/2025 07:00:00", "03/07/2025 08:00:00", "03/07/2025 09:00:00", "03/07/2025 10:00:00", "03/07/2025 11:00:00", "03/07/2025 12:00:00", "03/07/2025 13:00:00", "03/07/2025 14:00:00", "03/07/2025 15:00:00", "03/07/2025 16:00:00", "03/07/2025 17:00:00", "03/07/2025 18:00:00", "03/07/2025 19:00:00", "03/07/2025 20:00:00", "03/07/2025 21:00:00", "03/07/2025 22:00:00", "03/07/2025 23:00:00"`
-
 ### Final task - fill out the survey!
 
 

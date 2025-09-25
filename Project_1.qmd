@@ -90,11 +90,11 @@ Store the outcome of this calculation and print it using the stored value.
 
 ### Part 6 - more calculations
 
-Transform the value of 80 Fahrenheit to Celsius with this formula:
+Store the value of 80 Fahrenheit, then transforming 80 Fahrenheit to Celsius with this formula:
 
 $(Fahrenheit - 32) \times 5/9$
 
-As before, store the Fahrenheit value and the outcome of the calculation. Print the outcome using the stored value. 
+Store the the outcome of the calculation. Print the outcome using the stored value. 
 
 ### Part 7 - making a text output
 
@@ -112,7 +112,7 @@ For example, the `paste()` function will help you here. Try running `?paste` to 
 
 ### Part 8 - tidy up
 
-Round the outputs to make sure we are looking at whole numbers only. 
+Round the outputs to make sure we are looking at whole numbers only. You will need to assign this result to a variable to use in your output.  
 
 ### Part 9 - try different temperatures
 
@@ -122,6 +122,18 @@ Change your temperature variables to the following and re-run your code:
 
 - 10 Celsius as Fahrenheit  
 - 20 Fahrenheit as Celsius
+
+### What should my code look like?
+
+Ideally, your code should have at minimum four variables:
+
+- The London temperature in Celsius
+- The New York temperature in Fahrenheit
+- The London temperature converted from Celsius to Fahrenheit
+- The New York temperature converted from Fahrenheit to Celsius
+
+You may have more such as variables for the text outputs you made. 
+
 
 ### Final task - fill out the survey!
 
