@@ -24,7 +24,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -45,6 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-2885e0d52e956fe47ae7754bff9642be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-7fad3b3fed92081dd61bac3364e27c1f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-2885e0d52e956fe47ae7754bff9642be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -384,6 +386,12 @@ document.addEventListener("DOMContentLoaded", function() {
  <span class="menu-text">🎓 Project 5 - Visualising Olympics data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Project_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🎓 Project 6 - Data generation and artwork</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -449,6 +457,14 @@ document.addEventListener("DOMContentLoaded", function() {
 <li><p>Frequently asked questions about the workshops and R</p></li>
 <li><p>A testing ground for playing around with R where you can run R through this website</p></li>
 </ul>
+<hr>
+<p><strong>Navigating the website</strong></p>
+<p>Use the left hand menu to navigate around the website to find what you need.</p>
+<p>If you are viewing the website on a split screen, you might not see the navigation bar on the left. To get to it click on the paper icon in the top left corner, which looks like the image below.</p>
+<p><a href="images/access_nav.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/access_nav.png" class="img-fluid" alt="Navigation bar icon"></a></p>
+<p>If you have opened this page and don’t see a navigation bar but instead see the image below, you will need to click on the down arrow to open the navigation bar.</p>
+<p><a href="images/nav_open.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/nav_open.png" class="img-fluid" alt="Image of collapsed navigation bar"></a></p>
+<hr>
 <p>For support email the use at Digital.Skills.Lab@lse.ac.uk or look on our <a href="https://info.lse.ac.uk/current-students/digital-skills-lab" target="_blank">website</a></p>
 <p><img src="images/DigitalSkillsLab.png" class="img-fluid" style="width:25.0%"> <img src="images/r_logo.png" class="img-fluid" style="width:12.0%"></p>
 
@@ -868,6 +884,38 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

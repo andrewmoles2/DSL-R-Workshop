@@ -12,7 +12,9 @@ website:
   favicon: "images/colourful_flora.png"
   sidebar:
     search: true
-    style: "docked"
+    style: docked
+    pinned: true
+    collapse-level: 3
     logo: "images/DigitalSkillsLab.png"
     tools:
       - icon: github
@@ -44,6 +46,8 @@ website:
             text: 📊 Project 4 - Football data analysis
           - href: Project_5.qmd
             text: 🎓 Project 5 - Visualising Olympics data
+          - href: Project_6.qmd
+            text: 🎓 Project 6 - Data generation and artwork
       - section: "❓ Other information"
         contents: 
           - href: faq.qmd

@@ -121,7 +121,7 @@
     "href": "index.html",
     "title": "R workshops - Digital Skills Lab",
     "section": "",
-    "text": "This website provides an introduction to the R workshops run by the Digital Skills Lab (DSL) at LSE. You can navigate this website using the menu on the left, where you can find information about:\n\nWhy R is a popular programming language and why you should learn it\nHow to install R and RStudio on to your own laptops\nHow to get started with the workshops materials\nMaterials for R workshops\nFrequently asked questions about the workshops and R\nA testing ground for playing around with R where you can run R through this website\n\nFor support email the use at Digital.Skills.Lab@lse.ac.uk or look on our website",
+    "text": "This website provides an introduction to the R workshops run by the Digital Skills Lab (DSL) at LSE. You can navigate this website using the menu on the left, where you can find information about:\n\nWhy R is a popular programming language and why you should learn it\nHow to install R and RStudio on to your own laptops\nHow to get started with the workshops materials\nMaterials for R workshops\nFrequently asked questions about the workshops and R\nA testing ground for playing around with R where you can run R through this website\n\n\nNavigating the website\nUse the left hand menu to navigate around the website to find what you need.\nIf you are viewing the website on a split screen, you might not see the navigation bar on the left. To get to it click on the paper icon in the top left corner, which looks like the image below.\n\nIf you have opened this page and don’t see a navigation bar but instead see the image below, you will need to click on the down arrow to open the navigation bar.\n\n\nFor support email the use at Digital.Skills.Lab@lse.ac.uk or look on our website",
     "crumbs": [
       "📚 Information",
       "🏠 Home"
@@ -257,6 +257,50 @@
     "crumbs": [
       "🎓 R workshops materials",
       "📊 Project 4 - Football data analysis"
+    ]
+  },
+  {
+    "objectID": "Project_6.html",
+    "href": "Project_6.html",
+    "title": "Project 6 - Data generation and artwork",
+    "section": "",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - Generate a dataset\n  Outcome 2 - Make artwork from that dataset\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - making a colour palette\n  Part 3 - random sampling\n  Part 4 - generating a sequence of numbers\n  Part 5 - making a factor\n  Part 6 - generating a data frame\n  Part 7 - generate a randomised normal distribution\n  Part 8 - stream plot\n  Part 9 - aesthetic adjustments\n  Part 10 - setting a seed\n  Final task - fill out the survey!",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🎓 Project 6 - Data generation and artwork"
+    ]
+  },
+  {
+    "objectID": "Project_6.html#learning-objectives",
+    "href": "Project_6.html#learning-objectives",
+    "title": "Project 6 - Data generation and artwork",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nCreate your own data using sampling, distribution, and sequence generation\nVisualise the data to make artwork",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🎓 Project 6 - Data generation and artwork"
+    ]
+  },
+  {
+    "objectID": "Project_6.html#outcomes",
+    "href": "Project_6.html#outcomes",
+    "title": "Project 6 - Data generation and artwork",
+    "section": "Outcomes",
+    "text": "Outcomes\nWe will write a program that will randomly generate a dataset which we will then make some artwork from. As we are generating data and using random sampling your result will look a bit different from the outcomes. You will likely end up with different colours and different distributions.\nWe will be aiming for two outcomes in this project.\n\nOutcome 1 - Generate a dataset\n\n\n\n\n\n\n\n\nOutcome 2 - Make artwork from that dataset",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🎓 Project 6 - Data generation and artwork"
+    ]
+  },
+  {
+    "objectID": "Project_6.html#steps-to-help-you-get-to-the-outcome",
+    "href": "Project_6.html#steps-to-help-you-get-to-the-outcome",
+    "title": "Project 6 - Data generation and artwork",
+    "section": "Steps to help you get to the outcome",
+    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\n\n\nPart 2 - making a colour palette\nMake a vector, using the below colours, to make a colour palette.\n'#ffc09f','#ffd799','#ffee93','#fef2ad','#fcf5c7','#cee2d0','#a0ced9','#a7e3c8','#adf7b6','#264653','#287271','#2a9d8f','#e9c46a','#f4a261','#e76f51','#e97c61'\n\n\nPart 3 - random sampling\nTake a sample of the colour vector you just created, selecting four elements. Assign the result to a new vector.\nWhen sampling the colour vector you created, how do you know if you have sampled with or without replacement?\n\n\nPart 4 - generating a sequence of numbers\nGenerate a sequence, starting from 0 through to 100. Make the length of the sequence 30. Assign the result so we can use it later.\n\n\nPart 5 - making a factor\nMake a factor that contains the numbers 1 through to the length of the sample you took from the colour palette. Assign the result so we can use it later.\nBelow is what your output should look like given we have sampled 4 colours from our colour palette.\n\n\n[1] 1 2 3 4\nLevels: 1 2 3 4\n\n\n\n\nPart 6 - generating a data frame\nUsing the sequence of numbers and the factor you made, create a data frame from all combinations of the supplied vectors. Make sure to assign the result.\nYou should end up with a data frame with 2 columns which have all combinations of the vectors you supplied.\n\n\nPart 7 - generate a randomised normal distribution\nGenerate a randomised normal distribution, whereby you use the mean and standard deviation of the sequence you generated.\nAdd the result as a column to the data frame you just created.\nAfter completing this step you should have a dataset similar to what is shown in Section 2.1.\n\n\nPart 8 - stream plot\nUsing a combination of the ggplot2 and ggstream packages make the artwork, which is known as a stream plot.\n\n\nPart 9 - aesthetic adjustments\nThere are a few more minor adjustments to make to finish up our visualisation so it looks like what we see in Section 2.2.\n\nAdd colours, which has two steps:\n\nMake the fill and colour aesthetic to be your factor\nManually change the fill and colour scale so they use the sampled colour palette\n\nAdd a complete theme to the visual which removes everything\nset the guides for fill and colour to none\nAdjust the type of the stream to proportional. You can test out the other types which are mirror and ridge\n\n\n\nPart 10 - setting a seed\nTo guarantee that the same random values are produced each time you run the code we can set a seed. This makes our code reproducible.\nSet a seed so that when you re-run the code you get the same result.\nThis needs to happen before you use any of the random generation functions, so add this to the top of the code you have written.\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🎓 Project 6 - Data generation and artwork"
     ]
   },
   {

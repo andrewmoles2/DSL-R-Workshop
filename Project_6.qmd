@@ -1,0 +1,157 @@
+---
+title: "Project 6 - Data generation and artwork"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc-depth: 4
+    toc-location: right-body
+author:
+   - name: Andrew Moles
+     affiliation: Learning Developer, Digital Skills Lab
+date: today    
+---
+
+## Learning objectives:
+
+-   Create your own data using sampling, distribution, and sequence generation
+-   Visualise the data to make artwork
+
+## Outcomes
+
+We will write a program that will randomly generate a dataset which we will then make some artwork from. As we are generating data and using random sampling your result will look a bit different from the outcomes. You will likely end up with different colours and different distributions.   
+
+We will be aiming for two outcomes in this project.
+
+### Outcome 1 - Generate a dataset {#sec-outcomeone}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+seed <- 4321
+set.seed(seed)
+
+colour_palette <- c(
+  '#ffc09f','#ffd799','#ffee93','#fef2ad',
+  '#fcf5c7','#cee2d0','#a0ced9','#a7e3c8',
+  '#adf7b6','#264653','#287271','#2a9d8f',
+  '#e9c46a','#f4a261','#e76f51','#e97c61'
+  )
+
+# sampling without replacement - how do we know?
+col_pal <- sample(colour_palette, size = 4)
+
+x <- seq(from = 0,
+         to = 100,
+         length.out = 30)
+group_var <- factor(1:length(col_pal))
+
+plot_data <- expand.grid(
+  x = x,
+  group_var = group_var
+)
+plot_data$y <- rnorm(nrow(plot_data),
+                     mean = mean(plot_data$x), 
+                     sd = sd(plot_data$x))
+
+DT::datatable(plot_data)
+```
+
+### Outcome 2 - Make artwork from that dataset {#sec-outcometwo}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(ggstream)
+
+ggplot(plot_data,
+       aes(x, y, fill = group_var, colour = group_var)) +
+  geom_stream(
+    type = "proportional"
+    ) +
+  scale_fill_manual(values = col_pal) +
+  scale_colour_manual(values = col_pal) +
+  guides(colour = "none", fill = "none") +
+  theme_void()
+```
+
+## Steps to help you get to the outcome
+
+### Part 1 - the setup
+Open an R script file and save it.  
+
+### Part 2 - making a colour palette
+Make a vector, using the below colours, to make a colour palette. 
+
+`'#ffc09f','#ffd799','#ffee93','#fef2ad','#fcf5c7','#cee2d0','#a0ced9','#a7e3c8','#adf7b6','#264653','#287271','#2a9d8f','#e9c46a','#f4a261','#e76f51','#e97c61'`
+
+### Part 3 - random sampling
+Take a sample of the colour vector you just created, selecting four elements. Assign the result to a new vector. 
+
+When sampling the colour vector you created, how do you know if you have sampled with or without replacement?
+
+### Part 4 - generating a sequence of numbers
+
+Generate a sequence, starting from 0 through to 100. Make the length of the sequence 30. Assign the result so we can use it later. 
+
+### Part 5 - making a factor
+
+Make a factor that contains the numbers 1 through to the length of the sample you took from the colour palette. Assign the result so we can use it later. 
+
+Below is what your output should look like given we have sampled 4 colours from our colour palette. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+factor(1:length(col_pal))
+```
+
+### Part 6 - generating a data frame
+
+Using the sequence of numbers and the factor you made, create a data frame from all combinations of the supplied vectors. Make sure to assign the result.
+
+You should end up with a data frame with 2 columns which have all combinations of the vectors you supplied. 
+
+### Part 7 - generate a randomised normal distribution
+
+Generate a randomised normal distribution, whereby you use the mean and standard deviation of the sequence you generated. 
+
+Add the result as a column to the data frame you just created.
+
+After completing this step you should have a dataset similar to what is shown in @sec-outcomeone. 
+
+### Part 8 - stream plot
+
+Using a combination of the `ggplot2` and `ggstream` packages make the artwork, which is known as a *stream plot*. 
+
+### Part 9 - aesthetic adjustments
+
+There are a few more minor adjustments to make to finish up our visualisation so it looks like what we see in @sec-outcometwo. 
+
+- Add colours, which has two steps: 
+  * Make the fill and colour aesthetic to be your factor 
+  * Manually change the fill and colour scale so they use the sampled colour palette
+- Add a complete theme to the visual which removes everything
+- set the guides for fill and colour to *none*
+- Adjust the *type* of the stream to proportional. You can test out the other types which are mirror and ridge
+
+### Part 10 - setting a seed
+
+To guarantee that the same random values are produced each time you run the code we can *set a seed*. This makes our code reproducible.
+
+Set a seed so that when you re-run the code you get the same result. 
+
+This needs to happen **before** you use any of the random generation functions, so add this to the top of the code you have written. 
+
+
+### Final task - fill out the survey!
+
+We are always looking to improve and iterate our workshops. [Follow the link to give your feedback](https://lse.eu.qualtrics.com/jfe/form/SV_0vJs5yGpF1F359I?coursename=R Projects 6: Data generation and artwork&topic=R&prog=DS&version=25-26){target="_blank"}.
+
