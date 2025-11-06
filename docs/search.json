@@ -55,6 +55,455 @@
     ]
   },
   {
+    "objectID": "whyR.html",
+    "href": "whyR.html",
+    "title": "Why learn R",
+    "section": "",
+    "text": "Easy to learn\n  Some examples of R being awesome for Data visualisation\nThere are a lot of reasons why you should learn R, and it is very prevalent in academia, bioinformatics (analysis of biological data), data analyst and data scientist roles\nA lot of LSE courses that involved statistics or data primarily use R. This is because R is a excellent tool for:\nR is an open-source tool, which means you do not need to buy a licence in order to use it, and is a popular programming language, as shown in the PYPL index from 2023",
+    "crumbs": [
+      "📚 Information",
+      "📊 Why learn R"
+    ]
+  },
+  {
+    "objectID": "whyR.html#easy-to-learn",
+    "href": "whyR.html#easy-to-learn",
+    "title": "Why learn R",
+    "section": "Easy to learn",
+    "text": "Easy to learn\nA key advantage of R is that it is retentively easy to learn, especially in comparison with other programming languages used for data analysis like Python. A large part of this is due to R being designed to work with data, so it feels natural, and some of the excellent extensions that have been added to R over the years to make it more slick (great examples are the tidyverse and data.table packages).\nFurther, there are the vast amount of online resources in forms of tutorials, blogs, online courses, people sharing code/examples and help available through online discussion forums like stackoverflow and slack.\nSome of the best available resources to learn R are:\n\nR for Data Science book and the first edition is still great\nR for Data Science slack channel has great community support\nCodecademy R course\nR bloggers collates blog posts about R. Some blogs I would recommend checking out are https://www.cedricscherer.com/, https://karaman.is/, https://djnavarro.net/, https://github.com/tashapiro/TidyTuesday, https://www.yan-holtz.com/blog.html, and https://albert-rapp.de/blog.html\nFor data visualisation ggplot2 is the go to tool, and the best way to learn it is to run through the ggplot2 book and using the R graph gallery\nFor getting some open source data to start your own projects I would recommend the tidy Tuesday initiative. All datasets are hosted in github.\nStatquest is a YouTube channel that provides clear explanations of statistical methods, and how do do them in R.\n\nTake this example of how to do a linear regression in R\nOr this for a multiple linear regression in R\n\nModern stats with R book provides some useful examples\nR tutor which provides short examples of lots of statistical tests.\nR statistics tutorials which are longer tutorials on models like regression.",
+    "crumbs": [
+      "📚 Information",
+      "📊 Why learn R"
+    ]
+  },
+  {
+    "objectID": "whyR.html#some-examples-of-r-being-awesome-for-data-visualisation",
+    "href": "whyR.html#some-examples-of-r-being-awesome-for-data-visualisation",
+    "title": "Why learn R",
+    "section": "Some examples of R being awesome for Data visualisation",
+    "text": "Some examples of R being awesome for Data visualisation\n\n\n\n\n\n\n\nAnimated gif of rainfall and temperature changes over time in Australian cities\n\n\n\n\n\n\n\n\n\nRegional map UK showing how each area is doing in terms of gender pay equality for each year data has existed, from 2017-2022\n\n\n\n\n\n\n\n\nFun side note\n\n\n\n\n\nThis webpage was built using R. If you are interested, come to the workshops and chat to one of the instructors about it!\n\n\n\n\n\n\n\nInteractive graphic of Dr Who episodes IMDB rating by actor playing the Doctor\n\n\nBelow is an example of using the Quanteda package for text analysis, which is developed here at LSE by Ken Benoit. It is a visualisation to show how readable inaugural speeches from presidents have been since 1945. A higher score means the text used in the speech is more readable.\n\n\nShow the code\n# load libraries\nlibrary(quanteda)\nlibrary(quanteda.textstats)\nlibrary(ggplot2)\n\n# prepare data\ninaugural_readability &lt;- data_corpus_inaugural %&gt;%\n    corpus_subset(Year &gt; 1945) %&gt;% \n    textstat_readability(measure = c(\"Flesch\"))\n\n# calculate readability\navg_readability &lt;- mean(inaugural_readability$Flesch)\n\n# text and point colours\npoint_col &lt;- \"black\"\ntext_col &lt;- \"white\"\n\n# make visual\nggplot(inaugural_readability, \n       aes(x = document, y = Flesch)) +\n  geom_point(size = 6.5, colour = point_col) +\n  geom_hline(yintercept = avg_readability,\n             alpha = 0.75, linetype = 5, linewidth = 1.2) +\n  geom_segment(aes(xend = document, yend = avg_readability),\n               linetype = 3, linewidth = 1.2) +\n  geom_text(aes(label = round(Flesch, 1)), \n            colour = text_col, size = 2, family = \"Avenir\") +\n  annotate(geom = \"text\", x = \"2005-Bush\", y = 69,\n           family = \"Avenir\", size = 4,\n           label = paste0(\"Average readability: \", round(avg_readability,2))) +\n  annotate(geom = \"curve\",x = 14.5, y = 66, alpha = 0.6,\n           xend = \"2005-Bush\", yend = avg_readability+0.4,\n           curvature = -0.35, arrow = arrow(length = unit(0.15, \"inches\"))) +\n  coord_flip() +\n    labs(x = NULL, y = \"Readability (Flesch)\",\n         title = \"Readability of inaugural speeches since 1945\",\n         subtitle = \"Higher score means text is more readable\") +\n  theme_minimal(base_family = \"Avenir\") +\n  theme(plot.title.position = \"plot\")",
+    "crumbs": [
+      "📚 Information",
+      "📊 Why learn R"
+    ]
+  },
+  {
+    "objectID": "example-page.html",
+    "href": "example-page.html",
+    "title": "R Testing ground",
+    "section": "",
+    "text": "On this page, you can play around with R through this website!\nBelow is an example:\n🟡 Loading\n  webR...\n\n\n  \n\n\nAnother example looking at some star wars data:\n🟡 Loading\n  webR...",
+    "crumbs": [
+      "❓ Other information",
+      "🧪 R Testing Ground"
+    ]
+  },
+  {
+    "objectID": "install.html",
+    "href": "install.html",
+    "title": "Installing R and RStudio",
+    "section": "",
+    "text": "Windows install\n  \n  Install R\n  Install RStudio\n  \n  Mac install\n  \n  Install R\n  \n  M series Mac\n  Intel Mac\n  \n  Install XQuartz\n  Install RStudio\n  \n  Installing R and RStudio installation issues\nThis page is about getting R and RStudio installed on your laptop so you can start using R! Below are step by step instructions for getting the software you need installed.",
+    "crumbs": [
+      "💻 R workshops",
+      "🛠️ Install R and RStudio"
+    ]
+  },
+  {
+    "objectID": "install.html#windows-install",
+    "href": "install.html#windows-install",
+    "title": "Installing R and RStudio",
+    "section": "Windows install",
+    "text": "Windows install\n\nInstall R\n\nTo install R, you need to download the installer from the R website\nClick on either base or install R for the first time\nClick on the download R for Windows link\nOnce downloaded, open the .exe file and follow the installation instructions on your computer\n\n\n\nInstall RStudio\n\nTo install RStudio we download it from the Posit website\nClick on the Download RStudio Desktop link\nOnce downloaded, open the .exe file and follow the installation instructions on your computer",
+    "crumbs": [
+      "💻 R workshops",
+      "🛠️ Install R and RStudio"
+    ]
+  },
+  {
+    "objectID": "install.html#mac-install",
+    "href": "install.html#mac-install",
+    "title": "Installing R and RStudio",
+    "section": "Mac install",
+    "text": "Mac install\n\nInstall R\nTo install R on your Mac you need to know the type of processor your Mac uses. This is straightforward to find out:\n\nOn the top navigation bar on your Mac, click on the apple icon\nFrom the drop down menu, select About This Mac\nIn Overview you will find the information about your Mac. If you have an Intel Mac, you will see the processor row, which has information that includes Intel. If you have an M version Mac, you will see chip and M1/M2/M3/M4 etc. in the Overview with something like Apple M1 or Apple M4 Pro.\n\n \n\nM series Mac\n\nTo install R, you need to download the installer from the R website\nIf you have a M series Mac you will need click on the link the contains arm64 to download R. It will look something like R-4.5.1-arm64.pkg\nOnce downloaded, open the .pkg file and follow the installation instructions\n\n\n\nIntel Mac\n\nTo install R, you need to download the installer from the R website\nIf you have a Intel Mac you will need to click on the link that just contains the version of R. It will look something like R-4.5.1-x86_64.pkg, and should be located under a header with Intel Macs present.\nOnce downloaded, open the .pkg file and follow the installation instructions\n\n\n\n\nInstall XQuartz\nTo run R on a Mac operating system, XQuartz is required. You can install it by following this link to the XQuartz website. Download it and follow the installation instructions.\n\n\nInstall RStudio\n\nTo install RStudio we download it from the Posit website\nClick on the Download RStudio Desktop link\nOnce downloaded, open the .dmg file and follow the installation instructions on your computer",
+    "crumbs": [
+      "💻 R workshops",
+      "🛠️ Install R and RStudio"
+    ]
+  },
+  {
+    "objectID": "install.html#installing-r-and-rstudio-installation-issues",
+    "href": "install.html#installing-r-and-rstudio-installation-issues",
+    "title": "Installing R and RStudio",
+    "section": "Installing R and RStudio installation issues",
+    "text": "Installing R and RStudio installation issues\nIf your installation for R and RStudio did not work, this is likely because your computer is running an older operating system. In these cases you will have to install an older version of the software.\nIt will be simplest, if you have faced installation issues, for you to come to talk to a trainer in the session for support or contact us at Digital.Skills.Lab@lse.ac.uk.",
+    "crumbs": [
+      "💻 R workshops",
+      "🛠️ Install R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Project_3.html",
+    "href": "Project_3.html",
+    "title": "Project 3 - Weather Application Continued",
+    "section": "",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - Make a hourly weather report:\n  Outcome 2 - Finding hours with high temperatures\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - using vectors\n  Part 3 - string manipulation\n  Part 4 - more string manipulation\n  Part 5 - convert temperatures\n  Part 6 - start making the text output\n  Task 7 - finish the text output\n  Task 8 - naming a vector\n  Part 9 - filtering the temperature vector\n  Part 10 - test your code with new data\n  Final task - fill out the survey!",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "⚙️ Project 3 - Building a weather application continued"
+    ]
+  },
+  {
+    "objectID": "Project_3.html#learning-objectives",
+    "href": "Project_3.html#learning-objectives",
+    "title": "Project 3 - Weather Application Continued",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nCreate vectors\nUse calculations on vectors\nExtract elements from vectors\nUsing boolean indexing on vectors\nPrint out hourly weather reports using iteration",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "⚙️ Project 3 - Building a weather application continued"
+    ]
+  },
+  {
+    "objectID": "Project_3.html#outcomes",
+    "href": "Project_3.html#outcomes",
+    "title": "Project 3 - Weather Application Continued",
+    "section": "Outcomes",
+    "text": "Outcomes\nWe will continue to write a program that tells us various metrics on what the weather is doing. Your code will automate the process of taking data and making it into a presentable format.\nWe will be aiming for two outcomes in this project.\n\nOutcome 1 - Make a hourly weather report:\nYou should end up with a output that iterates through each element of your temperatures and times data. Each line should be an hour with the temperature in Celsius and Fahrenheit (in brackets).\nIt should also print out what the date at the top of your report.\n\n\n[1] \"Hourly temperatures on: 03/07/2025\"\n\n\n[1] \"Temperature at 00: 16.5°C (61.7°F)\"\n[1] \"Temperature at 01: 15.5°C (59.9°F)\"\n[1] \"Temperature at 02: 14.3°C (57.74°F)\"\n[1] \"Temperature at 03: 13.7°C (56.66°F)\"\n[1] \"Temperature at 04: 12.4°C (54.32°F)\"\n[1] \"Temperature at 05: 12°C (53.6°F)\"\n[1] \"Temperature at 06: 12.6°C (54.68°F)\"\n[1] \"Temperature at 07: 14.1°C (57.38°F)\"\n[1] \"Temperature at 08: 16°C (60.8°F)\"\n[1] \"Temperature at 09: 18.2°C (64.76°F)\"\n[1] \"Temperature at 10: 19.7°C (67.46°F)\"\n[1] \"Temperature at 11: 21.1°C (69.98°F)\"\n[1] \"Temperature at 12: 21.8°C (71.24°F)\"\n[1] \"Temperature at 13: 22.6°C (72.68°F)\"\n[1] \"Temperature at 14: 23.4°C (74.12°F)\"\n[1] \"Temperature at 15: 24.3°C (75.74°F)\"\n[1] \"Temperature at 16: 23.3°C (73.94°F)\"\n[1] \"Temperature at 17: 23.6°C (74.48°F)\"\n[1] \"Temperature at 18: 23.1°C (73.58°F)\"\n[1] \"Temperature at 19: 23.4°C (74.12°F)\"\n[1] \"Temperature at 20: 23.4°C (74.12°F)\"\n[1] \"Temperature at 21: 21.6°C (70.88°F)\"\n[1] \"Temperature at 22: 20.7°C (69.26°F)\"\n[1] \"Temperature at 23: 19.5°C (67.1°F)\"\n\n\n\n\nOutcome 2 - Finding hours with high temperatures\nWe can filter our temperature vector, which we can add names to, which tells us which hours had temperatures over 20°C.\nYou should end up with an output, like below, that has the hour information and the temperature information in one vector.\n\n\n  11   12   13   14   15   16   17   18   19   20   21   22 \n21.1 21.8 22.6 23.4 24.3 23.3 23.6 23.1 23.4 23.4 21.6 20.7 \n\n\n\n\nThe data\nUsing the data below we will be making a weather reporting tool for a hourly report.\nHourly temperatures:\n16.5, 15.5, 14.3, 13.7, 12.4, 12, 12.6, 14.1, 16, 18.2, 19.7, 21.1, 21.8, 22.6, 23.4, 24.3, 23.3, 23.6, 23.1, 23.4, 23.4, 21.6, 20.7, 19.5\nDate and times:\n\"03/07/2025 00:00:00\", \"03/07/2025 01:00:00\", \"03/07/2025 02:00:00\", \"03/07/2025 03:00:00\", \"03/07/2025 04:00:00\", \"03/07/2025 05:00:00\", \"03/07/2025 06:00:00\", \"03/07/2025 07:00:00\", \"03/07/2025 08:00:00\", \"03/07/2025 09:00:00\", \"03/07/2025 10:00:00\", \"03/07/2025 11:00:00\", \"03/07/2025 12:00:00\", \"03/07/2025 13:00:00\", \"03/07/2025 14:00:00\", \"03/07/2025 15:00:00\", \"03/07/2025 16:00:00\", \"03/07/2025 17:00:00\", \"03/07/2025 18:00:00\", \"03/07/2025 19:00:00\", \"03/07/2025 20:00:00\", \"03/07/2025 21:00:00\", \"03/07/2025 22:00:00\", \"03/07/2025 23:00:00\"",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "⚙️ Project 3 - Building a weather application continued"
+    ]
+  },
+  {
+    "objectID": "Project_3.html#steps-to-help-you-get-to-the-outcome",
+    "href": "Project_3.html#steps-to-help-you-get-to-the-outcome",
+    "title": "Project 3 - Weather Application Continued",
+    "section": "Steps to help you get to the outcome",
+    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\n\n\nPart 2 - using vectors\nUsing the data shown above, store the hourly temperatures and date and times data into R as vectors. Note that this data is from a different date to the data we used in project 2.\n\n\nPart 3 - string manipulation\nExtract part of the string, known as substrings, from the date and time data to give you just the date element. Store the result as a variable, keeping just the first element; you should get the result below.\n03/07/2025\nWe want to do this programmatically, so no copy and pasting from the data, also known as “hardcoding”. This will help us to automate our code if we want to use different data.\n\n\nPart 4 - more string manipulation\nExtract part of the string from the date and time data to give you just the hour elements. Store this as a new vector.\n\n\nPart 5 - convert temperatures\nConvert the hourly temperatures data to Fahrenheit and store the result as a new vector.\n\n\nPart 6 - start making the text output\nOur ultimate task is to iterate through our temperature and date data to print out a message telling us the temperature for each hour. To get there it is sometimes helpful to breakdown the process.\nTry first to a make an output for just the first hour, like the result below, using vector indexing to get the data you need. Then use string concatenation to bring all the information together to create a text output.\nTemperature at 00: 16.5°C (61.7°F)\n\n\nTask 7 - finish the text output\nNow using the code you just wrote, iterate your code so you get the hourly weather report with both Celsius and Fahrenheit, as seen in Section 2.1.\n\n\nTask 8 - naming a vector\nUsing vector naming, add the hours vector as a name to the temperature vector.\n\n\nPart 9 - filtering the temperature vector\nUsing boolean indexing, filter the temperature vector so we are only left with temperatures over 20°C. Your outcome should be the same as seen in Section 2.2.\n\n\nPart 10 - test your code with new data\nA good way to test out your code is to try it on different data.\nBelow we have the temperature data for a few days after the data we have been using. Using the steps you did previously, write a weather report using this new data.\nHourly temperatures:\n20.8, 19.6, 18.7, 17.8, 17.7, 19.1, 21.4, 22.8, 24.1, 26.5, 27.8, 29.4, 30.7, 31.8, 32.4, 32.0, 31.8, 31.5, 31.2, 29.9, 28.3, 27.1, 26.2\nDate and times:\n\"30/06/2025 01:00:00\", \"30/06/2025 02:00:00\", \"30/06/2025 03:00:00\", \"30/06/2025 04:00:00\", \"30/06/2025 05:00:00\", \"30/06/2025 06:00:00\", \"30/06/2025 07:00:00\", \"30/06/2025 08:00:00\", \"30/06/2025 09:00:00\", \"30/06/2025 10:00:00\", \"30/06/2025 11:00:00\", \"30/06/2025 12:00:00\",\"30/06/2025 13:00:00\", \"30/06/2025 14:00:00\", \"30/06/2025 15:00:00\", \"30/06/2025 16:00:00\", \"30/06/2025 17:00:00\", \"30/06/2025 18:00:00\",\"30/06/2025 19:00:00\", \"30/06/2025 20:00:00\", \"30/06/2025 21:00:00\", \"30/06/2025 22:00:00\", \"30/06/2025 23:00:00\"\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "⚙️ Project 3 - Building a weather application continued"
+    ]
+  },
+  {
+    "objectID": "workshop-materials.html",
+    "href": "workshop-materials.html",
+    "title": "Information about the workshops and how to get the materials",
+    "section": "",
+    "text": "Workshop format\n  Workshop pathways\n  Workshop materials\n  \n  R Fundamentals\n  R Intermediate\n  R Data Wrangling\n  R Data Visualisation\n  \n  Uncompressing files (important)"
+  },
+  {
+    "objectID": "workshop-materials.html#workshop-format",
+    "href": "workshop-materials.html#workshop-format",
+    "title": "Information about the workshops and how to get the materials",
+    "section": "Workshop format",
+    "text": "Workshop format\n\nEach workshop is 2 hours long\nYou choose which topic to work on. It is advised to work through the materials in the prescribed order unless you are already familiar with a particular topic\nYou will work with fellow learners, utilising your prior experience and web searches to find solutions, with a R expert on hand if you get stuck\nWorkshop sessions are hands on and practical\nEach worksheet will take on average 1 hour to complete (some longer, some shorter)\n\nTo prepare for the in-person workshops you need to get the materials. Below is information and steps on how to do this, as well as information on what is covered and recommended pathways."
+  },
+  {
+    "objectID": "workshop-materials.html#workshop-pathways",
+    "href": "workshop-materials.html#workshop-pathways",
+    "title": "Information about the workshops and how to get the materials",
+    "section": "Workshop pathways",
+    "text": "Workshop pathways\nThe files for the workshops are broken into four different series: Fundamentals, Intermediate, Data Wrangling, and Data Visualisation. There are several pathways through the workshops depending on your needs and preferences which are shown in the flow diagrams below.\n\n\n\nFlow diagram showing the full R series of workshops and a recommended route\n\n\n\n\n\nFlow diagram showing the pathway for those that are primarily interested in using R for data analysis and visualisation, with an option to do the intermediate series\n\n\n\n\n\nFlow diagram showing the pathway for those that are interested in learning programming with R, with option for those with some interest in also learning about data techniques\n\n\nThese flow diagrams were all made with R using the package DiagrammeR. The code that made them can be found on GitHub."
+  },
+  {
+    "objectID": "workshop-materials.html#workshop-materials",
+    "href": "workshop-materials.html#workshop-materials",
+    "title": "Information about the workshops and how to get the materials",
+    "section": "Workshop materials",
+    "text": "Workshop materials\nDownload the R Markdown files from each series below. Just press the button and the respective materials will download. Save the files where you can later find them.\n\nR Fundamentals\n\n\nR Intermediate\n\n\nR Data Wrangling\n\n\nR Data Visualisation"
+  },
+  {
+    "objectID": "workshop-materials.html#uncompressing-files-important",
+    "href": "workshop-materials.html#uncompressing-files-important",
+    "title": "Information about the workshops and how to get the materials",
+    "section": "Uncompressing files (important)",
+    "text": "Uncompressing files (important)\nOnce downloaded it is important that you unzip/uncompress the file. The download is a zip file, which a file that has been compressed to save space for easier transfer and storage. You should uncompress these files otherwise it can be hard for some software to use the files inside.\nWindows\nRight-click on the file and choose Extract All, then select a location to save the uncompressed file.\nMac\nDouble click on the file and the uncompressed contents will appear next to your compressed file."
+  },
+  {
+    "objectID": "Project_5.html",
+    "href": "Project_5.html",
+    "title": "Project 5 - Visualising Olympics data",
+    "section": "",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - Make an aggregation to show your results\n  Outcome 2 - Make a bar plot to make your results look better\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - making a subset\n  Part 3 - creating a new category\n  Part 4 - aggregation\n  Part 5 - making a initial visualisation\n  Part 6 - re-ordering the x axis\n  Part 7 - making several visuals in one plot\n  Part 8 - final improvements on how the visualisation looks\n  Final task - fill out the survey!",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "📊 Project 5 - Visualising Olympics data"
+    ]
+  },
+  {
+    "objectID": "Project_5.html#learning-objectives",
+    "href": "Project_5.html#learning-objectives",
+    "title": "Project 5 - Visualising Olympics data",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nLoad in data\nLoad and use packages\nFilter data to show only information to need\nRecode and categorise your data to be more meaningful\nPerform an aggregation of a dataset\nMake a bar plot using your aggregated data\nUse factors to re-order categorical variables",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "📊 Project 5 - Visualising Olympics data"
+    ]
+  },
+  {
+    "objectID": "Project_5.html#outcomes",
+    "href": "Project_5.html#outcomes",
+    "title": "Project 5 - Visualising Olympics data",
+    "section": "Outcomes",
+    "text": "Outcomes\nWe will write a program that provides us with summary statistics of a question we have from a dataset. Your code will automate the process of loading the data, performing operations on that data, and making it into a presentable format.\nWe will be looking at data on the Olympics. From this data we are asking the following question:\nIn all Olympic games over the years, how many medals have Great Britain won, and not won, in the Men’s and Women’s 800 and 1500 meters running events in athletics?\nWe will be aiming for two outcomes in this project.\n\nOutcome 1 - Make an aggregation to show your results\n\n\n# A tibble: 13 × 3\n   medal    event                          n_indiv_medals\n   &lt;fct&gt;    &lt;chr&gt;                                   &lt;int&gt;\n 1 Gold     Athletics Men's 1,500 metres                5\n 2 Gold     Athletics Men's 800 metres                  6\n 3 Gold     Athletics Women's 1,500 metres              1\n 4 Gold     Athletics Women's 800 metres                2\n 5 Silver   Athletics Men's 1,500 metres                6\n 6 Silver   Athletics Men's 800 metres                  3\n 7 Bronze   Athletics Men's 1,500 metres                3\n 8 Bronze   Athletics Men's 800 metres                  1\n 9 Bronze   Athletics Women's 800 metres                1\n10 No medal Athletics Men's 1,500 metres               76\n11 No medal Athletics Men's 800 metres                 77\n12 No medal Athletics Women's 1,500 metres             29\n13 No medal Athletics Women's 800 metres               32\n\n\n\n\nOutcome 2 - Make a bar plot to make your results look better\n\n\n\n\n\n\n\n\n\n\n\nThe data\nWe will be using a csv file that is stored on GitHub - https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-08-06/olympics.csv.\nThe dataset provides individual level data on participants of the summer and winter Olympics up to and including the 2016 event.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "📊 Project 5 - Visualising Olympics data"
+    ]
+  },
+  {
+    "objectID": "Project_5.html#steps-to-help-you-get-to-the-outcome",
+    "href": "Project_5.html#steps-to-help-you-get-to-the-outcome",
+    "title": "Project 5 - Visualising Olympics data",
+    "section": "Steps to help you get to the outcome",
+    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\nLoad in the Olympics dataset and store it in R.\n\n\nPart 2 - making a subset\nFilter your data to create a subset where by your data should include:\n\nOnly Great Britain\n\nOnly the following events:\n\nAthletics Men’s 800 metres\nAthletics Women’s 800 metres\nAthletics Men’s 1,500 metres\nAthletics Women’s 1,500 metres\n\n\n\n\nPart 3 - creating a new category\nIn our data the medals column has a lot of missing data. The missing values show that a participant did not win a medal. Instead of having missing values we want to turn those missing values into a string such as “no_medal”.\nUsing conditional element selection, convert the missing values in the medal column from NA to no_medal.\n\n\nPart 4 - aggregation\nAggregation is the process of splitting your data, applying a function, then combining the results.\nGet summary statistics by group to show the number of individual medals won for each event.\nSave the results as a new data frame, and print the outcome. Your results should look like what we see in Section 2.1.\n\n\nPart 5 - making a initial visualisation\nR has packages that allow for elegant graphics for data analysis.\nUsing such a package make a simple bar plot using the data we just created with the aggregation. You should have medal on your x axis and individual medal count on the y axis.\n\n\nPart 6 - re-ordering the x axis\nRe-order the x axis so it is in a more sensible order such as gold, silver, bronze, no medal.\nR will default to ordering characters alphabetically.\n\n\nPart 7 - making several visuals in one plot\nWe want to split the chart window so each category of event has a separate plot. This is known as faceting.\n\n\nPart 8 - final improvements on how the visualisation looks\nThere are a few more minor adjustments to make to finish up our visualisation so it looks like what we see in Section 2.2.\n\nAdd colours to the bars, which has two steps:\n\nMake the fill aesthetic the same as your x axis\nManually change the fill scale. The colours used in outcome 2 are: \"#D6AF36\", \"#A7A7AD\", \"#A77044\", \"#333333\"\n\nAdd a title to the visualisation\n\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "📊 Project 5 - Visualising Olympics data"
+    ]
+  },
+  {
+    "objectID": "Project_6.html",
+    "href": "Project_6.html",
+    "title": "Project 6 - Data generation and artwork",
+    "section": "",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - Generate a dataset\n  Outcome 2 - Make artwork from that dataset\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - making a colour palette\n  Part 3 - random sampling\n  Part 4 - generating a sequence of numbers\n  Part 5 - making a factor\n  Part 6 - generating a data frame\n  Part 7 - generate a randomised normal distribution\n  Part 8 - stream plot\n  Part 9 - aesthetic adjustments\n  Part 10 - setting a seed\n  Final task - fill out the survey!",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🎨 Project 6 - Data generation and artwork"
+    ]
+  },
+  {
+    "objectID": "Project_6.html#learning-objectives",
+    "href": "Project_6.html#learning-objectives",
+    "title": "Project 6 - Data generation and artwork",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nCreate your own data using sampling, distribution, and sequence generation\nVisualise the data to make artwork",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🎨 Project 6 - Data generation and artwork"
+    ]
+  },
+  {
+    "objectID": "Project_6.html#outcomes",
+    "href": "Project_6.html#outcomes",
+    "title": "Project 6 - Data generation and artwork",
+    "section": "Outcomes",
+    "text": "Outcomes\nWe will write a program that will randomly generate a dataset which we will then make some artwork from. As we are generating data and using random sampling your result will look a bit different from the outcomes. You will likely end up with different colours and different distributions.\nWe will be aiming for two outcomes in this project.\n\nOutcome 1 - Generate a dataset\n\n\n\n\n\n\n\n\nOutcome 2 - Make artwork from that dataset",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🎨 Project 6 - Data generation and artwork"
+    ]
+  },
+  {
+    "objectID": "Project_6.html#steps-to-help-you-get-to-the-outcome",
+    "href": "Project_6.html#steps-to-help-you-get-to-the-outcome",
+    "title": "Project 6 - Data generation and artwork",
+    "section": "Steps to help you get to the outcome",
+    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\n\n\nPart 2 - making a colour palette\nMake a vector, using the below colours, to make a colour palette.\n'#ffc09f','#ffd799','#ffee93','#fef2ad','#fcf5c7','#cee2d0','#a0ced9','#a7e3c8','#adf7b6','#264653','#287271','#2a9d8f','#e9c46a','#f4a261','#e76f51','#e97c61'\n\n\nPart 3 - random sampling\nTake a sample of the colour vector you just created, selecting four elements. Assign the result to a new vector.\nWhen sampling the colour vector you created, how do you know if you have sampled with or without replacement?\n\n\nPart 4 - generating a sequence of numbers\nGenerate a sequence, starting from 0 through to 100. Make the length of the sequence 30. Assign the result so we can use it later.\n\n\nPart 5 - making a factor\nMake a factor that contains the numbers 1 through to the length of the sample you took from the colour palette. Assign the result so we can use it later.\nBelow is what your output should look like given we have sampled 4 colours from our colour palette.\n\n\n[1] 1 2 3 4\nLevels: 1 2 3 4\n\n\n\n\nPart 6 - generating a data frame\nUsing the sequence of numbers and the factor you made, create a data frame from all combinations of the supplied vectors. Make sure to assign the result.\nYou should end up with a data frame with 2 columns which have all combinations of the vectors you supplied.\n\n\nPart 7 - generate a randomised normal distribution\nGenerate a randomised normal distribution, whereby you use the mean and standard deviation of the sequence you generated.\nAdd the result as a column to the data frame you just created.\nAfter completing this step you should have a dataset similar to what is shown in Section 2.1.\n\n\nPart 8 - stream plot\nUsing a combination of the ggplot2 and ggstream packages make the artwork, which is known as a stream plot.\n\n\nPart 9 - aesthetic adjustments\nThere are a few more minor adjustments to make to finish up our visualisation so it looks like what we see in Section 2.2.\n\nAdd colours, which has two steps:\n\nMake the fill and colour aesthetic to be your factor\nManually change the fill and colour scale so they use the sampled colour palette\n\nAdd a complete theme to the visual which removes everything\nset the guides for fill and colour to none\nAdjust the type of the stream to proportional. You can test out the other types which are mirror and ridge\n\n\n\nPart 10 - setting a seed\nTo guarantee that the same random values are produced each time you run the code we can set a seed. This makes our code reproducible.\nSet a seed so that when you re-run the code you get the same result.\nThis needs to happen before you use any of the random generation functions, so add this to the top of the code you have written.\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🎨 Project 6 - Data generation and artwork"
+    ]
+  },
+  {
+    "objectID": "Project_7.html",
+    "href": "Project_7.html",
+    "title": "Project 7 - Joins and transformations",
+    "section": "",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - Preparing the dataset\n  Outcome 2 - Making a line plot from the dataset\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - load in the dataset\n  Part 3 - removed duplicates\n  Part 4 - joining datasets\n  Part 5 - string manipulation and type conversion\n  Part 6 - column calculations\n  Part 7 - row-wise calculations\n  Part 8 - reshaping the data to be longer\n  Part 9 - filtering films\n  Part 10 - using factors\n  Part 11 - making a line plot\n  Part 12 - aesthetic adjustments\n  Final task - fill out the survey!",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🧹 Project 7 - Joins and transformations"
+    ]
+  },
+  {
+    "objectID": "Project_7.html#learning-objectives",
+    "href": "Project_7.html#learning-objectives",
+    "title": "Project 7 - Joins and transformations",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nBring together two datasets that have related information\nTidy the datasets using pattern matching and replacement, and row wise calculations\nReshape that dataset to a longer format so we can work with it a different way\nVisualise the data as a line plot",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🧹 Project 7 - Joins and transformations"
+    ]
+  },
+  {
+    "objectID": "Project_7.html#outcomes",
+    "href": "Project_7.html#outcomes",
+    "title": "Project 7 - Joins and transformations",
+    "section": "Outcomes",
+    "text": "Outcomes\nWe will write a program that brings together various film review ratings across different datasets, which you will then visualise. Your code will automate the process of loading the data, performing operations on that data, and making it into a presentable format.\nWe will be aiming for two outcomes in this project.\n\nOutcome 1 - Preparing the dataset\n\n\n\n\n\n\n\n\nOutcome 2 - Making a line plot from the dataset\n\n\n\n\n\n\n\n\n\n\n\nThe data\nWe will be using two csv files provided (imdb.csv & rotten_tom_ratings.csv). Click the links below to download the data.\n Download imdb csv file \n Download rotten tomatoes csv file \nThe datasets are film ratings from Rotten Tomatoes and IMDB.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🧹 Project 7 - Joins and transformations"
+    ]
+  },
+  {
+    "objectID": "Project_7.html#steps-to-help-you-get-to-the-outcome",
+    "href": "Project_7.html#steps-to-help-you-get-to-the-outcome",
+    "title": "Project 7 - Joins and transformations",
+    "section": "Steps to help you get to the outcome",
+    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\nMake sure to save the datasets in the same folder as your R script file. You can download them from the data section.\n\n\nPart 2 - load in the dataset\nImport the csv files into R.\nView the dataset you just loaded into R.\n\n\nPart 3 - removed duplicates\nThe Rotten Tomatoes dataset has some duplicated data where film reviews are shown multiple times. For example, there are four entries for the film The Godfather but the data is the same for all of them.\nRemove the duplicated data from the Rotten Tomatoes dataset using the release_date column as your reference point.\n\n\nPart 4 - joining datasets\nJoin the IMD and Rotten Tomatoes datasets together only keeping observations that are matching in both datasets.\n\n\nPart 5 - string manipulation and type conversion\nUsing pattern matching and replacement convert the data in the columns critic_score and audience_score from percent scores to numbers. Store the newly converted data as new columns in your data frame.\n\n\nPart 6 - column calculations\nConvert the avg_vote column to be on the same scale as the rotten tomato scores. Store the result as a new column.\n\n\nPart 7 - row-wise calculations\nCalculate the average ratings across the critic_score, audience_score, and imd scores. Store the result as a new column.\nIf you have done parts 5, 6, and 7 correctly your new columns should look like the output below, which is showing the first five rows.\n\n\n# A tibble: 5 × 4\n  rotten_tom_critic rotten_tom_audience   imd avg_ratings\n              &lt;int&gt;               &lt;int&gt; &lt;dbl&gt;       &lt;dbl&gt;\n1                98                  80    60        79.3\n2                91                  47    63        67  \n3                78                  NA    64        71  \n4                NA                  NA    69        69  \n5                NA                  NA    64        64  \n\n\n\n\nPart 8 - reshaping the data to be longer\nSelect the title, year, critic reviews, audience reviews, IMD reviews, and the average rating columns from your dataset. Then reshape the data from wide to long. Make sure to save the result as a new data frame.\nThe columns that are being transformed are the critic reviews, audience reviews, IMD reviews. You should end up with a column with the names (rating type) and a column for the rating (or value).\nBy this point your data should look like what is shown in Section 2.1.\n\n\nPart 9 - filtering films\nThere is a lot of data in this dataset. We want to only look at the highest rated films on IMD.\nMake a vector that contains the following films:\n\"The Shawshank Redemption\",\"The Godfather\",\"The Dark Knight\",\"The Lord of the Rings: The Return of the King\",\"Schindler's List\",\"The Lord of the Rings: The Fellowship of the Ring\",\"Pulp Fiction\",\"The Good, the Bad and the Ugly\",\"Forrest Gump\",\"The Lord of the Rings: The Two Towers\"\nFilter your now transformed (long) dataset to only have the above films, using the vector you just made. Make sure to save the result as a new data frame.\n\n\nPart 10 - using factors\nMake the title column in your dataset a factor, ordering the factor by the same order that appears in the vector you made in part 9.\n\n\nPart 11 - making a line plot\nMake a line graph visualisation of the data, with the title on the x axis, and ratings on the y. Colour the data by the review type.\n\n\nPart 12 - aesthetic adjustments\nAdd aesthetic changes to make the visual more appealing and to look like what we see in Section 2.2.\n\nAdd horizontal line to show the average rating across all films. Add an annotation to that line to say what it means.\nWrap x axis labels so they are more readable.\nAdjust the y axis so we only see data from 70-100, with breaks of 5.\nAdd manual colours. We used \"#F5C518\", \"#068098\", \"#961E06\".\nMove the legend to be at the bottom of the plot.\nAdd a title, and remove the y and x axis labels.\nAdjust the theme to be more minimal.\n\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🧹 Project 7 - Joins and transformations"
+    ]
+  },
+  {
+    "objectID": "Project_4.html",
+    "href": "Project_4.html",
+    "title": "Project 4 - Football data analysis",
+    "section": "",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - total career summary statistics\n  Outcome 2 - filtered dataset showing highest scoring years\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - load in the dataset\n  Part 3 - column calculations\n  Part 4 - calculating the total career statistics\n  Part 5 - making career summary\n  Part 6 - filtering rows of a dataset\n  Part 7 - selecting columns of a dataset\n  Final task - fill out the survey!",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "⚽ Project 4 - Football data analysis"
+    ]
+  },
+  {
+    "objectID": "Project_4.html#learning-objectives",
+    "href": "Project_4.html#learning-objectives",
+    "title": "Project 4 - Football data analysis",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nLoad in data\nModify your data using calculations on and across columns\nGet summary statistics from data\nFilter rows and selecting columns of a dataset",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "⚽ Project 4 - Football data analysis"
+    ]
+  },
+  {
+    "objectID": "Project_4.html#outcomes",
+    "href": "Project_4.html#outcomes",
+    "title": "Project 4 - Football data analysis",
+    "section": "Outcomes",
+    "text": "Outcomes\nWe will write a program that provides us with various metrics on Harry Kane (a football player). Your code will automate the process of loading the data, performing operations on that data, and making it into a presentable format.\nWe will be aiming for two outcomes in this project.\n\nOutcome 1 - total career summary statistics\nYou should end up with a output that contains the following information, presented as two text outputs:\n\nThe name of the player. Harry Kane in this case\nThe number of seasons played\nThe total number of appearances\nThe total number of goals scored\nThe total number of goals and assists combined\nThe average expected goals\n\n\n\n\n[1] \"Player: Harry Kane | Seasons: 15 | Appearances: 436\"\n\n\n[1] \"Goals: 289 | Goals and assists: 351 | Average expected goals: 20.3\"\n\n\n\n\n\nOutcome 2 - filtered dataset showing highest scoring years\nYou should end up with a output that shows a filtered dataset with some selected columns.\nYou will need to create the columns goals_assists, goals_xg_diff, goals_no_pens to get this output.\n\n\n\n      season age         squad goals goals_assists goals_xg_diff goals_no_pens\n9  2016-2017  23     Tottenham    29            34            NA            24\n10 2017-2018  24     Tottenham    30            32           5.2            28\n13 2020-2021  27     Tottenham    23            37           2.9            19\n15 2022-2023  29     Tottenham    30            33           8.6            25\n16 2023-2024  30 Bayern Munich    36            44           5.4            31\n17 2024-2025  31 Bayern Munich    26            35           5.7            17\n\n\n\n\n\nThe data\nWe will be using the csv file provided (harry_kane_stats.csv). Click the link below to download the data.\n Download csv file \nThe dataset provides general football metrics on each season Harry Kane has played, from 2010-2025.\nIf you are not sure what the expected goals and assists columns mean, you can find the definitions on the statsperform webpage, under the header ‘Expected Goals & Expected Assists’.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "⚽ Project 4 - Football data analysis"
+    ]
+  },
+  {
+    "objectID": "Project_4.html#steps-to-help-you-get-to-the-outcome",
+    "href": "Project_4.html#steps-to-help-you-get-to-the-outcome",
+    "title": "Project 4 - Football data analysis",
+    "section": "Steps to help you get to the outcome",
+    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it. Make sure to save the dataset in the same folder as your R script file.\n\n\nPart 2 - load in the dataset\nImport the csv file into R.\nView the dataset you just loaded into R.\n\n\nPart 3 - column calculations\nOur dataset is missing useful information about our players season statistics. Fortunately we can calculate these!\nCalculate the following metrics and add them as columns to your dataset.\n\nCombined goals and assists per season\n\nGoals excluding penalties\nDifference between goals scored and expected goals\n\n\n\nPart 4 - calculating the total career statistics\nTo build our career summary we will need to create variables with the metrics we need by performing calculations on columns in the dataset.\n\nThe name of the player. Harry Kane in this case\nThe number of seasons played\n\nThe total number of appearances\nThe total number of goals scored\nThe total number of combined goals and assists\nThe average expected goals\n\nThe metrics you produce should match what we see in Section 2.1.\n\n\nPart 5 - making career summary\nPrint out the multi line string message that shows you the career summary metrics.\n\n\nPart 6 - filtering rows of a dataset\nSubset your dataset to only contain seasons where our players combined goals and assists where greater than 30.\nIt is good practice to assign the results of your subset to a new data frame under a different name.\n\n\nPart 7 - selecting columns of a dataset\nSelect the columns, shown in the second outcome, to make your results more presentable.\nYou should be able to adjust the code you have written to select the columns. Your outcome should be the same as seen in Section 2.2.\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "⚽ Project 4 - Football data analysis"
+    ]
+  },
+  {
+    "objectID": "Project_1.html",
+    "href": "Project_1.html",
+    "title": "Project 1 - Temperature metric converter",
+    "section": "",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Make a Celsius to Fahrenheit temperature converter\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - printing values\n  Part 3 - Celsius to Fahrenheit calculation\n  Part 4 - using variables\n  Part 5 - calculations using variables\n  Part 6 - more calculations\n  Part 7 - making a text output\n  Part 8 - tidy up\n  Part 9 - try different temperatures\n  What should my code look like?\n  Final task - fill out the survey!",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "💡 Project 1 - Temperature metric converter"
+    ]
+  },
+  {
+    "objectID": "Project_1.html#learning-objectives",
+    "href": "Project_1.html#learning-objectives",
+    "title": "Project 1 - Temperature metric converter",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nCreate variables\nUse calculations on variables\nPrint out helpful message about conversion",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "💡 Project 1 - Temperature metric converter"
+    ]
+  },
+  {
+    "objectID": "Project_1.html#outcomes",
+    "href": "Project_1.html#outcomes",
+    "title": "Project 1 - Temperature metric converter",
+    "section": "Outcomes",
+    "text": "Outcomes\nWe will write a program that can convert temperature data. Your code will automate the process of taking data and making it into a presentable format.\n\nMake a Celsius to Fahrenheit temperature converter\nWe will write a programme that converts Celsius to Fahrenheit, and Fahrenheit to Celsius. It will then write out a helpful message.\nWe have two temperatures from a given time in London and New York. The London temperature is in Celsius, and the New York temperature is in Fahrenheit. In the outputs the numbers are rounded to zero decimal places. We are aiming for the following outputs:\n\nThe temperature in London is 25°C, which is 77°F\nThe temperature in New York is 80°F, which is 27°C",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "💡 Project 1 - Temperature metric converter"
+    ]
+  },
+  {
+    "objectID": "Project_1.html#steps-to-help-you-get-to-the-outcome",
+    "href": "Project_1.html#steps-to-help-you-get-to-the-outcome",
+    "title": "Project 1 - Temperature metric converter",
+    "section": "Steps to help you get to the outcome",
+    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\n\n\nPart 2 - printing values\nPrint the value 25.\n\n\nPart 3 - Celsius to Fahrenheit calculation\nTransform the value of 25 Celsius to Fahrenheit with this formula:\n\\((Celsius \\times 9/5) + 32\\)\n\n\nPart 4 - using variables\nStore the value of the temperature in Celsius (25) and print it using the stored value.\n\n\n\n\n\n\nThere are some useful resources online which can help you such as W3schools.\n\n\n\n\n\nPart 5 - calculations using variables\nUse the stored Celsius value to calculate the temperature in Fahrenheit.\nStore the outcome of this calculation and print it using the stored value.\n\n\nPart 6 - more calculations\nStore the value of 80 Fahrenheit, then transforming 80 Fahrenheit to Celsius with this formula:\n\\((Fahrenheit - 32) \\times 5/9\\)\nStore the the outcome of the calculation. Print the outcome using the stored value.\n\n\nPart 7 - making a text output\nNow we can bring it all together to make our final output as seen in Section 2.1.\nUse R to make the two text outputs by concatenating elements from one or more variables into a single string.\nThis should be automated, so if we change the variable for Celsius or Fahrenheit the code will show the new output.\n\n\n\n\n\n\nYou can search online here, or use the built in help page in RStudio.\nFor example, the paste() function will help you here. Try running ?paste to bring up the help page in RStudio.\n\n\n\n\n\nPart 8 - tidy up\nRound the outputs to make sure we are looking at whole numbers only. You will need to assign this result to a variable to use in your output.\n\n\nPart 9 - try different temperatures\nTest out your code by converting different temperatures.\nChange your temperature variables to the following and re-run your code:\n\n10 Celsius as Fahrenheit\n\n20 Fahrenheit as Celsius\n\n\n\nWhat should my code look like?\nIdeally, your code should have at minimum four variables:\n\nThe London temperature in Celsius\nThe New York temperature in Fahrenheit\nThe London temperature converted from Celsius to Fahrenheit\nThe New York temperature converted from Fahrenheit to Celsius\n\nYou may have more such as variables for the text outputs you made.\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "💡 Project 1 - Temperature metric converter"
+    ]
+  },
+  {
+    "objectID": "Project_2.html",
+    "href": "Project_2.html",
+    "title": "Project 2 - Weather application",
+    "section": "",
+    "text": "Learning objectives:\n  Outcomes\n  \n  Make a daily weather report:\n  Optional additional output\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - using vectors\n  Part 3 - indexing vectors\n  Part 4 - string manipulation\n  Part 5 - calculate temperatures\n  Part 6 - convert temperatures\n  Part 7 - making the text output\n  Part 8 - test your code with new data",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🌦️ Project 2 - Building a weather application"
+    ]
+  },
+  {
+    "objectID": "Project_2.html#learning-objectives",
+    "href": "Project_2.html#learning-objectives",
+    "title": "Project 2 - Weather application",
+    "section": "Learning objectives:",
+    "text": "Learning objectives:\n\nCreate vectors\nUse calculations on vectors\nConcatenate data to make a daily weather report",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🌦️ Project 2 - Building a weather application"
+    ]
+  },
+  {
+    "objectID": "Project_2.html#outcomes",
+    "href": "Project_2.html#outcomes",
+    "title": "Project 2 - Weather application",
+    "section": "Outcomes",
+    "text": "Outcomes\nWe will write a program that tells us various metrics on what the weather is doing. Your code will automate the process of taking data and making it into a presentable format.\n\nMake a daily weather report:\nYou should end up with a output that has three lines:\n\nLine one should have the date\nLine two should have lows and highs in Celsius and Fahrenheit (in brackets)\nLine three should have the average temperature in Celsius and Fahrenheit (in brackets)\n\n\n\n[1] \"Temperature on: 30/06/2025\"\n\n\n[1] \"Low: 17.7°C (63.86°F) | High: 32.4°C (90.32°F)\"\n\n\n[1] \"Daily average: 26.03°C (78.85°F)\"\n\n\n\n\nOptional additional output\nTidy the output to be one string separated by lines.\n\n\nTemperature on: 30/06/2025\nLow: 17.7°C (63.86°F) | High: 32.4°C (90.32°F)\nDaily average: 26.03°C (78.85°F)\n\n\n\n\nThe data\nUsing the data below we will be making a weather reporting tool for a daily report.\nHourly temperatures:\n20.8, 19.6, 18.7, 17.8, 17.7, 19.1, 21.4, 22.8, 24.1, 26.5, 27.8, 29.4, 30.7, 31.8, 32.4, 32.0, 31.8, 31.5, 31.2, 29.9, 28.3, 27.1, 26.2\nDate and times:\n\"30/06/2025 01:00:00\", \"30/06/2025 02:00:00\", \"30/06/2025 03:00:00\", \"30/06/2025 04:00:00\", \"30/06/2025 05:00:00\", \"30/06/2025 06:00:00\",\"30/06/2025 07:00:00\", \"30/06/2025 08:00:00\", \"30/06/2025 09:00:00\", \"30/06/2025 10:00:00\", \"30/06/2025 11:00:00\", \"30/06/2025 12:00:00\",\"30/06/2025 13:00:00\", \"30/06/2025 14:00:00\", \"30/06/2025 15:00:00\", \"30/06/2025 16:00:00\", \"30/06/2025 17:00:00\", \"30/06/2025 18:00:00\",\"30/06/2025 19:00:00\", \"30/06/2025 20:00:00\", \"30/06/2025 21:00:00\", \"30/06/2025 22:00:00\", \"30/06/2025 23:00:00\"",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🌦️ Project 2 - Building a weather application"
+    ]
+  },
+  {
+    "objectID": "Project_2.html#steps-to-help-you-get-to-the-outcome",
+    "href": "Project_2.html#steps-to-help-you-get-to-the-outcome",
+    "title": "Project 2 - Weather application",
+    "section": "Steps to help you get to the outcome",
+    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\n\n\nPart 2 - using vectors\nA vector in R is a one-dimensional array of data that is the same data type. Using the data shown above, store the hourly temperatures and date and times data into R as vectors.\n\n\nPart 3 - indexing vectors\nIndex the date and time vector to extract just the first element. Store the result as a variable.\n\n\nPart 4 - string manipulation\nExtract part of the string, known as substrings, from the variable you just made. Store the result as a variable. you should get the result below.\n30/06/2025\nWe want to do this programmatically, so no copy and pasting from the data, also known as “hardcoding”. This will help us to automate our code if we want to use different data.\n\n\nPart 5 - calculate temperatures\nCalculate the lowest (minimum), highest (maximum), and average (mean) temperatures, storing the results as variables. If needed, round the results so it is more presentable.\n\n\nPart 6 - convert temperatures\nConvert the lowest, highest, and average temperatures from Celsius to Fahrenheit and store the results.\n\n\nPart 7 - making the text output\nPrint out the string messages that show you the daily weather report with both Celsius and Fahrenheit, as shown in Section 2.1.\n\n\nPart 8 - test your code with new data\nA good way to test out your code is to try it on different data.\nBelow we have the temperature data for a few days after the data we have been using. Using the steps you did previously, write a weather report using this new data.\nHourly temperatures:\n16.5, 15.5, 14.3, 13.7, 12.4, 12, 12.6, 14.1, 16, 18.2, 19.7, 21.1, 21.8, 22.6, 23.4, 24.3, 23.3, 23.6, 23.1, 23.4, 23.4, 21.6, 20.7, 19.5\nDate and times:\n\"03/07/2025 00:00:00\", \"03/07/2025 01:00:00\", \"03/07/2025 02:00:00\", \"03/07/2025 03:00:00\", \"03/07/2025 04:00:00\", \"03/07/2025 05:00:00\", \"03/07/2025 06:00:00\", \"03/07/2025 07:00:00\", \"03/07/2025 08:00:00\", \"03/07/2025 09:00:00\", \"03/07/2025 10:00:00\", \"03/07/2025 11:00:00\", \"03/07/2025 12:00:00\", \"03/07/2025 13:00:00\", \"03/07/2025 14:00:00\", \"03/07/2025 15:00:00\", \"03/07/2025 16:00:00\", \"03/07/2025 17:00:00\", \"03/07/2025 18:00:00\", \"03/07/2025 19:00:00\", \"03/07/2025 20:00:00\", \"03/07/2025 21:00:00\", \"03/07/2025 22:00:00\", \"03/07/2025 23:00:00\" ### Final task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
+    "crumbs": [
+      "🎓 R workshops materials",
+      "🌦️ Project 2 - Building a weather application"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R workshops - Digital Skills Lab",
+    "section": "",
+    "text": "This website provides an introduction to the R workshops run by the Digital Skills Lab (DSL) at LSE. You can navigate this website using the menu on the left, where you can find information about:\n\nWhy R is a popular programming language and why you should learn it\nHow to install R and RStudio on to your own laptops\nHow to get started with the workshops materials\nMaterials for R workshops\nFrequently asked questions about the workshops and R\nA testing ground for playing around with R where you can run R through this website\n\n\nNavigating the website\nUse the left hand menu to navigate around the website to find what you need.\nIf you are viewing the website on a split screen, you might not see the navigation bar on the left. To get to it click on the paper icon in the top left corner, which looks like the image below.\n\nIf you have opened this page and don’t see a navigation bar but instead see the image below, you will need to click on the down arrow to open the navigation bar.\n\n\nFor support email the use at Digital.Skills.Lab@lse.ac.uk or look on our website",
+    "crumbs": [
+      "📚 Information",
+      "🏠 Home"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
     "objectID": "faq.html",
     "href": "faq.html",
     "title": "FAQ",
@@ -110,408 +559,91 @@
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "AI.html",
+    "href": "AI.html",
+    "title": "AI",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R workshops - Digital Skills Lab",
-    "section": "",
-    "text": "This website provides an introduction to the R workshops run by the Digital Skills Lab (DSL) at LSE. You can navigate this website using the menu on the left, where you can find information about:\n\nWhy R is a popular programming language and why you should learn it\nHow to install R and RStudio on to your own laptops\nHow to get started with the workshops materials\nMaterials for R workshops\nFrequently asked questions about the workshops and R\nA testing ground for playing around with R where you can run R through this website\n\n\nNavigating the website\nUse the left hand menu to navigate around the website to find what you need.\nIf you are viewing the website on a split screen, you might not see the navigation bar on the left. To get to it click on the paper icon in the top left corner, which looks like the image below.\n\nIf you have opened this page and don’t see a navigation bar but instead see the image below, you will need to click on the down arrow to open the navigation bar.\n\n\nFor support email the use at Digital.Skills.Lab@lse.ac.uk or look on our website",
-    "crumbs": [
-      "📚 Information",
-      "🏠 Home"
-    ]
-  },
-  {
-    "objectID": "Project_2.html",
-    "href": "Project_2.html",
-    "title": "Project 2 - Weather application",
-    "section": "",
-    "text": "Learning objectives:\n  Outcomes\n  \n  Make a daily weather report:\n  Optional additional output\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - using vectors\n  Part 3 - indexing vectors\n  Part 4 - string manipulation\n  Part 5 - calculate temperatures\n  Part 6 - convert temperatures\n  Part 7 - making the text output\n  Part 8 - test your code with new data",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "💾 Project 2 - Building a weather application"
-    ]
-  },
-  {
-    "objectID": "Project_2.html#learning-objectives",
-    "href": "Project_2.html#learning-objectives",
-    "title": "Project 2 - Weather application",
-    "section": "Learning objectives:",
-    "text": "Learning objectives:\n\nCreate vectors\nUse calculations on vectors\nConcatenate data to make a daily weather report",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "💾 Project 2 - Building a weather application"
-    ]
-  },
-  {
-    "objectID": "Project_2.html#outcomes",
-    "href": "Project_2.html#outcomes",
-    "title": "Project 2 - Weather application",
-    "section": "Outcomes",
-    "text": "Outcomes\nWe will write a program that tells us various metrics on what the weather is doing. Your code will automate the process of taking data and making it into a presentable format.\n\nMake a daily weather report:\nYou should end up with a output that has three lines:\n\nLine one should have the date\nLine two should have lows and highs in Celsius and Fahrenheit (in brackets)\nLine three should have the average temperature in Celsius and Fahrenheit (in brackets)\n\n\n\n[1] \"Temperature on: 30/06/2025\"\n\n\n[1] \"Low: 17.7°C (63.86°F) | High: 32.4°C (90.32°F)\"\n\n\n[1] \"Daily average: 26.03°C (78.85°F)\"\n\n\n\n\nOptional additional output\nTidy the output to be one string separated by lines.\n\n\nTemperature on: 30/06/2025\nLow: 17.7°C (63.86°F) | High: 32.4°C (90.32°F)\nDaily average: 26.03°C (78.85°F)\n\n\n\n\nThe data\nUsing the data below we will be making a weather reporting tool for a daily report.\nHourly temperatures:\n20.8, 19.6, 18.7, 17.8, 17.7, 19.1, 21.4, 22.8, 24.1, 26.5, 27.8, 29.4, 30.7, 31.8, 32.4, 32.0, 31.8, 31.5, 31.2, 29.9, 28.3, 27.1, 26.2\nDate and times:\n\"30/06/2025 01:00:00\", \"30/06/2025 02:00:00\", \"30/06/2025 03:00:00\", \"30/06/2025 04:00:00\", \"30/06/2025 05:00:00\", \"30/06/2025 06:00:00\",\"30/06/2025 07:00:00\", \"30/06/2025 08:00:00\", \"30/06/2025 09:00:00\", \"30/06/2025 10:00:00\", \"30/06/2025 11:00:00\", \"30/06/2025 12:00:00\",\"30/06/2025 13:00:00\", \"30/06/2025 14:00:00\", \"30/06/2025 15:00:00\", \"30/06/2025 16:00:00\", \"30/06/2025 17:00:00\", \"30/06/2025 18:00:00\",\"30/06/2025 19:00:00\", \"30/06/2025 20:00:00\", \"30/06/2025 21:00:00\", \"30/06/2025 22:00:00\", \"30/06/2025 23:00:00\"",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "💾 Project 2 - Building a weather application"
-    ]
-  },
-  {
-    "objectID": "Project_2.html#steps-to-help-you-get-to-the-outcome",
-    "href": "Project_2.html#steps-to-help-you-get-to-the-outcome",
-    "title": "Project 2 - Weather application",
-    "section": "Steps to help you get to the outcome",
-    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\n\n\nPart 2 - using vectors\nA vector in R is a one-dimensional array of data that is the same data type. Using the data shown above, store the hourly temperatures and date and times data into R as vectors.\n\n\nPart 3 - indexing vectors\nIndex the date and time vector to extract just the first element. Store the result as a variable.\n\n\nPart 4 - string manipulation\nExtract part of the string, known as substrings, from the variable you just made. Store the result as a variable. you should get the result below.\n30/06/2025\nWe want to do this programmatically, so no copy and pasting from the data, also known as “hardcoding”. This will help us to automate our code if we want to use different data.\n\n\nPart 5 - calculate temperatures\nCalculate the lowest (minimum), highest (maximum), and average (mean) temperatures, storing the results as variables. If needed, round the results so it is more presentable.\n\n\nPart 6 - convert temperatures\nConvert the lowest, highest, and average temperatures from Celsius to Fahrenheit and store the results.\n\n\nPart 7 - making the text output\nPrint out the string messages that show you the daily weather report with both Celsius and Fahrenheit, as shown in Section 2.1.\n\n\nPart 8 - test your code with new data\nA good way to test out your code is to try it on different data.\nBelow we have the temperature data for a few days after the data we have been using. Using the steps you did previously, write a weather report using this new data.\nHourly temperatures:\n16.5, 15.5, 14.3, 13.7, 12.4, 12, 12.6, 14.1, 16, 18.2, 19.7, 21.1, 21.8, 22.6, 23.4, 24.3, 23.3, 23.6, 23.1, 23.4, 23.4, 21.6, 20.7, 19.5\nDate and times:\n\"03/07/2025 00:00:00\", \"03/07/2025 01:00:00\", \"03/07/2025 02:00:00\", \"03/07/2025 03:00:00\", \"03/07/2025 04:00:00\", \"03/07/2025 05:00:00\", \"03/07/2025 06:00:00\", \"03/07/2025 07:00:00\", \"03/07/2025 08:00:00\", \"03/07/2025 09:00:00\", \"03/07/2025 10:00:00\", \"03/07/2025 11:00:00\", \"03/07/2025 12:00:00\", \"03/07/2025 13:00:00\", \"03/07/2025 14:00:00\", \"03/07/2025 15:00:00\", \"03/07/2025 16:00:00\", \"03/07/2025 17:00:00\", \"03/07/2025 18:00:00\", \"03/07/2025 19:00:00\", \"03/07/2025 20:00:00\", \"03/07/2025 21:00:00\", \"03/07/2025 22:00:00\", \"03/07/2025 23:00:00\" ### Final task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "💾 Project 2 - Building a weather application"
-    ]
-  },
-  {
-    "objectID": "Project_1.html",
-    "href": "Project_1.html",
-    "title": "Project 1 - Temperature metric converter",
-    "section": "",
-    "text": "Learning objectives:\n  Outcomes\n  \n  Make a Celsius to Fahrenheit temperature converter\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - printing values\n  Part 3 - Celsius to Fahrenheit calculation\n  Part 4 - using variables\n  Part 5 - calculations using variables\n  Part 6 - more calculations\n  Part 7 - making a text output\n  Part 8 - tidy up\n  Part 9 - try different temperatures\n  What should my code look like?\n  Final task - fill out the survey!",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "💡 Project 1 - Temperature metric converter"
-    ]
-  },
-  {
-    "objectID": "Project_1.html#learning-objectives",
-    "href": "Project_1.html#learning-objectives",
-    "title": "Project 1 - Temperature metric converter",
-    "section": "Learning objectives:",
-    "text": "Learning objectives:\n\nCreate variables\nUse calculations on variables\nPrint out helpful message about conversion",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "💡 Project 1 - Temperature metric converter"
-    ]
-  },
-  {
-    "objectID": "Project_1.html#outcomes",
-    "href": "Project_1.html#outcomes",
-    "title": "Project 1 - Temperature metric converter",
-    "section": "Outcomes",
-    "text": "Outcomes\nWe will write a program that can convert temperature data. Your code will automate the process of taking data and making it into a presentable format.\n\nMake a Celsius to Fahrenheit temperature converter\nWe will write a programme that converts Celsius to Fahrenheit, and Fahrenheit to Celsius. It will then write out a helpful message.\nWe have two temperatures from a given time in London and New York. The London temperature is in Celsius, and the New York temperature is in Fahrenheit. In the outputs the numbers are rounded to zero decimal places. We are aiming for the following outputs:\n\nThe temperature in London is 25°C, which is 77°F\nThe temperature in New York is 80°F, which is 27°C",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "💡 Project 1 - Temperature metric converter"
-    ]
-  },
-  {
-    "objectID": "Project_1.html#steps-to-help-you-get-to-the-outcome",
-    "href": "Project_1.html#steps-to-help-you-get-to-the-outcome",
-    "title": "Project 1 - Temperature metric converter",
-    "section": "Steps to help you get to the outcome",
-    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\n\n\nPart 2 - printing values\nPrint the value 25.\n\n\nPart 3 - Celsius to Fahrenheit calculation\nTransform the value of 25 Celsius to Fahrenheit with this formula:\n\\((Celsius \\times 9/5) + 32\\)\n\n\nPart 4 - using variables\nStore the value of the temperature in Celsius (25) and print it using the stored value.\n\n\n\n\n\n\nThere are some useful resources online which can help you such as W3schools.\n\n\n\n\n\nPart 5 - calculations using variables\nUse the stored Celsius value to calculate the temperature in Fahrenheit.\nStore the outcome of this calculation and print it using the stored value.\n\n\nPart 6 - more calculations\nStore the value of 80 Fahrenheit, then transforming 80 Fahrenheit to Celsius with this formula:\n\\((Fahrenheit - 32) \\times 5/9\\)\nStore the the outcome of the calculation. Print the outcome using the stored value.\n\n\nPart 7 - making a text output\nNow we can bring it all together to make our final output as seen in Section 2.1.\nUse R to make the two text outputs by concatenating elements from one or more variables into a single string.\nThis should be automated, so if we change the variable for Celsius or Fahrenheit the code will show the new output.\n\n\n\n\n\n\nYou can search online here, or use the built in help page in RStudio.\nFor example, the paste() function will help you here. Try running ?paste to bring up the help page in RStudio.\n\n\n\n\n\nPart 8 - tidy up\nRound the outputs to make sure we are looking at whole numbers only. You will need to assign this result to a variable to use in your output.\n\n\nPart 9 - try different temperatures\nTest out your code by converting different temperatures.\nChange your temperature variables to the following and re-run your code:\n\n10 Celsius as Fahrenheit\n\n20 Fahrenheit as Celsius\n\n\n\nWhat should my code look like?\nIdeally, your code should have at minimum four variables:\n\nThe London temperature in Celsius\nThe New York temperature in Fahrenheit\nThe London temperature converted from Celsius to Fahrenheit\nThe New York temperature converted from Fahrenheit to Celsius\n\nYou may have more such as variables for the text outputs you made.\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "💡 Project 1 - Temperature metric converter"
-    ]
-  },
-  {
-    "objectID": "Project_4.html",
-    "href": "Project_4.html",
-    "title": "Project 4 - Football data analysis",
-    "section": "",
-    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - total career summary statistics\n  Outcome 2 - filtered dataset showing highest scoring years\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - load in the dataset\n  Part 3 - column calculations\n  Part 4 - calculating the total career statistics\n  Part 5 - making career summary\n  Part 6 - filtering rows of a dataset\n  Part 7 - selecting columns of a dataset\n  Final task - fill out the survey!",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "📊 Project 4 - Football data analysis"
-    ]
-  },
-  {
-    "objectID": "Project_4.html#learning-objectives",
-    "href": "Project_4.html#learning-objectives",
-    "title": "Project 4 - Football data analysis",
-    "section": "Learning objectives:",
-    "text": "Learning objectives:\n\nLoad in data\nModify your data using calculations on and across columns\nGet summary statistics from data\nFilter rows and selecting columns of a dataset",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "📊 Project 4 - Football data analysis"
-    ]
-  },
-  {
-    "objectID": "Project_4.html#outcomes",
-    "href": "Project_4.html#outcomes",
-    "title": "Project 4 - Football data analysis",
-    "section": "Outcomes",
-    "text": "Outcomes\nWe will write a program that provides us with various metrics on Harry Kane (a football player). Your code will automate the process of loading the data, performing operations on that data, and making it into a presentable format.\nWe will be aiming for two outcomes in this project.\n\nOutcome 1 - total career summary statistics\nYou should end up with a output that contains the following information, presented as two text outputs:\n\nThe name of the player. Harry Kane in this case\nThe number of seasons played\nThe total number of appearances\nThe total number of goals scored\nThe total number of goals and assists combined\nThe average expected goals\n\n\n\n\n[1] \"Player: Harry Kane | Seasons: 15 | Appearances: 436\"\n\n\n[1] \"Goals: 289 | Goals and assists: 351 | Average expected goals: 20.3\"\n\n\n\n\n\nOutcome 2 - filtered dataset showing highest scoring years\nYou should end up with a output that shows a filtered dataset with some selected columns.\nYou will need to create the columns goals_assists, goals_xg_diff, goals_no_pens to get this output.\n\n\n\n      season age         squad goals goals_assists goals_xg_diff goals_no_pens\n9  2016-2017  23     Tottenham    29            34            NA            24\n10 2017-2018  24     Tottenham    30            32           5.2            28\n13 2020-2021  27     Tottenham    23            37           2.9            19\n15 2022-2023  29     Tottenham    30            33           8.6            25\n16 2023-2024  30 Bayern Munich    36            44           5.4            31\n17 2024-2025  31 Bayern Munich    26            35           5.7            17\n\n\n\n\n\nThe data\nWe will be using the csv file provided (harry_kane_stats.csv). Click the link below to download the data.\n Download csv file \nThe dataset provides general football metrics on each season Harry Kane has played, from 2010-2025.\nIf you are not sure what the expected goals and assists columns mean, you can find the definitions on the statsperform webpage, under the header ‘Expected Goals & Expected Assists’.",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "📊 Project 4 - Football data analysis"
-    ]
-  },
-  {
-    "objectID": "Project_4.html#steps-to-help-you-get-to-the-outcome",
-    "href": "Project_4.html#steps-to-help-you-get-to-the-outcome",
-    "title": "Project 4 - Football data analysis",
-    "section": "Steps to help you get to the outcome",
-    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it. Make sure to save the dataset in the same folder as your R script file.\n\n\nPart 2 - load in the dataset\nImport the csv file into R.\nView the dataset you just loaded into R.\n\n\nPart 3 - column calculations\nOur dataset is missing useful information about our players season statistics. Fortunately we can calculate these!\nCalculate the following metrics and add them as columns to your dataset.\n\nCombined goals and assists per season\n\nGoals excluding penalties\nDifference between goals scored and expected goals\n\n\n\nPart 4 - calculating the total career statistics\nTo build our career summary we will need to create variables with the metrics we need by performing calculations on columns in the dataset.\n\nThe name of the player. Harry Kane in this case\nThe number of seasons played\n\nThe total number of appearances\nThe total number of goals scored\nThe total number of combined goals and assists\nThe average expected goals\n\nThe metrics you produce should match what we see in Section 2.1.\n\n\nPart 5 - making career summary\nPrint out the multi line string message that shows you the career summary metrics.\n\n\nPart 6 - filtering rows of a dataset\nSubset your dataset to only contain seasons where our players combined goals and assists where greater than 30.\nIt is good practice to assign the results of your subset to a new data frame under a different name.\n\n\nPart 7 - selecting columns of a dataset\nSelect the columns, shown in the second outcome, to make your results more presentable.\nYou should be able to adjust the code you have written to select the columns. Your outcome should be the same as seen in Section 2.2.\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "📊 Project 4 - Football data analysis"
-    ]
-  },
-  {
-    "objectID": "Project_6.html",
-    "href": "Project_6.html",
-    "title": "Project 6 - Data generation and artwork",
-    "section": "",
-    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - Generate a dataset\n  Outcome 2 - Make artwork from that dataset\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - making a colour palette\n  Part 3 - random sampling\n  Part 4 - generating a sequence of numbers\n  Part 5 - making a factor\n  Part 6 - generating a data frame\n  Part 7 - generate a randomised normal distribution\n  Part 8 - stream plot\n  Part 9 - aesthetic adjustments\n  Part 10 - setting a seed\n  Final task - fill out the survey!",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎓 Project 6 - Data generation and artwork"
-    ]
-  },
-  {
-    "objectID": "Project_6.html#learning-objectives",
-    "href": "Project_6.html#learning-objectives",
-    "title": "Project 6 - Data generation and artwork",
-    "section": "Learning objectives:",
-    "text": "Learning objectives:\n\nCreate your own data using sampling, distribution, and sequence generation\nVisualise the data to make artwork",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎓 Project 6 - Data generation and artwork"
-    ]
-  },
-  {
-    "objectID": "Project_6.html#outcomes",
-    "href": "Project_6.html#outcomes",
-    "title": "Project 6 - Data generation and artwork",
-    "section": "Outcomes",
-    "text": "Outcomes\nWe will write a program that will randomly generate a dataset which we will then make some artwork from. As we are generating data and using random sampling your result will look a bit different from the outcomes. You will likely end up with different colours and different distributions.\nWe will be aiming for two outcomes in this project.\n\nOutcome 1 - Generate a dataset\n\n\n\n\n\n\n\n\nOutcome 2 - Make artwork from that dataset",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎓 Project 6 - Data generation and artwork"
-    ]
-  },
-  {
-    "objectID": "Project_6.html#steps-to-help-you-get-to-the-outcome",
-    "href": "Project_6.html#steps-to-help-you-get-to-the-outcome",
-    "title": "Project 6 - Data generation and artwork",
-    "section": "Steps to help you get to the outcome",
-    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\n\n\nPart 2 - making a colour palette\nMake a vector, using the below colours, to make a colour palette.\n'#ffc09f','#ffd799','#ffee93','#fef2ad','#fcf5c7','#cee2d0','#a0ced9','#a7e3c8','#adf7b6','#264653','#287271','#2a9d8f','#e9c46a','#f4a261','#e76f51','#e97c61'\n\n\nPart 3 - random sampling\nTake a sample of the colour vector you just created, selecting four elements. Assign the result to a new vector.\nWhen sampling the colour vector you created, how do you know if you have sampled with or without replacement?\n\n\nPart 4 - generating a sequence of numbers\nGenerate a sequence, starting from 0 through to 100. Make the length of the sequence 30. Assign the result so we can use it later.\n\n\nPart 5 - making a factor\nMake a factor that contains the numbers 1 through to the length of the sample you took from the colour palette. Assign the result so we can use it later.\nBelow is what your output should look like given we have sampled 4 colours from our colour palette.\n\n\n[1] 1 2 3 4\nLevels: 1 2 3 4\n\n\n\n\nPart 6 - generating a data frame\nUsing the sequence of numbers and the factor you made, create a data frame from all combinations of the supplied vectors. Make sure to assign the result.\nYou should end up with a data frame with 2 columns which have all combinations of the vectors you supplied.\n\n\nPart 7 - generate a randomised normal distribution\nGenerate a randomised normal distribution, whereby you use the mean and standard deviation of the sequence you generated.\nAdd the result as a column to the data frame you just created.\nAfter completing this step you should have a dataset similar to what is shown in Section 2.1.\n\n\nPart 8 - stream plot\nUsing a combination of the ggplot2 and ggstream packages make the artwork, which is known as a stream plot.\n\n\nPart 9 - aesthetic adjustments\nThere are a few more minor adjustments to make to finish up our visualisation so it looks like what we see in Section 2.2.\n\nAdd colours, which has two steps:\n\nMake the fill and colour aesthetic to be your factor\nManually change the fill and colour scale so they use the sampled colour palette\n\nAdd a complete theme to the visual which removes everything\nset the guides for fill and colour to none\nAdjust the type of the stream to proportional. You can test out the other types which are mirror and ridge\n\n\n\nPart 10 - setting a seed\nTo guarantee that the same random values are produced each time you run the code we can set a seed. This makes our code reproducible.\nSet a seed so that when you re-run the code you get the same result.\nThis needs to happen before you use any of the random generation functions, so add this to the top of the code you have written.\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎓 Project 6 - Data generation and artwork"
-    ]
-  },
-  {
-    "objectID": "Project_5.html",
-    "href": "Project_5.html",
-    "title": "Project 5 - Visualising Olympics data",
-    "section": "",
-    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - Make an aggregation to show your results\n  Outcome 2 - Make a bar plot to make your results look better\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - making a subset\n  Part 3 - creating a new category\n  Part 4 - aggregation\n  Part 5 - making a initial visualisation\n  Part 6 - re-ordering the x axis\n  Part 7 - making several visuals in one plot\n  Part 8 - final improvements on how the visualisation looks\n  Final task - fill out the survey!",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎓 Project 5 - Visualising Olympics data"
-    ]
-  },
-  {
-    "objectID": "Project_5.html#learning-objectives",
-    "href": "Project_5.html#learning-objectives",
-    "title": "Project 5 - Visualising Olympics data",
-    "section": "Learning objectives:",
-    "text": "Learning objectives:\n\nLoad in data\nLoad and use packages\nFilter data to show only information to need\nRecode and categorise your data to be more meaningful\nPerform an aggregation of a dataset\nMake a bar plot using your aggregated data\nUse factors to re-order categorical variables",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎓 Project 5 - Visualising Olympics data"
-    ]
-  },
-  {
-    "objectID": "Project_5.html#outcomes",
-    "href": "Project_5.html#outcomes",
-    "title": "Project 5 - Visualising Olympics data",
-    "section": "Outcomes",
-    "text": "Outcomes\nWe will write a program that provides us with summary statistics of a question we have from a dataset. Your code will automate the process of loading the data, performing operations on that data, and making it into a presentable format.\nWe will be looking at data on the Olympics. From this data we are asking the following question:\nIn all Olympic games over the years, how many medals have Great Britain won, and not won, in the Men’s and Women’s 800 and 1500 meters running events in athletics?\nWe will be aiming for two outcomes in this project.\n\nOutcome 1 - Make an aggregation to show your results\n\n\n# A tibble: 13 × 3\n   medal    event                          n_indiv_medals\n   &lt;fct&gt;    &lt;chr&gt;                                   &lt;int&gt;\n 1 Gold     Athletics Men's 1,500 metres                5\n 2 Gold     Athletics Men's 800 metres                  6\n 3 Gold     Athletics Women's 1,500 metres              1\n 4 Gold     Athletics Women's 800 metres                2\n 5 Silver   Athletics Men's 1,500 metres                6\n 6 Silver   Athletics Men's 800 metres                  3\n 7 Bronze   Athletics Men's 1,500 metres                3\n 8 Bronze   Athletics Men's 800 metres                  1\n 9 Bronze   Athletics Women's 800 metres                1\n10 No medal Athletics Men's 1,500 metres               76\n11 No medal Athletics Men's 800 metres                 77\n12 No medal Athletics Women's 1,500 metres             29\n13 No medal Athletics Women's 800 metres               32\n\n\n\n\nOutcome 2 - Make a bar plot to make your results look better\n\n\n\n\n\n\n\n\n\n\n\nThe data\nWe will be using a csv file that is stored on GitHub - https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-08-06/olympics.csv.\nThe dataset provides individual level data on participants of the summer and winter Olympics up to and including the 2016 event.",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎓 Project 5 - Visualising Olympics data"
-    ]
-  },
-  {
-    "objectID": "Project_5.html#steps-to-help-you-get-to-the-outcome",
-    "href": "Project_5.html#steps-to-help-you-get-to-the-outcome",
-    "title": "Project 5 - Visualising Olympics data",
-    "section": "Steps to help you get to the outcome",
-    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\nLoad in the Olympics dataset and store it in R.\n\n\nPart 2 - making a subset\nFilter your data to create a subset where by your data should include:\n\nOnly Great Britain\n\nOnly the following events:\n\nAthletics Men’s 800 metres\nAthletics Women’s 800 metres\nAthletics Men’s 1,500 metres\nAthletics Women’s 1,500 metres\n\n\n\n\nPart 3 - creating a new category\nIn our data the medals column has a lot of missing data. The missing values show that a participant did not win a medal. Instead of having missing values we want to turn those missing values into a string such as “no_medal”.\nUsing conditional element selection, convert the missing values in the medal column from NA to no_medal.\n\n\nPart 4 - aggregation\nAggregation is the process of splitting your data, applying a function, then combining the results.\nGet summary statistics by group to show the number of individual medals won for each event.\nSave the results as a new data frame, and print the outcome. Your results should look like what we see in Section 2.1.\n\n\nPart 5 - making a initial visualisation\nR has packages that allow for elegant graphics for data analysis.\nUsing such a package make a simple bar plot using the data we just created with the aggregation. You should have medal on your x axis and individual medal count on the y axis.\n\n\nPart 6 - re-ordering the x axis\nRe-order the x axis so it is in a more sensible order such as gold, silver, bronze, no medal.\nR will default to ordering characters alphabetically.\n\n\nPart 7 - making several visuals in one plot\nWe want to split the chart window so each category of event has a separate plot. This is known as faceting.\n\n\nPart 8 - final improvements on how the visualisation looks\nThere are a few more minor adjustments to make to finish up our visualisation so it looks like what we see in Section 2.2.\n\nAdd colours to the bars, which has two steps:\n\nMake the fill aesthetic the same as your x axis\nManually change the fill scale. The colours used in outcome 2 are: \"#D6AF36\", \"#A7A7AD\", \"#A77044\", \"#333333\"\n\nAdd a title to the visualisation\n\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎓 Project 5 - Visualising Olympics data"
-    ]
-  },
-  {
-    "objectID": "workshop-materials.html",
-    "href": "workshop-materials.html",
-    "title": "Information about the workshops and how to get the materials",
-    "section": "",
-    "text": "Workshop format\n  Workshop pathways\n  Workshop materials\n  \n  R Fundamentals\n  R Intermediate\n  R Data Wrangling\n  R Data Visualisation\n  \n  Uncompressing files (important)"
-  },
-  {
-    "objectID": "workshop-materials.html#workshop-format",
-    "href": "workshop-materials.html#workshop-format",
-    "title": "Information about the workshops and how to get the materials",
-    "section": "Workshop format",
-    "text": "Workshop format\n\nEach workshop is 2 hours long\nYou choose which topic to work on. It is advised to work through the materials in the prescribed order unless you are already familiar with a particular topic\nYou will work with fellow learners, utilising your prior experience and web searches to find solutions, with a R expert on hand if you get stuck\nWorkshop sessions are hands on and practical\nEach worksheet will take on average 1 hour to complete (some longer, some shorter)\n\nTo prepare for the in-person workshops you need to get the materials. Below is information and steps on how to do this, as well as information on what is covered and recommended pathways."
-  },
-  {
-    "objectID": "workshop-materials.html#workshop-pathways",
-    "href": "workshop-materials.html#workshop-pathways",
-    "title": "Information about the workshops and how to get the materials",
-    "section": "Workshop pathways",
-    "text": "Workshop pathways\nThe files for the workshops are broken into four different series: Fundamentals, Intermediate, Data Wrangling, and Data Visualisation. There are several pathways through the workshops depending on your needs and preferences which are shown in the flow diagrams below.\n\n\n\nFlow diagram showing the full R series of workshops and a recommended route\n\n\n\n\n\nFlow diagram showing the pathway for those that are primarily interested in using R for data analysis and visualisation, with an option to do the intermediate series\n\n\n\n\n\nFlow diagram showing the pathway for those that are interested in learning programming with R, with option for those with some interest in also learning about data techniques\n\n\nThese flow diagrams were all made with R using the package DiagrammeR. The code that made them can be found on GitHub."
-  },
-  {
-    "objectID": "workshop-materials.html#workshop-materials",
-    "href": "workshop-materials.html#workshop-materials",
-    "title": "Information about the workshops and how to get the materials",
-    "section": "Workshop materials",
-    "text": "Workshop materials\nDownload the R Markdown files from each series below. Just press the button and the respective materials will download. Save the files where you can later find them.\n\nR Fundamentals\n\n\nR Intermediate\n\n\nR Data Wrangling\n\n\nR Data Visualisation"
-  },
-  {
-    "objectID": "workshop-materials.html#uncompressing-files-important",
-    "href": "workshop-materials.html#uncompressing-files-important",
-    "title": "Information about the workshops and how to get the materials",
-    "section": "Uncompressing files (important)",
-    "text": "Uncompressing files (important)\nOnce downloaded it is important that you unzip/uncompress the file. The download is a zip file, which a file that has been compressed to save space for easier transfer and storage. You should uncompress these files otherwise it can be hard for some software to use the files inside.\nWindows\nRight-click on the file and choose Extract All, then select a location to save the uncompressed file.\nMac\nDouble click on the file and the uncompressed contents will appear next to your compressed file."
-  },
-  {
-    "objectID": "Project_3.html",
-    "href": "Project_3.html",
-    "title": "Project 3 - Weather Application Continued",
-    "section": "",
-    "text": "Learning objectives:\n  Outcomes\n  \n  Outcome 1 - Make a hourly weather report:\n  Outcome 2 - Finding hours with high temperatures\n  The data\n  \n  Steps to help you get to the outcome\n  \n  Part 1 - the setup\n  Part 2 - using vectors\n  Part 3 - string manipulation\n  Part 4 - more string manipulation\n  Part 5 - convert temperatures\n  Part 6 - start making the text output\n  Task 7 - finish the text output\n  Task 8 - naming a vector\n  Part 9 - filtering the temperature vector\n  Part 10 - test your code with new data\n  Final task - fill out the survey!",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎬 Project 3 - Building a weather application continued"
-    ]
-  },
-  {
-    "objectID": "Project_3.html#learning-objectives",
-    "href": "Project_3.html#learning-objectives",
-    "title": "Project 3 - Weather Application Continued",
-    "section": "Learning objectives:",
-    "text": "Learning objectives:\n\nCreate vectors\nUse calculations on vectors\nExtract elements from vectors\nUsing boolean indexing on vectors\nPrint out hourly weather reports using iteration",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎬 Project 3 - Building a weather application continued"
-    ]
-  },
-  {
-    "objectID": "Project_3.html#outcomes",
-    "href": "Project_3.html#outcomes",
-    "title": "Project 3 - Weather Application Continued",
-    "section": "Outcomes",
-    "text": "Outcomes\nWe will continue to write a program that tells us various metrics on what the weather is doing. Your code will automate the process of taking data and making it into a presentable format.\nWe will be aiming for two outcomes in this project.\n\nOutcome 1 - Make a hourly weather report:\nYou should end up with a output that iterates through each element of your temperatures and times data. Each line should be an hour with the temperature in Celsius and Fahrenheit (in brackets).\nIt should also print out what the date at the top of your report.\n\n\n[1] \"Hourly temperatures on: 03/07/2025\"\n\n\n[1] \"Temperature at 00: 16.5°C (61.7°F)\"\n[1] \"Temperature at 01: 15.5°C (59.9°F)\"\n[1] \"Temperature at 02: 14.3°C (57.74°F)\"\n[1] \"Temperature at 03: 13.7°C (56.66°F)\"\n[1] \"Temperature at 04: 12.4°C (54.32°F)\"\n[1] \"Temperature at 05: 12°C (53.6°F)\"\n[1] \"Temperature at 06: 12.6°C (54.68°F)\"\n[1] \"Temperature at 07: 14.1°C (57.38°F)\"\n[1] \"Temperature at 08: 16°C (60.8°F)\"\n[1] \"Temperature at 09: 18.2°C (64.76°F)\"\n[1] \"Temperature at 10: 19.7°C (67.46°F)\"\n[1] \"Temperature at 11: 21.1°C (69.98°F)\"\n[1] \"Temperature at 12: 21.8°C (71.24°F)\"\n[1] \"Temperature at 13: 22.6°C (72.68°F)\"\n[1] \"Temperature at 14: 23.4°C (74.12°F)\"\n[1] \"Temperature at 15: 24.3°C (75.74°F)\"\n[1] \"Temperature at 16: 23.3°C (73.94°F)\"\n[1] \"Temperature at 17: 23.6°C (74.48°F)\"\n[1] \"Temperature at 18: 23.1°C (73.58°F)\"\n[1] \"Temperature at 19: 23.4°C (74.12°F)\"\n[1] \"Temperature at 20: 23.4°C (74.12°F)\"\n[1] \"Temperature at 21: 21.6°C (70.88°F)\"\n[1] \"Temperature at 22: 20.7°C (69.26°F)\"\n[1] \"Temperature at 23: 19.5°C (67.1°F)\"\n\n\n\n\nOutcome 2 - Finding hours with high temperatures\nWe can filter our temperature vector, which we can add names to, which tells us which hours had temperatures over 20°C.\nYou should end up with an output, like below, that has the hour information and the temperature information in one vector.\n\n\n  11   12   13   14   15   16   17   18   19   20   21   22 \n21.1 21.8 22.6 23.4 24.3 23.3 23.6 23.1 23.4 23.4 21.6 20.7 \n\n\n\n\nThe data\nUsing the data below we will be making a weather reporting tool for a hourly report.\nHourly temperatures:\n16.5, 15.5, 14.3, 13.7, 12.4, 12, 12.6, 14.1, 16, 18.2, 19.7, 21.1, 21.8, 22.6, 23.4, 24.3, 23.3, 23.6, 23.1, 23.4, 23.4, 21.6, 20.7, 19.5\nDate and times:\n\"03/07/2025 00:00:00\", \"03/07/2025 01:00:00\", \"03/07/2025 02:00:00\", \"03/07/2025 03:00:00\", \"03/07/2025 04:00:00\", \"03/07/2025 05:00:00\", \"03/07/2025 06:00:00\", \"03/07/2025 07:00:00\", \"03/07/2025 08:00:00\", \"03/07/2025 09:00:00\", \"03/07/2025 10:00:00\", \"03/07/2025 11:00:00\", \"03/07/2025 12:00:00\", \"03/07/2025 13:00:00\", \"03/07/2025 14:00:00\", \"03/07/2025 15:00:00\", \"03/07/2025 16:00:00\", \"03/07/2025 17:00:00\", \"03/07/2025 18:00:00\", \"03/07/2025 19:00:00\", \"03/07/2025 20:00:00\", \"03/07/2025 21:00:00\", \"03/07/2025 22:00:00\", \"03/07/2025 23:00:00\"",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎬 Project 3 - Building a weather application continued"
-    ]
-  },
-  {
-    "objectID": "Project_3.html#steps-to-help-you-get-to-the-outcome",
-    "href": "Project_3.html#steps-to-help-you-get-to-the-outcome",
-    "title": "Project 3 - Weather Application Continued",
-    "section": "Steps to help you get to the outcome",
-    "text": "Steps to help you get to the outcome\n\nPart 1 - the setup\nOpen an R script file and save it.\n\n\nPart 2 - using vectors\nUsing the data shown above, store the hourly temperatures and date and times data into R as vectors. Note that this data is from a different date to the data we used in project 2.\n\n\nPart 3 - string manipulation\nExtract part of the string, known as substrings, from the date and time data to give you just the date element. Store the result as a variable, keeping just the first element; you should get the result below.\n03/07/2025\nWe want to do this programmatically, so no copy and pasting from the data, also known as “hardcoding”. This will help us to automate our code if we want to use different data.\n\n\nPart 4 - more string manipulation\nExtract part of the string from the date and time data to give you just the hour elements. Store this as a new vector.\n\n\nPart 5 - convert temperatures\nConvert the hourly temperatures data to Fahrenheit and store the result as a new vector.\n\n\nPart 6 - start making the text output\nOur ultimate task is to iterate through our temperature and date data to print out a message telling us the temperature for each hour. To get there it is sometimes helpful to breakdown the process.\nTry first to a make an output for just the first hour, like the result below, using vector indexing to get the data you need. Then use string concatenation to bring all the information together to create a text output.\nTemperature at 00: 16.5°C (61.7°F)\n\n\nTask 7 - finish the text output\nNow using the code you just wrote, iterate your code so you get the hourly weather report with both Celsius and Fahrenheit, as seen in Section 2.1.\n\n\nTask 8 - naming a vector\nUsing vector naming, add the hours vector as a name to the temperature vector.\n\n\nPart 9 - filtering the temperature vector\nUsing boolean indexing, filter the temperature vector so we are only left with temperatures over 20°C. Your outcome should be the same as seen in Section 2.2.\n\n\nPart 10 - test your code with new data\nA good way to test out your code is to try it on different data.\nBelow we have the temperature data for a few days after the data we have been using. Using the steps you did previously, write a weather report using this new data.\nHourly temperatures:\n20.8, 19.6, 18.7, 17.8, 17.7, 19.1, 21.4, 22.8, 24.1, 26.5, 27.8, 29.4, 30.7, 31.8, 32.4, 32.0, 31.8, 31.5, 31.2, 29.9, 28.3, 27.1, 26.2\nDate and times:\n\"30/06/2025 01:00:00\", \"30/06/2025 02:00:00\", \"30/06/2025 03:00:00\", \"30/06/2025 04:00:00\", \"30/06/2025 05:00:00\", \"30/06/2025 06:00:00\", \"30/06/2025 07:00:00\", \"30/06/2025 08:00:00\", \"30/06/2025 09:00:00\", \"30/06/2025 10:00:00\", \"30/06/2025 11:00:00\", \"30/06/2025 12:00:00\",\"30/06/2025 13:00:00\", \"30/06/2025 14:00:00\", \"30/06/2025 15:00:00\", \"30/06/2025 16:00:00\", \"30/06/2025 17:00:00\", \"30/06/2025 18:00:00\",\"30/06/2025 19:00:00\", \"30/06/2025 20:00:00\", \"30/06/2025 21:00:00\", \"30/06/2025 22:00:00\", \"30/06/2025 23:00:00\"\n\n\nFinal task - fill out the survey!\nWe are always looking to improve and iterate our workshops. Follow the link to give your feedback.",
-    "crumbs": [
-      "🎓 R workshops materials",
-      "🎬 Project 3 - Building a weather application continued"
-    ]
-  },
-  {
-    "objectID": "install.html",
-    "href": "install.html",
-    "title": "Installing R and RStudio",
-    "section": "",
-    "text": "Windows install\n  \n  Install R\n  Install RStudio\n  \n  Mac install\n  \n  Install R\n  \n  M series Mac\n  Intel Mac\n  \n  Install XQuartz\n  Install RStudio\n  \n  Installing R and RStudio installation issues\nThis page is about getting R and RStudio installed on your laptop so you can start using R! Below are step by step instructions for getting the software you need installed.",
-    "crumbs": [
-      "💻 R workshops",
-      "🛠️ Install R and RStudio"
-    ]
-  },
-  {
-    "objectID": "install.html#windows-install",
-    "href": "install.html#windows-install",
-    "title": "Installing R and RStudio",
-    "section": "Windows install",
-    "text": "Windows install\n\nInstall R\n\nTo install R, you need to download the installer from the R website\nClick on either base or install R for the first time\nClick on the download R for Windows link\nOnce downloaded, open the .exe file and follow the installation instructions on your computer\n\n\n\nInstall RStudio\n\nTo install RStudio we download it from the Posit website\nClick on the Download RStudio Desktop link\nOnce downloaded, open the .exe file and follow the installation instructions on your computer",
-    "crumbs": [
-      "💻 R workshops",
-      "🛠️ Install R and RStudio"
-    ]
-  },
-  {
-    "objectID": "install.html#mac-install",
-    "href": "install.html#mac-install",
-    "title": "Installing R and RStudio",
-    "section": "Mac install",
-    "text": "Mac install\n\nInstall R\nTo install R on your Mac you need to know the type of processor your Mac uses. This is straightforward to find out:\n\nOn the top navigation bar on your Mac, click on the apple icon\nFrom the drop down menu, select About This Mac\nIn Overview you will find the information about your Mac. If you have an Intel Mac, you will see the processor row, which has information that includes Intel. If you have an M version Mac, you will see chip and M1/M2/M3/M4 etc. in the Overview with something like Apple M1 or Apple M4 Pro.\n\n \n\nM series Mac\n\nTo install R, you need to download the installer from the R website\nIf you have a M series Mac you will need click on the link the contains arm64 to download R. It will look something like R-4.5.1-arm64.pkg\nOnce downloaded, open the .pkg file and follow the installation instructions\n\n\n\nIntel Mac\n\nTo install R, you need to download the installer from the R website\nIf you have a Intel Mac you will need to click on the link that just contains the version of R. It will look something like R-4.5.1-x86_64.pkg, and should be located under a header with Intel Macs present.\nOnce downloaded, open the .pkg file and follow the installation instructions\n\n\n\n\nInstall XQuartz\nTo run R on a Mac operating system, XQuartz is required. You can install it by following this link to the XQuartz website. Download it and follow the installation instructions.\n\n\nInstall RStudio\n\nTo install RStudio we download it from the Posit website\nClick on the Download RStudio Desktop link\nOnce downloaded, open the .dmg file and follow the installation instructions on your computer",
-    "crumbs": [
-      "💻 R workshops",
-      "🛠️ Install R and RStudio"
-    ]
-  },
-  {
-    "objectID": "install.html#installing-r-and-rstudio-installation-issues",
-    "href": "install.html#installing-r-and-rstudio-installation-issues",
-    "title": "Installing R and RStudio",
-    "section": "Installing R and RStudio installation issues",
-    "text": "Installing R and RStudio installation issues\nIf your installation for R and RStudio did not work, this is likely because your computer is running an older operating system. In these cases you will have to install an older version of the software.\nIt will be simplest, if you have faced installation issues, for you to come to talk to a trainer in the session for support or contact us at Digital.Skills.Lab@lse.ac.uk.",
-    "crumbs": [
-      "💻 R workshops",
-      "🛠️ Install R and RStudio"
-    ]
-  },
-  {
-    "objectID": "example-page.html",
-    "href": "example-page.html",
-    "title": "R Testing ground",
-    "section": "",
-    "text": "On this page, you can play around with R through this website!\nBelow is an example:\n🟡 Loading\n  webR...\n\n\n  \n\n\nAnother example looking at some star wars data:\n🟡 Loading\n  webR...",
+    "text": "Accessing Claude\n  Using Claude for your digital skills development\n  Tips on using AI (Claude) as a tutor\n  Ask the right questions to support your independent thinking\n  Use project instructions to personalise your experience\n  Choose the right response style\n  Use Socratic Dialogue for deeper learning",
     "crumbs": [
       "❓ Other information",
-      "🧪 R Testing Ground"
+      "🤖 AI"
     ]
   },
   {
-    "objectID": "whyR.html",
-    "href": "whyR.html",
-    "title": "Why learn R",
-    "section": "",
-    "text": "Easy to learn\n  Some examples of R being awesome for Data visualisation\nThere are a lot of reasons why you should learn R, and it is very prevalent in academia, bioinformatics (analysis of biological data), data analyst and data scientist roles\nA lot of LSE courses that involved statistics or data primarily use R. This is because R is a excellent tool for:\nR is an open-source tool, which means you do not need to buy a licence in order to use it, and is a popular programming language, as shown in the PYPL index from 2023",
+    "objectID": "AI.html#accessing-claude",
+    "href": "AI.html#accessing-claude",
+    "title": "AI",
+    "section": "Accessing Claude",
+    "text": "Accessing Claude\nLSE is now offering Anthropic’s ‘Claude for Education’ AI technology, to all students and academic staff free of charge. Claude is an educationally focused AI tool that can help with tasks such as summarising complex information, creating personalised study plans, and assisting with data analysis and visualisation.\nClaude should be used in accordance with School-wide guidance on generative AI and any specific guidance set out by your programme, course or department.\nLSE students and academic staff can request access to Claude by completing this form.",
     "crumbs": [
-      "📚 Information",
-      "📊 Why learn R"
+      "❓ Other information",
+      "🤖 AI"
     ]
   },
   {
-    "objectID": "whyR.html#easy-to-learn",
-    "href": "whyR.html#easy-to-learn",
-    "title": "Why learn R",
-    "section": "Easy to learn",
-    "text": "Easy to learn\nA key advantage of R is that it is retentively easy to learn, especially in comparison with other programming languages used for data analysis like Python. A large part of this is due to R being designed to work with data, so it feels natural, and some of the excellent extensions that have been added to R over the years to make it more slick (great examples are the tidyverse and data.table packages).\nFurther, there are the vast amount of online resources in forms of tutorials, blogs, online courses, people sharing code/examples and help available through online discussion forums like stackoverflow and slack.\nSome of the best available resources to learn R are:\n\nR for Data Science book and the first edition is still great\nR for Data Science slack channel has great community support\nCodecademy R course\nR bloggers collates blog posts about R. Some blogs I would recommend checking out are https://www.cedricscherer.com/, https://karaman.is/, https://djnavarro.net/, https://github.com/tashapiro/TidyTuesday, https://www.yan-holtz.com/blog.html, and https://albert-rapp.de/blog.html\nFor data visualisation ggplot2 is the go to tool, and the best way to learn it is to run through the ggplot2 book and using the R graph gallery\nFor getting some open source data to start your own projects I would recommend the tidy Tuesday initiative. All datasets are hosted in github.\nStatquest is a YouTube channel that provides clear explanations of statistical methods, and how do do them in R.\n\nTake this example of how to do a linear regression in R\nOr this for a multiple linear regression in R\n\nModern stats with R book provides some useful examples\nR tutor which provides short examples of lots of statistical tests.\nR statistics tutorials which are longer tutorials on models like regression.",
+    "objectID": "AI.html#using-claude-for-your-digital-skills-development",
+    "href": "AI.html#using-claude-for-your-digital-skills-development",
+    "title": "AI",
+    "section": "Using Claude for your digital skills development",
+    "text": "Using Claude for your digital skills development\nAI tools like Claude can be powerful learning companions when you’re starting to code. Rather than just generating solutions, think of them as a patient tutor available 24/7.\nWhen you’re stuck on a concept, ask for explanations in your own words or request analogies that make sense to you. Encountering an error? Paste your code and ask the AI to help you understand why it’s breaking, not just fix it.\nAnother effective way to engage with Claude is “learning mode”: Change the response style to learning mode and they will guide you through problems step-by-step with questions rather than answers, helping you discover solutions yourself. This approach builds understanding and problem-solving skills. Remember, the goal isn’t to have AI write your code, but to use it as a coach that helps you think like a programmer and develop the skills to solve problems independently.",
     "crumbs": [
-      "📚 Information",
-      "📊 Why learn R"
+      "❓ Other information",
+      "🤖 AI"
     ]
   },
   {
-    "objectID": "whyR.html#some-examples-of-r-being-awesome-for-data-visualisation",
-    "href": "whyR.html#some-examples-of-r-being-awesome-for-data-visualisation",
-    "title": "Why learn R",
-    "section": "Some examples of R being awesome for Data visualisation",
-    "text": "Some examples of R being awesome for Data visualisation\n\n\n\n\n\n\n\nAnimated gif of rainfall and temperature changes over time in Australian cities\n\n\n\n\n\n\n\n\n\nRegional map UK showing how each area is doing in terms of gender pay equality for each year data has existed, from 2017-2022\n\n\n\n\n\n\n\n\nFun side note\n\n\n\n\n\nThis webpage was built using R. If you are interested, come to the workshops and chat to one of the instructors about it!\n\n\n\n\n\n\n\nInteractive graphic of Dr Who episodes IMDB rating by actor playing the Doctor\n\n\nBelow is an example of using the Quanteda package for text analysis, which is developed here at LSE by Ken Benoit. It is a visualisation to show how readable inaugural speeches from presidents have been since 1945. A higher score means the text used in the speech is more readable.\n\n\nShow the code\n# load libraries\nlibrary(quanteda)\nlibrary(quanteda.textstats)\nlibrary(ggplot2)\n\n# prepare data\ninaugural_readability &lt;- data_corpus_inaugural %&gt;%\n    corpus_subset(Year &gt; 1945) %&gt;% \n    textstat_readability(measure = c(\"Flesch\"))\n\n# calculate readability\navg_readability &lt;- mean(inaugural_readability$Flesch)\n\n# text and point colours\npoint_col &lt;- \"black\"\ntext_col &lt;- \"white\"\n\n# make visual\nggplot(inaugural_readability, \n       aes(x = document, y = Flesch)) +\n  geom_point(size = 6.5, colour = point_col) +\n  geom_hline(yintercept = avg_readability,\n             alpha = 0.75, linetype = 5, linewidth = 1.2) +\n  geom_segment(aes(xend = document, yend = avg_readability),\n               linetype = 3, linewidth = 1.2) +\n  geom_text(aes(label = round(Flesch, 1)), \n            colour = text_col, size = 2, family = \"Avenir\") +\n  annotate(geom = \"text\", x = \"2005-Bush\", y = 69,\n           family = \"Avenir\", size = 4,\n           label = paste0(\"Average readability: \", round(avg_readability,2))) +\n  annotate(geom = \"curve\",x = 14.5, y = 66, alpha = 0.6,\n           xend = \"2005-Bush\", yend = avg_readability+0.4,\n           curvature = -0.35, arrow = arrow(length = unit(0.15, \"inches\"))) +\n  coord_flip() +\n    labs(x = NULL, y = \"Readability (Flesch)\",\n         title = \"Readability of inaugural speeches since 1945\",\n         subtitle = \"Higher score means text is more readable\") +\n  theme_minimal(base_family = \"Avenir\") +\n  theme(plot.title.position = \"plot\")",
+    "objectID": "AI.html#tips-on-using-ai-claude-as-a-tutor",
+    "href": "AI.html#tips-on-using-ai-claude-as-a-tutor",
+    "title": "AI",
+    "section": "Tips on using AI (Claude) as a tutor",
+    "text": "Tips on using AI (Claude) as a tutor\nRather than using Claude to generate solutions, this guide will help you to use it to deepen your understanding and develop problem-solving skills. Claude is most valuable as a learning partner, not a solution generator.",
     "crumbs": [
-      "📚 Information",
-      "📊 Why learn R"
+      "❓ Other information",
+      "🤖 AI"
+    ]
+  },
+  {
+    "objectID": "AI.html#ask-the-right-questions-to-support-your-independent-thinking",
+    "href": "AI.html#ask-the-right-questions-to-support-your-independent-thinking",
+    "title": "AI",
+    "section": "Ask the right questions to support your independent thinking",
+    "text": "Ask the right questions to support your independent thinking\n\n\n\n\n\n\n\n❌ Getting a quick solution\n✓ Asking learning-oriented questions\n\n\n\n\n“Write a function to calculate the median”\n“I’m trying to understand how to calculate the median manually. Can you walk me through the logic I need to implement, without showing me the code?”\n\n\n“What formula do I need for this?”\n“I need to calculate a running total. What Excel concepts should I understand to build this myself?”",
+    "crumbs": [
+      "❓ Other information",
+      "🤖 AI"
+    ]
+  },
+  {
+    "objectID": "AI.html#use-project-instructions-to-personalise-your-experience",
+    "href": "AI.html#use-project-instructions-to-personalise-your-experience",
+    "title": "AI",
+    "section": "Use project instructions to personalise your experience",
+    "text": "Use project instructions to personalise your experience\nClaude has a feature called projects which are self-contained workspaces. You can create a new project for learning R for example.\nIn projects you can provide instructions to personalise your experience by adding text in the instructions text box. Claude can provide more tailored guidance when it understands your background and learning goals. A few suggestions of what to include in your project instructions:\n\nProgramming languages/software you already know\nAreas where you typically struggle\nYour learning preferences (visual examples, analogies, step-by-step breakdowns)\n\n\n\n\n\n\n\nNote\n\n\n\nExample: “I’m a second-year Statistics student at LSE, currently learning R for data analysis. I have basic coding experience from Stata but am new to programming. I’m working through exercises on DataFrames and data visualisation. Please help me understand concepts rather than just providing solutions.”",
+    "crumbs": [
+      "❓ Other information",
+      "🤖 AI"
+    ]
+  },
+  {
+    "objectID": "AI.html#choose-the-right-response-style",
+    "href": "AI.html#choose-the-right-response-style",
+    "title": "AI",
+    "section": "Choose the right response style",
+    "text": "Choose the right response style\nClaude can adapt its response style to match your current learning need.\nFor instance, explanatory mode can support you with understanding complex concepts. Learning mode is designed to support understanding through guided discovery rather than direct solution-giving. You can easily switch response styles within a chat.\nTry different learning styles and options and see what works best for you.",
+    "crumbs": [
+      "❓ Other information",
+      "🤖 AI"
+    ]
+  },
+  {
+    "objectID": "AI.html#use-socratic-dialogue-for-deeper-learning",
+    "href": "AI.html#use-socratic-dialogue-for-deeper-learning",
+    "title": "AI",
+    "section": "Use Socratic Dialogue for deeper learning",
+    "text": "Use Socratic Dialogue for deeper learning\nExplore concepts through dialogue instead of accepting explanations passively.\n\n\n\n\n\n\nExample Dialogue\n\n\n\nYou: “My dplyr join isn’t working as expected. Instead of showing me the solution, can you help me think through what might be wrong?”\nClaude: “Let’s explore this together. First, can you tell me what you expect the merge to do versus what it’s actually doing?”\nYou: [Describe the issue]\nClaude: “Interesting. What type of join are you using (inner, outer, left, right)? And why did you choose that type?”\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThe goal is not to get the right answer as quickly as possible – it’s to develop the skills and understanding that will help you solve similar problems independently in the future.",
+    "crumbs": [
+      "❓ Other information",
+      "🤖 AI"
     ]
   }
 ]

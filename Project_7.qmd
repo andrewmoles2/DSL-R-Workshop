@@ -1,0 +1,221 @@
+---
+title: "Project 7 - Joins and transformations"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc-depth: 4
+    toc-location: right-body
+author:
+   - name: Andrew Moles
+     affiliation: Learning Developer, Digital Skills Lab
+date: today    
+---
+
+## Learning objectives:
+
+-   Bring together two datasets that have related information
+-   Tidy the datasets using pattern matching and replacement, and row wise calculations
+-   Reshape that dataset to a longer format so we can work with it a different way
+-   Visualise the data as a line plot
+
+## Outcomes
+
+We will write a program that brings together various film review ratings across different datasets, which you will then visualise. Your code will automate the process of loading the data, performing operations on that data, and making it into a presentable format.
+
+We will be aiming for two outcomes in this project.
+
+### Outcome 1 - Preparing the dataset {#sec-outcomeone}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(DT)
+
+imdb <- read_csv("resources/imdb.csv")
+rotten <- read_csv("resources/rotten_tom_ratings.csv")
+
+rotten <- rotten |>
+  filter(!duplicated(release_date))
+
+movies_all <- imdb |>
+  inner_join(rotten, by = join_by(title))
+
+movies_all <- movies_all |>
+  mutate(
+    rotten_tom_critic = as.integer(sub("%", "", critic_score)),
+    rotten_tom_audience = as.integer(sub("%", "", audience_score)),
+    imd = avg_vote * 10
+  )
+
+movies_all$avg_ratings <- rowMeans(
+  movies_all[, c("rotten_tom_critic",
+                 "rotten_tom_audience",
+                 "imd")],
+  na.rm = TRUE
+  )
+
+# dplyr approach
+#movies_all <- movies_all |>
+#  rowwise() |>
+#  mutate(
+#    avg_ratings = mean(
+#      c_across(rotten_tom_audience:imd)
+#    ))
+
+movies_all_long <- movies_all |>
+  select(title, year, rotten_tom_critic:avg_ratings) |>
+  pivot_longer(cols = rotten_tom_critic:imd,
+               names_to = "rating_type",
+               values_to = "ratings")
+
+datatable(movies_all_long)
+```
+
+### Outcome 2 - Making a line plot from the dataset {#sec-outcometwo}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+top_movies <- c(
+  "The Shawshank Redemption",
+  "The Godfather",
+  "The Dark Knight",
+  "The Lord of the Rings: The Return of the King",
+  "Schindler's List",
+  "The Lord of the Rings: The Fellowship of the Ring",
+  "Pulp Fiction",
+  "The Good, the Bad and the Ugly",
+  "Forrest Gump",
+  "The Lord of the Rings: The Two Towers"
+)
+
+plot_data <- movies_all_long |>
+  filter(title %in% top_movies) |> 
+  mutate(title = factor(title, levels = top_movies))
+
+average <- round(mean(plot_data$avg_ratings))
+
+pal <- c("#F5C518", "#068098", "#961E06")
+
+plot_data |>
+  ggplot(aes(x = title, y = ratings, group = rating_type, colour = rating_type)) +
+  geom_hline(yintercept = average,
+             linetype = 3) +
+  geom_line(linewidth = 2) +
+  annotate(geom = "text", x = 8, y = average - 0.75,
+           label = "Average rating",
+           size = 3) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) +
+  scale_y_continuous(limits = c(70, 100), breaks = seq(70, 100, 5)) +
+  scale_colour_manual(values = pal) +
+  labs(title = "Difference in ratings from IMDB and Rotten Tomatoes\nfor top rated films",
+       x = "", y = "",
+       colour = "Audience ratings") +
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        plot.title.position = "plot")
+```
+
+### The data
+
+We will be using two csv files provided (`imdb.csv` & `rotten_tom_ratings.csv`). Click the links below to download the data.
+
+{{< downloadthis resources/imdb.csv label='Download imdb csv file' dname=imd icon=folder-fill type=success >}}
+
+{{< downloadthis resources/rotten_tom_ratings.csv label='Download rotten tomatoes csv file' dname=rotten_tom_ratings icon=folder-fill type=success >}}
+
+The datasets are film ratings from [Rotten Tomatoes](https://www.rottentomatoes.com/){target="_blank"} and [IMDB](https://www.imdb.com/){target="_blank"}.
+
+## Steps to help you get to the outcome
+
+### Part 1 - the setup
+
+Open an R script file and save it.
+
+Make sure to save the datasets in the same folder as your R script file. You can download them from the data section.
+
+### Part 2 - load in the dataset
+
+Import the csv files into R.
+
+View the dataset you just loaded into R.
+
+### Part 3 - removed duplicates
+
+The Rotten Tomatoes dataset has some duplicated data where film reviews are shown multiple times. For example, there are four entries for the film *The Godfather* but the data is the same for all of them.
+
+Remove the duplicated data from the Rotten Tomatoes dataset using the `release_date` column as your reference point.
+
+### Part 4 - joining datasets
+
+Join the IMD and Rotten Tomatoes datasets together only keeping observations that are matching in both datasets.
+
+### Part 5 - string manipulation and type conversion
+
+Using pattern matching and replacement convert the data in the columns `critic_score` and `audience_score` from percent scores to numbers. Store the newly converted data as new columns in your data frame.
+
+### Part 6 - column calculations
+
+Convert the `avg_vote` column to be on the same scale as the rotten tomato scores. Store the result as a new column.
+
+### Part 7 - row-wise calculations
+
+Calculate the average ratings across the critic_score, audience_score, and imd scores. Store the result as a new column.
+
+If you have done parts 5, 6, and 7 correctly your new columns should look like the output below, which is showing the first five rows.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+head(movies_all[,c('rotten_tom_critic','rotten_tom_audience','imd', 'avg_ratings')], 5)
+```
+
+### Part 8 - reshaping the data to be longer
+
+Select the title, year, critic reviews, audience reviews, IMD reviews, and the average rating columns from your dataset. Then reshape the data from wide to long. Make sure to save the result as a new data frame.
+
+The columns that are being transformed are the critic reviews, audience reviews, IMD reviews. You should end up with a column with the names (rating type) and a column for the rating (or value).
+
+By this point your data should look like what is shown in @sec-outcomeone.
+
+### Part 9 - filtering films
+
+There is a lot of data in this dataset. We want to only look at the highest rated films on IMD.
+
+Make a vector that contains the following films:
+
+`"The Shawshank Redemption","The Godfather","The Dark Knight","The Lord of the Rings: The Return of the King","Schindler's List","The Lord of the Rings: The Fellowship of the Ring","Pulp Fiction","The Good, the Bad and the Ugly","Forrest Gump","The Lord of the Rings: The Two Towers"`
+
+Filter your now transformed (long) dataset to only have the above films, using the vector you just made. Make sure to save the result as a new data frame.
+
+### Part 10 - using factors
+
+Make the title column in your dataset a factor, ordering the factor by the same order that appears in the vector you made in part 9.
+
+### Part 11 - making a line plot
+
+Make a line graph visualisation of the data, with the title on the x axis, and ratings on the y. Colour the data by the review type.
+
+### Part 12 - aesthetic adjustments
+
+Add aesthetic changes to make the visual more appealing and to look like what we see in @sec-outcometwo.
+
+-   Add horizontal line to show the average rating across all films. Add an annotation to that line to say what it means.
+-   Wrap x axis labels so they are more readable.
+-   Adjust the y axis so we only see data from 70-100, with breaks of 5.
+-   Add manual colours. We used `"#F5C518", "#068098", "#961E06"`.
+-   Move the legend to be at the bottom of the plot.
+-   Add a title, and remove the y and x axis labels.
+-   Adjust the theme to be more minimal.
+
+### Final task - fill out the survey!
+
+We are always looking to improve and iterate our workshops. [Follow the link to give your feedback](https://lse.eu.qualtrics.com/jfe/form/SV_0vJs5yGpF1F359I?coursename=R Projects 7: Joins and transformations&topic=R&prog=DS&version=25-26){target="_blank"}.

@@ -1,0 +1,72 @@
+---
+title: "AI"
+---
+
+## Accessing Claude
+
+LSE is now offering Anthropic’s [‘Claude for Education’](https://www.anthropic.com/education){target="_blank"} AI technology, to all students and academic staff free of charge. Claude is an educationally focused AI tool that can help with tasks such as summarising complex information, creating personalised study plans, and assisting with data analysis and visualisation.
+
+Claude should be used in accordance with [School-wide guidance on generative AI](https://info.lse.ac.uk/current-students/digital-skills-lab/Gen-AI){target="_blank"} and any specific guidance set out by your programme, course or department.
+
+LSE students and academic staff can request access to Claude by completing [this form](https://link.lse.ac.uk/requestClaude){target="_blank"}.
+
+## Using Claude for your digital skills development
+
+AI tools like Claude can be powerful learning companions when you're starting to code. Rather than just generating solutions, think of them as a patient tutor available 24/7. 
+
+When you're stuck on a concept, ask for explanations in your own words or request analogies that make sense to you. Encountering an error? Paste your code and ask the AI to help you understand why it's breaking, not just fix it. 
+
+Another effective way to engage with Claude is *"learning mode"*: Change the response style to learning mode and they will guide you through problems step-by-step with questions rather than answers, helping you discover solutions yourself. This approach builds understanding and problem-solving skills. Remember, the goal isn't to have AI write your code, but to use it as a coach that helps you think like a programmer and develop the skills to solve problems independently.
+
+## Tips on using AI (Claude) as a tutor
+
+Rather than using Claude to generate solutions, this guide will help you to use it to deepen your understanding and develop problem-solving skills. Claude is most valuable as a **learning partner**, not a solution generator.
+
+## Ask the right questions to support your independent thinking
+
+| ❌ Getting a quick solution | ✓ Asking learning-oriented questions |
+|-------------------------------|-----------------------------------------|
+| *"Write a function to calculate the median"* | *"I'm trying to understand how to calculate the median manually. Can you walk me through the logic I need to implement, without showing me the code?"* |
+| *"What formula do I need for this?"* | *"I need to calculate a running total. What Excel concepts should I understand to build this myself?"* |
+
+## Use project instructions to personalise your experience
+
+Claude has a feature called [projects](https://support.claude.com/en/articles/9517075-what-are-projects){target="_blank"} which are self-contained workspaces. You can create a new project for learning R for example. 
+
+In projects you can provide instructions to personalise your experience by adding text in the instructions text box. Claude can provide more tailored guidance when it understands your background and learning goals. A few suggestions of what to include in your project instructions:
+
+-   Programming languages/software you already know
+-   Areas where you typically struggle
+-   Your learning preferences (visual examples, analogies, step-by-step breakdowns)
+
+::: callout-note
+**Example:** "I'm a second-year Statistics student at LSE, currently learning R for data analysis. I have basic coding experience from Stata but am new to programming. I'm working through exercises on DataFrames and data visualisation. Please help me understand concepts rather than just providing solutions."
+:::
+
+## Choose the right response style
+
+Claude can adapt its response style to match your current learning need. 
+
+For instance, **explanatory mode** can support you with understanding complex concepts. **Learning mode** is designed to support understanding through guided discovery rather than direct solution-giving. You can easily switch response styles within a chat.
+
+Try different learning styles and options and see what works best for you. 
+
+## Use Socratic Dialogue for deeper learning
+
+Explore concepts through dialogue instead of accepting explanations passively.
+
+::: callout-tip
+## Example Dialogue
+
+**You:** *"My dplyr join isn't working as expected. Instead of showing me the solution, can you help me think through what might be wrong?"*
+
+**Claude:** *"Let's explore this together. First, can you tell me what you expect the merge to do versus what it's actually doing?"*
+
+**You:** *\[Describe the issue\]*
+
+**Claude:** *"Interesting. What type of join are you using (inner, outer, left, right)? And why did you choose that type?"*
+:::
+
+::: callout-important
+*The goal is **not** to get the right answer as quickly as possible -- it's to develop the skills and understanding that will help you solve similar problems independently in the future.*
+:::
